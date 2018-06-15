@@ -171,42 +171,44 @@ const WelcomeMat = createReactClass({
 
 
 		return (
-
-			<section
-				role="dialog"
-				tabIndex="-1"
-				className={`${this.props.modal ? 'slds-modal slds-fade-in-open' : ''} slds-welcome-mat`}
-				aria-labelledby="welcome-mat-13-label"
-				aria-describedby="welcome-mat-13-content"
-				aria-modal="true"
-			>
-				<div className={`${this.props.modal ? 'slds-modal__container' : ''}`}>
-					{this.props.modal ?
-						<header className="slds-modal__header slds-modal__header_empty">
-							<Button
-								assistiveText="Close"
-								iconCategory="custom"
-								iconName="close"
-								iconSize="large"
-								iconVariant="bare"
-								variant="icon"
-							/>
-						</header>
-						: ''
-					}
-					<div
-						className="slds-modal__content slds-welcome-mat__content slds-grid"
-						id="welcome-mat-13-content"
-					>
-						<div className="slds-welcome-mat__info slds-size_1-of-2">
-							{WelcomeMessage}
-						</div>
-						<div className="slds-welcome-mat__tiles slds-size_1-of-2 slds-p-around_medium">
-							{this.props.tasks}
+			<div>
+				<section
+					role="dialog"
+					tabIndex="-1"
+					className={`${this.props.modal ? 'slds-modal slds-fade-in-open' : ''} slds-welcome-mat`}
+					aria-labelledby="welcome-mat-13-label"
+					aria-describedby="welcome-mat-13-content"
+					aria-modal="true"
+				>
+					<div className={`${this.props.modal ? 'slds-modal__container' : ''}`}>
+						{this.props.modal ?
+							<header className="slds-modal__header slds-modal__header_empty">
+								<Button
+									assistiveText="Close"
+									iconCategory="custom"
+									iconName="close"
+									iconSize="large"
+									iconVariant="bare"
+									variant="icon"
+								/>
+							</header>
+							: ''
+						}
+						<div
+							className="slds-modal__content slds-welcome-mat__content slds-grid"
+							id="welcome-mat-13-content"
+						>
+							<div className="slds-welcome-mat__info slds-size_1-of-2">
+								{WelcomeMessage}
+							</div>
+							<div className="slds-welcome-mat__tiles slds-size_1-of-2 slds-p-around_medium">
+								{this.props.tasks}
+							</div>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+				{this.props.modal ? <div className="slds-backdrop slds-backdrop_open" /> : ''}
+			</div>
 
 		);
 	},
