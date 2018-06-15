@@ -1,5 +1,12 @@
 # Design System for React
 
+	This is a fork use the following to install in a project.
+	Adds missing components, and some behaviour changes as required.
+	 
+	npm install git+ssh://git@github.com:innovate42/design-system-react.git#experimental --save
+	
+	This will install to the @i42 namespace - so @salesforce with @i42 replace   
+
 ### Accessible, localization-friendly, presentational React components
 
 [![Build Status](https://api.travis-ci.org/salesforce/design-system-react.svg?branch=master)](https://travis-ci.org/salesforce/design-system-react) [![DeepScan Grade](https://deepscan.io/api/projects/1475/branches/4666/badge/grade.svg)](https://deepscan.io/dashboard/#view=project&pid=1475&bid=4666)
