@@ -1,42 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`WelcomeMat Render Completed looks correct 1`] = `
-<div
-  className="demo-only"
->
+<div>
   <section
     aria-describedby="welcome-mat-13-content"
     aria-labelledby="welcome-mat-13-label"
     aria-modal="true"
-    className="slds-modal slds-fade-in-open slds-welcome-mat"
+    className=" slds-welcome-mat"
     role="dialog"
     tabIndex="-1"
   >
     <div
-      className="slds-modal__container"
+      className=""
     >
-      <header
-        className="slds-modal__header slds-modal__header_empty"
-      >
-        <button
-          className="slds-button slds-button--icon slds-button--icon-bare slds-button--icon-large"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            className="slds-button__icon"
-          >
-            <use />
-          </svg>
-          <span
-            className="slds-assistive-text"
-          >
-            Close
-          </span>
-        </button>
-      </header>
+      
       <div
         className="slds-modal__content slds-welcome-mat__content slds-grid"
         id="welcome-mat-13-content"
@@ -104,7 +81,7 @@ exports[`WelcomeMat Render Completed looks correct 1`] = `
           className="slds-welcome-mat__tiles slds-size_1-of-2 slds-p-around_medium"
         >
           <a
-            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile slds-welcome-mat__tile_complete"
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
             href="javascript:void(0);"
             onClick={[Function]}
           >
@@ -123,22 +100,7 @@ exports[`WelcomeMat Render Completed looks correct 1`] = `
                   </svg>
                   
                 </span>
-                <span
-                  className="slds-icon_container slds-icon_container_circle slds-icon-action-check"
-                  title="Completed"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="slds-icon slds-icon--xx-small slds-icon-text-default"
-                  >
-                    <use />
-                  </svg>
-                  <span
-                    className="slds-assistive-text"
-                  >
-                    Completed
-                  </span>
-                </span>
+                
               </div>
             </div>
             <div
@@ -157,7 +119,7 @@ exports[`WelcomeMat Render Completed looks correct 1`] = `
             </div>
           </a>
           <a
-            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile slds-welcome-mat__tile_complete"
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
             href="javascript:void(0);"
             onClick={[Function]}
           >
@@ -176,22 +138,7 @@ exports[`WelcomeMat Render Completed looks correct 1`] = `
                   </svg>
                   
                 </span>
-                <span
-                  className="slds-icon_container slds-icon_container_circle slds-icon-action-check"
-                  title="Completed"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="slds-icon slds-icon--xx-small slds-icon-text-default"
-                  >
-                    <use />
-                  </svg>
-                  <span
-                    className="slds-assistive-text"
-                  >
-                    Completed
-                  </span>
-                </span>
+                
               </div>
             </div>
             <div
@@ -210,7 +157,7 @@ exports[`WelcomeMat Render Completed looks correct 1`] = `
             </div>
           </a>
           <a
-            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile slds-welcome-mat__tile_complete"
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
             href="javascript:void(0);"
             onClick={[Function]}
           >
@@ -229,22 +176,7 @@ exports[`WelcomeMat Render Completed looks correct 1`] = `
                   </svg>
                   
                 </span>
-                <span
-                  className="slds-icon_container slds-icon_container_circle slds-icon-action-check"
-                  title="Completed"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="slds-icon slds-icon--xx-small slds-icon-text-default"
-                  >
-                    <use />
-                  </svg>
-                  <span
-                    className="slds-assistive-text"
-                  >
-                    Completed
-                  </span>
-                </span>
+                
               </div>
             </div>
             <div
@@ -266,46 +198,24 @@ exports[`WelcomeMat Render Completed looks correct 1`] = `
       </div>
     </div>
   </section>
+  
 </div>
 `;
 
 exports[`WelcomeMat Render InProgress looks correct 1`] = `
-<div
-  className="demo-only"
->
+<div>
   <section
     aria-describedby="welcome-mat-13-content"
     aria-labelledby="welcome-mat-13-label"
     aria-modal="true"
-    className="slds-modal slds-fade-in-open slds-welcome-mat"
+    className=" slds-welcome-mat"
     role="dialog"
     tabIndex="-1"
   >
     <div
-      className="slds-modal__container"
+      className=""
     >
-      <header
-        className="slds-modal__header slds-modal__header_empty"
-      >
-        <button
-          className="slds-button slds-button--icon slds-button--icon-bare slds-button--icon-large"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            className="slds-button__icon"
-          >
-            <use />
-          </svg>
-          <span
-            className="slds-assistive-text"
-          >
-            Close
-          </span>
-        </button>
-      </header>
+      
       <div
         className="slds-modal__content slds-welcome-mat__content slds-grid"
         id="welcome-mat-13-content"
@@ -373,7 +283,7 @@ exports[`WelcomeMat Render InProgress looks correct 1`] = `
           className="slds-welcome-mat__tiles slds-size_1-of-2 slds-p-around_medium"
         >
           <a
-            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile slds-welcome-mat__tile_complete"
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
             href="javascript:void(0);"
             onClick={[Function]}
           >
@@ -392,22 +302,7 @@ exports[`WelcomeMat Render InProgress looks correct 1`] = `
                   </svg>
                   
                 </span>
-                <span
-                  className="slds-icon_container slds-icon_container_circle slds-icon-action-check"
-                  title="Completed"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="slds-icon slds-icon--xx-small slds-icon-text-default"
-                  >
-                    <use />
-                  </svg>
-                  <span
-                    className="slds-assistive-text"
-                  >
-                    Completed
-                  </span>
-                </span>
+                
               </div>
             </div>
             <div
@@ -426,7 +321,7 @@ exports[`WelcomeMat Render InProgress looks correct 1`] = `
             </div>
           </a>
           <a
-            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile slds-welcome-mat__tile_complete"
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
             href="javascript:void(0);"
             onClick={[Function]}
           >
@@ -445,22 +340,7 @@ exports[`WelcomeMat Render InProgress looks correct 1`] = `
                   </svg>
                   
                 </span>
-                <span
-                  className="slds-icon_container slds-icon_container_circle slds-icon-action-check"
-                  title="Completed"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="slds-icon slds-icon--xx-small slds-icon-text-default"
-                  >
-                    <use />
-                  </svg>
-                  <span
-                    className="slds-assistive-text"
-                  >
-                    Completed
-                  </span>
-                </span>
+                
               </div>
             </div>
             <div
@@ -520,46 +400,24 @@ exports[`WelcomeMat Render InProgress looks correct 1`] = `
       </div>
     </div>
   </section>
+  
 </div>
 `;
 
 exports[`WelcomeMat Render ToDo looks correct 1`] = `
-<div
-  className="demo-only"
->
+<div>
   <section
     aria-describedby="welcome-mat-13-content"
     aria-labelledby="welcome-mat-13-label"
     aria-modal="true"
-    className="slds-modal slds-fade-in-open slds-welcome-mat"
+    className=" slds-welcome-mat"
     role="dialog"
     tabIndex="-1"
   >
     <div
-      className="slds-modal__container"
+      className=""
     >
-      <header
-        className="slds-modal__header slds-modal__header_empty"
-      >
-        <button
-          className="slds-button slds-button--icon slds-button--icon-bare slds-button--icon-large"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            className="slds-button__icon"
-          >
-            <use />
-          </svg>
-          <span
-            className="slds-assistive-text"
-          >
-            Close
-          </span>
-        </button>
-      </header>
+      
       <div
         className="slds-modal__content slds-welcome-mat__content slds-grid"
         id="welcome-mat-13-content"
@@ -744,5 +602,6 @@ exports[`WelcomeMat Render ToDo looks correct 1`] = `
       </div>
     </div>
   </section>
+  
 </div>
 `;

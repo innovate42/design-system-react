@@ -61,20 +61,26 @@ const WelcomeMatTask = createReactClass({
 		return defaultProps;
 	},
 
+	// add the props to the state, this way they can be overrideen
 	getInitialState () {
 		return {
-			onClick: this.props.onClick
+			onClick: this.props.onClick,
+			description: this.props.description,
+			title: this.props.title,
+			icon: this.props.icon,
+			href: this.props.href,
+			completed: this.props.state
 		};
 	},
 
 	render () {
 		return (
 			<a
-				href={this.props.href}
-				className={`slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile ${this.props.completed ? 'slds-welcome-mat__tile_complete' : ''}`}
+				href={this.state.href}
+				className={`slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile ${this.state.completed ? 'slds-welcome-mat__tile_complete' : ''}`}
 				onClick={
 					isFunction(this.state.onClick)
-						? (event) => handleClick(event, this.props.href, this.state.onClick)
+						? (event) => handleClick(event, this.state.href, this.state.onClick)
 						: null
 				}
 			>
@@ -82,9 +88,9 @@ const WelcomeMatTask = createReactClass({
 
 					<div className="slds-welcome-mat__tile-icon-container">
 
-						{this.props.icon}
+						{this.state.icon}
 
-						{this.props.completed ?
+						{this.state.completed ?
 							<Icon
 								category="utility"
 								name="check"
@@ -99,8 +105,8 @@ const WelcomeMatTask = createReactClass({
 					</div>
 				</div>
 				<div className="slds-media__body slds-border_left slds-p-around_small">
-					<h3 className="slds-welcome-mat__tile-title">{this.props.title}</h3>
-					<p className="slds-welcome-mat__tile-description">{this.props.description}</p>
+					<h3 className="slds-welcome-mat__tile-title">{this.state.title}</h3>
+					<p className="slds-welcome-mat__tile-description">{this.state.description}</p>
 				</div>
 			</a>
 		);
