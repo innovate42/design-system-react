@@ -61,6 +61,11 @@ const WelcomeMatTask = createReactClass({
 		return defaultProps;
 	},
 
+	getInitialState () {
+		return {
+			onClick: this.props.onClick
+		};
+	},
 
 	render () {
 		return (
@@ -68,8 +73,8 @@ const WelcomeMatTask = createReactClass({
 				href={this.props.href}
 				className={`slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile ${this.props.completed ? 'slds-welcome-mat__tile_complete' : ''}`}
 				onClick={
-					isFunction(this.props.onClick)
-						? (event) => handleClick(event, this.props.href, this.props.onClick)
+					isFunction(this.state.onClick)
+						? (event) => handleClick(event, this.props.href, this.state.onClick)
 						: null
 				}
 			>
