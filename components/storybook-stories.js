@@ -55,3 +55,5 @@ export TimePicker from '../components/time-picker/__docs__/storybook-stories';
 export Toast from '../components/toast/__docs__/storybook-stories';
 export Tooltip from '../components/tooltip/__docs__/storybook-stories';
 export Tree from '../components/tree/__docs__/storybook-stories';
+
+export WelcomeMat from '../components/welcome-mat/__docs__/storybook-stories';
