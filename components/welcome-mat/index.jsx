@@ -160,15 +160,9 @@ const WelcomeMat = createReactClass({
 	render () {
 		const WelcomeMessage = (
 			<div className="slds-welcome-mat__info-content">
-				<h2 id="welcome-mat-13-label" className="slds-welcome-mat__info-title">The Lightning
-					Experience is here!
-				</h2>
+				<h2 id="welcome-mat-13-label" className="slds-welcome-mat__info-title">{this.props.title}</h2>
 				<div className="slds-welcome-mat__info-description slds-text-longform">
-					<p>Welcome to Lightning Experience, the modern, beautiful user experience from
-						Salesforce. With a sales-and service-centric mindset, we focused on
-						reinventing the desktop environment to better support your business
-						processes.
-					</p>
+					<p>{this.props.description}</p>
 				</div>
 
 				<WelcomeProgress tasks={this.props.tasks} />
