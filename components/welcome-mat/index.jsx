@@ -13,24 +13,17 @@ import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
 // ### classNames
 // ### isFunction
-import isFunction from 'lodash.isfunction';
 // This component's `checkProps` which issues warnings to developers about properties when in development mode (similar to React's built in development tools)
 import checkProps from './check-props';
 // ## Children
 import Button from '../button';
-
-
-
-
 // ## Constants
-import { WELCOME_MAT } from '../../utilities/constants';
+import {WELCOME_MAT} from '../../utilities/constants';
 
 
 const defaultProps = {
-	assistiveText: {
-		trigger: 'Open App Launcher',
-	},
-	title: 'App Launcher',
+	title: 'Welcome',
+	modal: false
 };
 
 const WelcomeProgress = createReactClass({
@@ -43,19 +36,20 @@ const WelcomeProgress = createReactClass({
 		 * the list of tasks
 		 */
 		tasks: PropTypes.array.isRequired,
+
 	},
 
-	getDefaultProps () {
+	getDefaultProps() {
 		return defaultProps;
 	},
 
-	getInitialState () {
+	getInitialState() {
 		return {
 			isOpen: false,
 		};
 	},
 
-	componentWillMount () {
+	componentWillMount() {
 		// `checkProps` issues warnings to developers about properties (similar to React's built in development tools)
 		checkProps('Welcome Progress', this.props);
 	},
@@ -83,7 +77,7 @@ const WelcomeProgress = createReactClass({
 					aria-valuenow="40"
 					role="progressbar"
 				>
-					<span className="slds-progress-bar__value" style={{ width: `${completedPercentage}%` }}>
+					<span className="slds-progress-bar__value" style={{width: `${completedPercentage}%`}}>
 					<span className="slds-assistive-text">Progress: {completedPercentage}%</span>
 					</span>
 				</div>
@@ -145,19 +139,24 @@ const WelcomeMat = createReactClass({
 		 * The description
 		 */
 		description: PropTypes.string,
+
+		/**
+		 *  Determines whether the welcome mat is displayed in a modal
+		 */
+		modal: PropTypes.bool
 	},
 
-	getDefaultProps () {
+	getDefaultProps() {
 		return defaultProps;
 	},
 
 
-	componentWillMount () {
+	componentWillMount() {
 		// `checkProps` issues warnings to developers about properties (similar to React's built in development tools)
 		checkProps(WELCOME_MAT, this.props);
 	},
 
-	render () {
+	render() {
 		const WelcomeMessage = (
 			<div className="slds-welcome-mat__info-content">
 				<h2 id="welcome-mat-13-label" className="slds-welcome-mat__info-title">{this.props.title}</h2>
@@ -165,23 +164,24 @@ const WelcomeMat = createReactClass({
 					<p>{this.props.description}</p>
 				</div>
 
-				<WelcomeProgress tasks={this.props.tasks} />
+				<WelcomeProgress tasks={this.props.tasks}/>
 
 			</div>
 		);
 
 
 		return (
-			<div className="demo-only">
-				<section
-					role="dialog"
-					tabIndex="-1"
-					className="slds-modal slds-fade-in-open slds-welcome-mat"
-					aria-labelledby="welcome-mat-13-label"
-					aria-describedby="welcome-mat-13-content"
-					aria-modal="true"
-				>
-					<div className="slds-modal__container">
+
+			<section
+				role="dialog"
+				tabIndex="-1"
+				className={`${this.props.modal ? 'slds-modal slds-fade-in-open' : ''} slds-welcome-mat`}
+				aria-labelledby="welcome-mat-13-label"
+				aria-describedby="welcome-mat-13-content"
+				aria-modal="true"
+			>
+				<div className={`${this.props.modal ? 'slds-modal__container' : ''}`}>
+					{this.props.modal ?
 						<header className="slds-modal__header slds-modal__header_empty">
 							<Button
 								assistiveText="Close"
@@ -192,20 +192,22 @@ const WelcomeMat = createReactClass({
 								variant="icon"
 							/>
 						</header>
-						<div
-							className="slds-modal__content slds-welcome-mat__content slds-grid"
-							id="welcome-mat-13-content"
-						>
-							<div className="slds-welcome-mat__info slds-size_1-of-2">
-								{WelcomeMessage}
-							</div>
-							<div className="slds-welcome-mat__tiles slds-size_1-of-2 slds-p-around_medium">
-								{this.props.tasks}
-							</div>
+						: ''
+					}
+					<div
+						className="slds-modal__content slds-welcome-mat__content slds-grid"
+						id="welcome-mat-13-content"
+					>
+						<div className="slds-welcome-mat__info slds-size_1-of-2">
+							{WelcomeMessage}
+						</div>
+						<div className="slds-welcome-mat__tiles slds-size_1-of-2 slds-p-around_medium">
+							{this.props.tasks}
 						</div>
 					</div>
-				</section>
-			</div>
+				</div>
+			</section>
+
 		);
 	},
 });
