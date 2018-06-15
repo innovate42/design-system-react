@@ -1,5 +1,5 @@
 {
-	"name": "design-system-react",
+	"name": "@i42/design-system-react",
 	"version": "0.8.16",
 	"description": "Salesforce Lightning Design System for React",
 	"license": "SEE LICENSE IN README.md",
