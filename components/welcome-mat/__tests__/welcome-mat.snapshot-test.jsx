@@ -1,15 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import WelcomeMat_ToDo from '../__examples__/todo';
-import WelcomeMat_Completed from '../__examples__/completed';
-import WelcomeMat_InProgress from '../__examples__/inprogress';
+import WelcomeMatToDo from '../__examples__/todo';
+import WelcomeMatCompleted from '../__examples__/completed';
+import WelcomeMatInProgress from '../__examples__/inprogress';
 
 describe('WelcomeMat Render', () => {
 
 	it('ToDo looks correct', () => {
 		const tree = renderer
-			.create(WelcomeMat_ToDo)
+			.create(WelcomeMatToDo)
 			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
@@ -17,7 +17,7 @@ describe('WelcomeMat Render', () => {
 
 	it('InProgress looks correct', () => {
 		const tree = renderer
-			.create(WelcomeMat_InProgress)
+			.create(WelcomeMatInProgress)
 			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
@@ -25,7 +25,7 @@ describe('WelcomeMat Render', () => {
 
 	it('Completed looks correct', () => {
 		const tree = renderer
-			.create(WelcomeMat_Completed)
+			.create(WelcomeMatCompleted)
 			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
