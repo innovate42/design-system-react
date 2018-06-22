@@ -69,7 +69,7 @@ const WelcomeMatTask = createReactClass({
 			title: this.props.title,
 			icon: this.props.icon,
 			href: this.props.href,
-			completed: this.props.state
+			completed: this.props.completed
 		};
 	},
 
@@ -107,6 +107,7 @@ const WelcomeMatTask = createReactClass({
 				<div className="slds-media__body slds-border_left slds-p-around_small">
 					<h3 className="slds-welcome-mat__tile-title">{this.state.title}</h3>
 					<p className="slds-welcome-mat__tile-description">{this.state.description}</p>
+					{this.props.children}
 				</div>
 			</a>
 		);

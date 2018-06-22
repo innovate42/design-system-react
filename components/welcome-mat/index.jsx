@@ -39,11 +39,11 @@ const WelcomeProgress = createReactClass({
 
 	},
 
-	getDefaultProps() {
+	getDefaultProps () {
 		return defaultProps;
 	},
 
-	getInitialState() {
+	getInitialState () {
 		return {
 			isOpen: false,
 		};
