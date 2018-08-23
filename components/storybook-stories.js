@@ -1,3 +1,4 @@
+
 /*
  * STORY-BASED EXAMPLES
  *
@@ -57,3 +58,4 @@ export Tooltip from '../components/tooltip/__docs__/storybook-stories';
 export Tree from '../components/tree/__docs__/storybook-stories';
 
 export WelcomeMat from '../components/welcome-mat/__docs__/storybook-stories';
+export Login from '../components/login/__docs__/storybook-stories';
