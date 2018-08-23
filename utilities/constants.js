@@ -103,3 +103,4 @@ export const TOAST_CONTAINER = 'SLDSToastContainer';
 export const TREE = 'SLDSTree';
 export const TREE_BRANCH = 'SLDSTreeBranch';
 export const TREE_ITEM = 'SLDSTreeItem';
+export const LOGIN = 'LOGIN';
