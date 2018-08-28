@@ -2,7 +2,7 @@ version: 0.2
 
 phases:
   install:
-	commands:
+  	commands:
 	  - npm install npm -g
 	  - npm config set audit false
 	  - npm install
