@@ -14,4 +14,3 @@ storiesOf(LOGIN, module)
 		</div>
 	))
 	.add('App Login examples', () => <Login />);
-

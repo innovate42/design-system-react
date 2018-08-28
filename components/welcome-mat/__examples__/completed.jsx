@@ -7,7 +7,6 @@ import WelcomeMat from '../../welcome-mat';
 import Icon from '../../icon';
 import Task from '../task';
 
-
 const completed = [
 	<Task
 		key={1}
@@ -38,10 +37,8 @@ const completed = [
 	/>,
 ];
 
-
 const DemoWelcomeMat = createReactClass({
 	displayName: 'DemoWelcomeMat',
-
 
 	render () {
 		return (
@@ -50,10 +47,8 @@ const DemoWelcomeMat = createReactClass({
 				description="Welcome to Lightning Experience, the modern, beautiful user experience from Salesforce. With a sales-and service-centric mindset, we focused on reinventing the desktop environment to better support your business processes."
 				tasks={this.props.tasks}
 			/>
-
-
 		);
 	},
 });
 
-export default <DemoWelcomeMat tasks={completed} />
+export default <DemoWelcomeMat tasks={completed} />;

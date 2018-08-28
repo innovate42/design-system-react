@@ -33,22 +33,18 @@ const toDo = [
 	/>,
 ];
 
-
 const DemoWelcomeMat = createReactClass({
 	displayName: 'DemoWelcomeMat',
 
-
-	render() {
+	render () {
 		return (
 			<WelcomeMat
 				title="The Lightning Experience is here!"
 				description="Welcome to Lightning Experience, the modern, beautiful user experience from Salesforce. With a sales-and service-centric mindset, we focused on reinventing the desktop environment to better support your business processes."
 				tasks={this.props.tasks}
 			/>
-
-
 		);
 	},
 });
 
-export default  <DemoWelcomeMat tasks={toDo} />
+export default <DemoWelcomeMat tasks={toDo} />;

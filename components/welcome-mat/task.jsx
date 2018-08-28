@@ -51,7 +51,7 @@ const WelcomeMatTask = createReactClass({
 		/**
 		 * The `href` attribute of the tile. Please pass in bookmarkable URLs from your routing library. If the `onClick` callback is specified this URL will be prevented from changing the browser's location.
 		 */
-		href: PropTypes.string
+		href: PropTypes.string,
 	},
 
 	getDefaultProps () {
@@ -69,7 +69,7 @@ const WelcomeMatTask = createReactClass({
 			title: this.props.title,
 			icon: this.props.icon,
 			href: this.props.href,
-			completed: this.props.completed
+			completed: this.props.completed,
 		};
 	},
 
@@ -77,7 +77,9 @@ const WelcomeMatTask = createReactClass({
 		return (
 			<a
 				href={this.state.href}
-				className={`slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile ${this.state.completed ? 'slds-welcome-mat__tile_complete' : ''}`}
+				className={`slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile ${
+					this.state.completed ? 'slds-welcome-mat__tile_complete' : ''
+				}`}
 				onClick={
 					isFunction(this.state.onClick)
 						? (event) => handleClick(event, this.state.href, this.state.onClick)
@@ -85,12 +87,10 @@ const WelcomeMatTask = createReactClass({
 				}
 			>
 				<div className="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_xx-small">
-
 					<div className="slds-welcome-mat__tile-icon-container">
-
 						{this.state.icon}
 
-						{this.state.completed ?
+						{this.state.completed ? (
 							<Icon
 								category="utility"
 								name="check"
@@ -99,14 +99,16 @@ const WelcomeMatTask = createReactClass({
 								containerClassName="slds-icon_container slds-icon_container_circle slds-icon-action-check"
 								title="Completed"
 							/>
-							:
+						) : (
 							''
-						}
+						)}
 					</div>
 				</div>
 				<div className="slds-media__body slds-border_left slds-p-around_small">
 					<h3 className="slds-welcome-mat__tile-title">{this.state.title}</h3>
-					<p className="slds-welcome-mat__tile-description">{this.state.description}</p>
+					<p className="slds-welcome-mat__tile-description">
+						{this.state.description}
+					</p>
 					{this.props.children}
 				</div>
 			</a>

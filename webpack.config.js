@@ -2,7 +2,7 @@
 const path = require('path');
 const StringReplacePlugin = require('string-replace-webpack-plugin');
 const packageJson = require('./package.json');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
 	entry: {
@@ -33,7 +33,7 @@ const config = {
 							{
 								pattern: /__EXCLUDE_SLDS_ICONS__/g,
 								replacement: () => '__INCLUDE_SLDS_ICONS__',
-							}
+							},
 						],
 					}),
 				],
@@ -65,7 +65,10 @@ const config = {
 	},
 	plugins: [
 		new StringReplacePlugin(),
-		new CopyWebpackPlugin([{ from: '@salesforce-ux/design-system/assets', to: 'assets' }], { context: path.resolve(__dirname, 'node_modules') })
+		new CopyWebpackPlugin(
+			[{ from: '@salesforce-ux/design-system/assets', to: 'assets' }],
+			{ context: path.resolve(__dirname, 'node_modules') }
+		),
 	],
 };
 
