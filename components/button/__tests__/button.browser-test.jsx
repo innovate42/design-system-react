@@ -1,7 +1,7 @@
 /* eslint-disable react/no-render-return-value */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
+import TestUtils from 'react-dom/test-utils';
 import { expect } from 'chai';
 import assign from 'lodash.assign';
 
@@ -111,7 +111,7 @@ describe('SLDSButton: ', () => {
 
 		beforeEach(() => {
 			cmp = getButton({
-				assistiveText: 'my settings',
+				assistiveText: { icon: 'my settings' },
 				variant: 'icon',
 				iconCategory: 'utility',
 				iconName: 'settings',
@@ -143,7 +143,7 @@ describe('SLDSButton: ', () => {
 
 		beforeEach(() => {
 			cmp = getButton({
-				assistiveText: 'News',
+				assistiveText: { icon: 'News' },
 				iconSize: 'large',
 				iconPath: '/assets/icons/utility-sprite/svg/symbols.svg#announcement',
 				title: 'announcement',
@@ -168,7 +168,7 @@ describe('SLDSButton: ', () => {
 
 		before(() => {
 			cmp = getButton({
-				assistiveText: 'announcement',
+				assistiveText: { icon: 'announcement' },
 				variant: 'icon',
 				iconPath: '/assets/icons/utility-sprite/svg/symbols.svg#announcement',
 				iconSize: 'large',

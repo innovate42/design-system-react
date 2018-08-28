@@ -11,13 +11,24 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ButtonIcon from '../icon/button-icon';
 import checkProps from './check-props';
-import PopoverTooltip from '../popover-tooltip';
+import componentDoc from './docs.json';
+import Tooltip from '../tooltip';
 
 import { BUTTON } from '../../utilities/constants';
 
+const defaultProps = {
+	assistiveText: { icon: '' },
+	disabled: false,
+	hint: false,
+	iconSize: 'medium',
+	responsive: false,
+	type: 'button',
+	variant: 'neutral',
+};
+
 /**
  * The Button component is the Lightning Design System Button component. The Button should be used for label buttons, icon buttons, or buttons that have both labels and icons.
- * Either a <code>label</code> or <code>assistiveText</code> is required; see the Prop Details table below.
+ * Either a <code>label</code> or <code>assistiveText.icon</code> is required; see the Prop Details table below.
  * For buttons that maintain selected/unselected states, use the <a href="#/button-stateful">ButtonStateful</a> component.
  */
 const Button = createReactClass({
@@ -41,10 +52,14 @@ const Button = createReactClass({
 		 */
 		'aria-haspopup': PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 		/**
-		 * Text that is visually hidden but read aloud by screenreaders to tell the user what the icon means.
-		 * If the button has an icon and a visible label, you can omit the <code>assistiveText</code> prop and use the <code>label</code> prop.
+		 * **Assistive text for accessibility.**
+		 * This object is merged with the default props object on every render.
+		 * * `icon`: Text that is visually hidden but read aloud by screenreaders to tell the user what the icon means. If the button has an icon and a visible label, you can omit the <code>assistiveText.icon</code> prop and use the <code>label</code> prop.
 		 */
-		assistiveText: PropTypes.string,
+		assistiveText: PropTypes.shape({
+			icon: PropTypes.string,
+		}),
+
 		/**
 		 * Callback that passes in the DOM reference of the `<button>` DOM node within this component. Primary use is to allow `focus` to be called. You should still test if the node exists, since rendering is asynchronous. `buttonRef={(component) => { if(component) console.log(component); }}`
 		 */
@@ -116,7 +131,7 @@ const Button = createReactClass({
 		 */
 		inverse: PropTypes.bool,
 		/**
-		 * Visible label on the button. If the button is an icon button with no label, you must use the <code>assistiveText</code> prop.
+		 * Visible label on the button. If the button is an icon button with no label, you must use the <code>assistiveText.icon</code> prop.
 		 */
 		label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 		/**
@@ -190,19 +205,12 @@ const Button = createReactClass({
 	},
 
 	getDefaultProps () {
-		return {
-			disabled: false,
-			hint: false,
-			iconSize: 'medium',
-			responsive: false,
-			type: 'button',
-			variant: 'neutral',
-		};
+		return defaultProps;
 	},
 
 	componentWillMount () {
 		// `checkProps` issues warnings to developers about properties (similar to React's built in development tools)
-		checkProps(BUTTON, this.props);
+		checkProps(BUTTON, this.props, componentDoc);
 	},
 
 	getClassName () {
@@ -282,9 +290,16 @@ const Button = createReactClass({
 
 	renderLabel () {
 		const iconOnly = this.props.iconName || this.props.iconPath;
+		const assistiveTextIcon =
+			typeof this.props.assistiveText === 'string'
+				? this.props.assistiveText
+				: {
+					...defaultProps.assistiveText,
+					...this.props.assistiveText,
+				}.icon;
 
-		return iconOnly && this.props.assistiveText ? (
-			<span className="slds-assistive-text">{this.props.assistiveText}</span>
+		return iconOnly && assistiveTextIcon ? (
+			<span className="slds-assistive-text">{assistiveTextIcon}</span>
 		) : (
 			this.props.label
 		);
@@ -339,11 +354,7 @@ const Button = createReactClass({
 
 	// This is present for backwards compatibility and should be removed at a future breaking change release. Please wrap a `Button` in a `PopoverTooltip` to achieve the same result. There will be an extra trigger `div` wrapping the `Button` though.
 	renderTooltip () {
-		return (
-			<PopoverTooltip content={this.props.tooltip}>
-				{this.renderButton}
-			</PopoverTooltip>
-		);
+		return <Tooltip content={this.props.tooltip}>{this.renderButton}</Tooltip>;
 	},
 
 	render () {
