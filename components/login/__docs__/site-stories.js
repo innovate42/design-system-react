@@ -4,7 +4,7 @@
 /* eslint-disable global-require */
 
 const siteStories = [
-	require('raw-loader!@salesforce/design-system-react/components/login/__examples__/login.jsx')
+	require('raw-loader!@salesforce/design-system-react/components/login/__examples__/login.jsx'),
 ];
 
 module.exports = siteStories;

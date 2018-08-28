@@ -6,10 +6,11 @@ const Welcome = ({ title }) => (
 	<div className="Text-center">
 		<img className="Logo" src={i42logo} alt="logo" />
 		<h1 className="h3"> {title} </h1>
-	</div>);
+	</div>
+);
 
 Welcome.propsType = {
-	title: PropTypes.string.isRequired
+	title: PropTypes.string.isRequired,
 };
 
 export default Welcome;

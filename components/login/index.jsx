@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import {
-	Input,
-	Button,
-	Checkbox,
-	Spinner } from '../';
+import { Input, Button, Checkbox, Spinner } from '../';
 import Welcome from './welcome';
 import { validateEmail, validatePassword } from './validation';
 import './login.css';
 
-console.log('LOADING....');
 class Login extends Component {
 	constructor (props) {
 		super(props);
@@ -19,19 +13,18 @@ class Login extends Component {
 			password: '',
 			errors: {
 				email: '',
-				password: ''
-			}
+				password: '',
+			},
 		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-
 	// Set the state, based on the id of the component calling the handler
 	handleChange (event) {
 		this.setState({
-			[event.target.id]: event.target.value
+			[event.target.id]: event.target.value,
 		});
 	}
 
@@ -49,11 +42,10 @@ class Login extends Component {
 	}
 
 	render () {
-		console.log('RENDERING.....');
 		return (
 			<div className="Login">
 				<Welcome title="Innovate42 Hub" />
-				<form className="LoginForm" onSubmit={this.handleSubmit} >
+				<form className="LoginForm" onSubmit={this.handleSubmit}>
 					<label>Email</label>
 					<Input
 						id="email"
@@ -94,7 +86,6 @@ class Login extends Component {
 	}
 }
 
-
 // Login.propTypes = {
 // 	// what to call when the user clicks submit.  Invoked with user, pass
 // 	onSubmit: PropTypes.func.isRequired,
@@ -105,6 +96,5 @@ class Login extends Component {
 // 	// flag to indicate that the user has logged in (although you probably want to trigger a navigation away from the page)
 // 	isLoggedIn: PropTypes.bool,
 // };
-
 
 export default Login;
