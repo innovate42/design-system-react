@@ -13,5 +13,5 @@ storiesOf(LOGIN, module)
 			<IconSettings iconPath="/assets/icons">{getStory()}</IconSettings>
 		</div>
 	))
-	.add('App Login examples', () => Login);
+	.add('App Login examples', () => <Login />);
 

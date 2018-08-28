@@ -9,6 +9,7 @@ const license = fs.readFileSync('./LICENSE.txt', 'utf8');
 
 const baseConfig = require('./webpack.config');
 
+// eslint-disable-next-line prefer-object-spread/prefer-object-spread
 const config = Object.assign({}, baseConfig, {
 	externals: {
 		react: {
@@ -56,6 +57,7 @@ const replacementsArr = [
 		replacement: () => packageJson.version,
 	},
 ];
+
 
 // This string replacement includes icons in the bundle and affects `icons/**/index.js` which are built by `npm run icons`. The default condition is an equality comparison of two constants, `'__EXCLUDE_SLDS_ICONS__' === '__INCLUDE_SLDS_ICONS__'`, which will allow minification to remove the inline icons and save 100KBs in size when bundling for production. The following makes the condition equal.
 if (process.env.INCLUDE_ICONS) {

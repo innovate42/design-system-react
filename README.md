@@ -19,7 +19,7 @@ $ npm install @salesforce-ux/design-system @salesforce/design-system-react
 
 ## Getting Started
 
-Welcome to the project! :wave: This library is the [React](https://facebook.github.io/react/) implementation of the [Salesforce Lightning Design System](https://www.lightningdesignsystem.com/). This library has a peer dependency on `@salesforce-ux/design-system`, `react`, and `react-dom`. It has been tested with React >=15.4.1 <16 and is stable despite its version number. Please polyfill this library in order to meet your target environment needs.
+Welcome to the project! :wave: This library is the [React](https://facebook.github.io/react/) implementation of the [Salesforce Lightning Design System](https://www.lightningdesignsystem.com/). This library has a peer dependency on `@salesforce-ux/design-system`, `react`, and `react-dom`. It is tested with React 16 and has a stable API despite its version number. Please polyfill this library in order to meet your target environment needs.
 
 * [Usage](#usage)
 * [Getting started](https://react.lightningdesignsystem.com/getting-started/)
@@ -35,7 +35,7 @@ Welcome to the project! :wave: This library is the [React](https://facebook.gith
 
 ### Quick Setup (CommonJS)
 
-For a no hassle setup and compatibility with Create React App v1, a CommonJS version has been included within the NPM package to allow usage without transpiling. Use the following named `import` syntax to access CommonJS components from `/lib/index.js`:
+For a no hassle setup and compatibility with Create React App v1, a CommonJS version has been included within the NPM package. If using this setup, please re-write the `import` statement in the documentation site examples. Use the following named `import` syntax to access CommonJS components from `/lib/index.js`:
 
 ```
 import { Button } from '@salesforce/design-system-react';
@@ -62,13 +62,10 @@ import Button from '@salesforce/design-system-react/components/button';
 	"presets": ["@salesforce/babel-preset-design-system-react"]
 }
 ```
+
 ### Styling
 
-This library does not contain any Cascading Style Sheets (CSS). You will need to add `<link rel="stylesheet" type="text/css"  href="/node_modules/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.min.css" />` to your page and serve that file from a publicly available folder.
-
-### Icon Usage
-
-Prior to v0.7.0, SLDS icons were bundled with the JavaScript. The 400KB+ icons bundle from [SLDS](https://www.lightningdesignsystem.com/) is no longer included. You will need to download the SLDS CSS and icons separately.
+This library does not contain any Cascading Style Sheets (CSS). You will need to add `<link rel="stylesheet" type="text/css" href="/node_modules/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.min.css" />` to your page and serve that file from a publicly available folder.
 
 #### Serve icons publicly
 
@@ -92,7 +89,7 @@ ReactDOM.render(
 
 ```
 // ExpressJS example
-app.use('/assets/icons', express.static('node_modules/@salesforce-ux/icons/dist/salesforce-lightning-design-system-icons/'));
+app.use('/assets/icons', express.static('node_modules/@salesforce-ux/design-system/assets/icons/'));
 ```
 
 #### Bundle icons
@@ -101,7 +98,6 @@ If you use a module bundler, like Webpack, you can let your module bundler manag
 
 ```
 import IconSettings from '@salesforce/design-system-react/components/icon-settings';
-
 import standardSprite from '@salesforce-ux/design-system/assets/icons/standard-sprite/svg/symbols.svg';
 ...
 ...
@@ -113,6 +109,10 @@ ReactDOM.render(
   document.getElementById('app')
 )
 ```
+
+### Icon Usage
+
+Prior to v0.7.0, SLDS icons were bundled with the JavaScript. The 400KB+ icons bundle from [SLDS](https://www.lightningdesignsystem.com/) is no longer included. You will need to download the SLDS CSS and icons separately.
 
 Bundled script files are provided _only_ for convenience. Do not use in production.
 

@@ -11,7 +11,7 @@ import SLDSButtonStateful from '../../button-stateful';
 import SLDSButtonGroup from '../../button-group';
 import SLDSButton from '../../button';
 import SLDSMenuDropdown from '../../menu-dropdown';
-import PopoverTooltip from '../../popover-tooltip';
+import Tooltip from '../../tooltip';
 
 import ObjectHome from '../__examples__/object-home';
 
@@ -96,7 +96,7 @@ const recordHomeContentRight = (
 			<SLDSButton label="Delete" />
 			<SLDSButton label="Clone" />
 			<SLDSMenuDropdown
-				assistiveText="More Options"
+				assistiveText={{ icon: 'More Options' }}
 				buttonVariant="icon"
 				iconCategory="utility"
 				iconName="down"
@@ -117,11 +117,11 @@ const customTooltip = () => {
 	const content =
 		'here is a super long description that will truncate and the rest of it will show in the tooltip.';
 	return (
-		<PopoverTooltip align="top" content={content}>
+		<Tooltip align="top" content={content}>
 			<p tabIndex="0" className="slds-truncate">
 				{content}
 			</p>
-		</PopoverTooltip>
+		</Tooltip>
 	);
 };
 
@@ -146,7 +146,7 @@ const objectHomeContentRight = (
 			variant="icon"
 			iconVariant="more"
 			className="slds-m-left--xx-small"
-			assistiveText="Settings"
+			assistiveText={{ icon: 'Settings' }}
 		/>
 		<SLDSButton
 			iconCategory="utility"
@@ -154,7 +154,7 @@ const objectHomeContentRight = (
 			variant="icon"
 			iconVariant="more"
 			className="slds-m-left--xx-small"
-			assistiveText="Table"
+			assistiveText={{ icon: 'Table' }}
 		/>
 		<SLDSButtonGroup>
 			<SLDSButton
@@ -162,7 +162,7 @@ const objectHomeContentRight = (
 				iconName="chart"
 				variant="icon"
 				iconVariant="border"
-				assistiveText="Chart"
+				assistiveText={{ icon: 'Chart' }}
 			/>
 			<SLDSButton
 				iconCategory="utility"
@@ -170,10 +170,10 @@ const objectHomeContentRight = (
 				variant="icon"
 				iconVariant="border"
 				className="slds-m-left--xx-small"
-				assistiveText="Filter List"
+				assistiveText={{ icon: 'Filter List' }}
 			/>
 			<SLDSMenuDropdown
-				assistiveText="Sort"
+				assistiveText={{ icon: 'Sort' }}
 				buttonVariant="icon"
 				iconName="sort"
 				iconVariant="more"
@@ -196,7 +196,7 @@ const objectHomeNavRight = (
 		<SLDSButton label="New Lead" variant="neutral" />
 		<SLDSMenuDropdown
 			align="right"
-			assistiveText="More Options"
+			assistiveText={{ icon: 'More Options' }}
 			iconCategory="utility"
 			iconName="down"
 			iconVariant="border-filled"
@@ -218,7 +218,7 @@ const relatedListContentRight = (
 			variant="icon"
 			iconVariant="more"
 			className="slds-m-left--xx-small"
-			assistiveText="Table"
+			assistiveText={{ icon: 'Table' }}
 		/>
 		<SLDSButtonGroup>
 			<SLDSButton
@@ -227,7 +227,7 @@ const relatedListContentRight = (
 				variant="icon"
 				iconVariant="border"
 				className="slds-m-left--xx-small"
-				assistiveText="Chart"
+				assistiveText={{ icon: 'Chart' }}
 			/>
 			<SLDSButton
 				iconCategory="utility"
@@ -235,10 +235,10 @@ const relatedListContentRight = (
 				variant="icon"
 				iconVariant="border"
 				className="slds-m-left--xx-small"
-				assistiveText="Filter List"
+				assistiveText={{ icon: 'Filter List' }}
 			/>
 			<SLDSMenuDropdown
-				assistiveText="Sort"
+				assistiveText={{ icon: 'Sort' }}
 				buttonVariant="icon"
 				iconName="sort"
 				iconVariant="more"
@@ -260,7 +260,7 @@ const relatedListNavRight = (
 	<SLDSButtonGroup>
 		<SLDSButton label="Add Contact" variant="neutral" />
 		<SLDSMenuDropdown
-			assistiveText="More Options"
+			assistiveText={{ icon: 'More Options' }}
 			buttonVariant="icon"
 			iconCategory="utility"
 			iconName="down"
