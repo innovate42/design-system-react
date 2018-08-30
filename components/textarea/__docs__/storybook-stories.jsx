@@ -2,10 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import IconSettings from '../../icon-settings';
 
-import { TEXTAREA } from '../../../utilities/constants';
+import { FORMS_TEXTAREA } from '../../../utilities/constants';
 import Textarea from '../';
 
-storiesOf(TEXTAREA, module)
+storiesOf(FORMS_TEXTAREA, module)
 	.addDecorator((getStory) => (
 		<div className="slds-p-around--medium">
 			<IconSettings iconPath="/assets/icons">{getStory()}</IconSettings>
@@ -30,7 +30,7 @@ storiesOf(TEXTAREA, module)
 		<Textarea
 			aria-describedby="required-1"
 			name="required-textarea"
-			assistiveText={{ label: 'Textarea Label' }}
+			label="Textarea Label"
 			required
 			placeholder="Placeholder Text"
 		/>

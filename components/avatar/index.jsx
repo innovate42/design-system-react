@@ -8,17 +8,12 @@
 // ### React
 import React from 'react';
 import PropTypes from 'prop-types';
-
-// This component's `checkProps` which issues warnings to developers about properties when in development mode (similar to React's built in development tools)
-import checkProps from './check-props';
-
 // ### classNames
 // [github.com/JedWatson/classnames](https://github.com/JedWatson/classnames) A
 // simple javascript utility for conditionally joining classNames together.
 import classNames from '../../utilities/class-names';
 import { AVATAR } from '../../utilities/constants';
 import UtilityIcon from '../icon';
-import componentDoc from './docs.json';
 
 // ### Display Name Always use the canonical component name as the React display
 // name.
@@ -27,13 +22,9 @@ const displayName = AVATAR;
 // ### Prop Types
 const propTypes = {
 	/**
-	 * **Assistive text for accessibility.**
-	 * This object is merged with the default props object on every render.
-	 * * `icon`: Assistive text for accessibility that labels the icon.
+	 * Assistive text for accessibility that labels the icon.
 	 */
-	assistiveText: PropTypes.shape({
-		icon: PropTypes.string,
-	}),
+	assistiveText: PropTypes.string,
 	/**
 	 * Class names to be applied to Avatar component.
 	 */
@@ -69,9 +60,6 @@ const propTypes = {
 };
 
 const defaultProps = {
-	assistiveText: {
-		icon: 'User or Account Icon',
-	},
 	imgAlt: '',
 	size: 'medium',
 	title: 'user avatar',
@@ -94,10 +82,6 @@ class Avatar extends React.Component {
 		this.state = {
 			imgLoadError: false,
 		};
-	}
-
-	componentWillMount () {
-		checkProps(AVATAR, this.props, componentDoc);
 	}
 
 	buildInitials () {
@@ -130,17 +114,10 @@ class Avatar extends React.Component {
 	}
 
 	renderIconAvatar () {
-		const { variant } = this.props;
-		const iconAssistiveText =
-			typeof this.props.assistiveText === 'string'
-				? this.props.assistiveText
-				: {
-					...defaultProps.assistiveText,
-					...this.props.assistiveText,
-				}.icon;
+		const { assistiveText, variant } = this.props;
 		return (
 			<UtilityIcon
-				assistiveText={{ label: iconAssistiveText }}
+				assistiveText={assistiveText || 'User or Account Icon'}
 				category="standard"
 				name={variant === 'entity' ? 'account' : 'user'}
 			/>

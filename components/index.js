@@ -19,9 +19,6 @@ export Alert from './alert';
 export SLDSAlertContainer from './alert/container';
 export AlertContainer from './alert/container';
 
-export SLDSAppLauncher from './app-launcher';
-export AppLauncher from './app-launcher';
-
 export SLDSAvatar from './avatar';
 export Avatar from './avatar';
 
@@ -104,9 +101,6 @@ export Datepicker from './date-picker';
 
 export SLDSIcon from './icon';
 export Icon from './icon';
-
-export SLDSIllustration from './illustration';
-export Illustration from './illustration';
 
 // TODO: Should probably be removed from export and only used internally. This component does not implement Button Icons per SLDS, but only the icons in buttons
 export SLDSButtonIcon from './icon/button-icon';
@@ -237,9 +231,6 @@ export UtilityIcon from './utilities/utility-icon';
 
 export SLDSTree from './tree';
 export Tree from './tree';
-
-export SLDSVerticalNavigation from './vertical-navigation';
-export VerticalNavigation from './vertical-navigation';
 
 // Library utilities
 export log from '../utilities/log';

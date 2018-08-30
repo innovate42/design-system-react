@@ -94,7 +94,6 @@ const Example = createReactClass({
 			<IconSettings iconPath="/assets/icons">
 				<Panel variant="filters">
 					<PanelFilterGroup
-						assistiveText={{ closeButton: 'Close Panel' }}
 						modified={this.state.modifiedPanel}
 						onClickAdd={() => {
 							this.setState({

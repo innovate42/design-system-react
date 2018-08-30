@@ -33,7 +33,7 @@ const propSets = {
 		props: {},
 		primaryRegionProps: {
 			appLauncher: {
-				assistiveText: { trigger: 'Open App Launcher' },
+				assistiveText: 'Open App Launcher',
 				id: 'app-launcher-trigger',
 				triggerName: 'App Name',
 			},
@@ -45,7 +45,7 @@ const propSets = {
 		},
 		primaryRegionProps: {
 			appLauncher: {
-				assistiveText: { trigger: 'Open App Launcher' },
+				assistiveText: 'Open App Launcher',
 				id: 'app-launcher-trigger',
 				triggerName: 'App Name',
 			},
@@ -58,7 +58,7 @@ const propSets = {
 		primaryRegionProps: {
 			truncate: false,
 			appLauncher: {
-				assistiveText: { trigger: 'Open App Launcher' },
+				assistiveText: 'Open App Launcher',
 				id: 'app-launcher-trigger',
 				noTruncate: true,
 				triggerName: (
@@ -92,7 +92,7 @@ const propSets = {
 		props: {},
 		primaryRegionProps: {
 			appLauncher: {
-				assistiveText: { trigger: 'Open App Launcher' },
+				assistiveText: 'Open App Launcher',
 				id: 'app-launcher-trigger',
 				triggerName: 'App Name',
 			},

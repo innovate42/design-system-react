@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 import assign from 'lodash.assign';
-import TestUtils from 'react-dom/test-utils';
+import TestUtils from 'react-addons-test-utils';
 import { mount } from 'enzyme';
 
 /* Enzyme Helpers that can mount and unmount React component instances to
@@ -132,7 +132,7 @@ describe('SLDSSlider', () => {
 			component = getSlider({
 				label: 'Slider Label',
 				id: 'custom-id',
-				value: 200,
+				defaultValue: 200,
 				min: 0,
 				max: 400,
 				step: 100,
@@ -192,30 +192,30 @@ describe('SLDSSlider', () => {
 		it('onChange trigged callback', function (done) {
 			wrapper = mount(
 				<Slider
-					value={200}
+					defaultValue={200}
 					min={0}
 					max={400}
 					step={100}
 					onChange={(e, { value }) => {
-						expect(value).to.equal(300);
+						expect(value).to.equal('300');
 						done();
 					}}
 				/>,
 				{ attachTo: mountNode }
 			);
 			const trigger = wrapper.find('input');
-			trigger.simulate('change', { target: { value: 300 } });
+			trigger.simulate('change', { target: { value: '300' } });
 		});
 
 		it('onInput trigged callback', function (done) {
 			wrapper = mount(
 				<Slider
-					value={200}
+					defaultValue={200}
 					min={0}
 					max={400}
 					step={100}
 					onInput={(e, { value }) => {
-						expect(value).to.equal(300);
+						expect(value).to.equal('300');
 						done();
 					}}
 				/>,

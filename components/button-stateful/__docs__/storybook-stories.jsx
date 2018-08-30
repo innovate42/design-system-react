@@ -21,7 +21,6 @@ storiesOf(BUTTON_STATEFUL, module)
 	.add('Disabled', () => getButtonStateful({ disabled: true }))
 	.add('Icon', () =>
 		getButtonStateful({
-			assistiveText: { icon: 'Icon button' },
 			variant: 'icon',
 			label: 'Neutral Icon',
 			iconName: 'check',

@@ -18,7 +18,7 @@ import Button from '../../../button';
  * Header for a Filter Group within a Panel.
  */
 const PanelFilterHeader = ({
-	assistiveText,
+	assistiveTextCloseFilterPanel,
 	cancelLabel,
 	heading,
 	modified,
@@ -37,13 +37,13 @@ const PanelFilterHeader = ({
 			<h2 className="slds-align-middle slds-text-heading--small">{heading}</h2>
 			<Button
 				className="slds-col--bump-left"
-				assistiveText={{ icon: assistiveText.closeButton }}
+				assistiveText={assistiveTextCloseFilterPanel}
 				iconCategory="utility"
 				iconName="forward"
 				iconVariant="bare"
 				iconSize="small"
 				onClick={onRequestClose}
-				title={assistiveText.closeButton}
+				title={assistiveTextCloseFilterPanel}
 				variant="icon"
 			/>
 		</div>
@@ -53,13 +53,9 @@ PanelFilterHeader.displayName = 'SLDSPanelFilterHeader';
 
 PanelFilterHeader.propTypes = {
 	/**
-	 * **Assistive text for accessibility.**
-	 * This object is merged with the default props object on every render.
-	 * * `closeButton`: Localized description of the close button for the panel for screen readers
+	 * Localized description of the close button for the panel for screen readers
 	 */
-	assistiveText: PropTypes.shape({
-		closeButton: PropTypes.string,
-	}),
+	assistiveTextCloseFilterPanel: PropTypes.node,
 	/**
 	 * Label for button that cancels modified filters
 	 */

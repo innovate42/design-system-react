@@ -17,7 +17,7 @@ const Example = createReactClass({
 					<Button label="Save" />
 					<Dropdown
 						id="ButtonGroupExampleDropdown"
-						assistiveText={{ icon: 'More Options' }}
+						assistiveText="More Options"
 						buttonVariant="icon"
 						iconCategory="utility"
 						iconName="down"

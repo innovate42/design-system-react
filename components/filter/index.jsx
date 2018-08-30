@@ -28,7 +28,6 @@ import shortid from 'shortid';
 
 // This component's `checkProps` which issues warnings to developers about properties when in development mode (similar to React's built in development tools)
 import checkProps from './check-props';
-import componentDoc from './docs.json';
 
 import Button from '../button';
 import Popover from '../popover';
@@ -137,7 +136,7 @@ const Filter = createReactClass({
 
 	componentWillMount () {
 		this.generatedId = shortid.generate();
-		checkProps(FILTER, componentDoc);
+		checkProps(FILTER);
 	},
 
 	getId () {
@@ -281,7 +280,7 @@ const Filter = createReactClass({
 				{// Remove button
 					!this.props.isPermanent && !this.props.isLocked ? (
 						<Button
-							assistiveText={{ icon: assistiveText.removeFilter }}
+							assistiveText={assistiveText.removeFilter}
 							hint
 							iconCategory="utility"
 							iconName="close"

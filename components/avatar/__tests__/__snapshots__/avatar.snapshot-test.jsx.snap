@@ -34,7 +34,7 @@ exports[`Avatar Entity Icon Snapshot 1`] = `
       <span
         className="slds-assistive-text"
       >
-        Avatar icon avatar
+        Account icon avatar
       </span>
     </span>
   </span>

@@ -28,7 +28,6 @@ import Input from '../input';
 // This component's `checkProps` which issues warnings to developers about properties
 // when in development mode (similar to React's built in development tools)
 import checkProps from './check-props';
-import componentDoc from './docs.json';
 
 import EventUtil from '../../utilities/event';
 import KEYS from '../../utilities/key-code';
@@ -219,8 +218,8 @@ const defaultProps = {
 	parser (str) {
 		return new Date(str);
 	},
-	relativeYearFrom: -10,
-	relativeYearTo: 10,
+	relativeYearFrom: -5,
+	relativeYearTo: 5,
 	dateDisabled: () => false,
 };
 
@@ -265,7 +264,7 @@ class Datepicker extends React.Component {
 		this.generatedId = shortid.generate();
 
 		// `checkProps` issues warnings to developers about properties (similar to React's built in development tools)
-		checkProps(DATE_PICKER, this.props, componentDoc);
+		checkProps(DATE_PICKER, this.props);
 	}
 
 	componentWillReceiveProps (nextProps) {
@@ -520,11 +519,9 @@ class Datepicker extends React.Component {
 				!!this.props.children.props.iconRight) || (
 				<InputIcon
 					// Remove || for assistiveText at next breaking change
-					assistiveText={{
-						icon:
-							this.props.assistiveTextOpenCalendar ||
-							assistiveText.openCalendar, // eslint-disable-line react/prop-types
-					}}
+					assistiveText={
+						this.props.assistiveTextOpenCalendar || assistiveText.openCalendar // eslint-disable-line react/prop-types
+					}
 					aria-haspopup
 					aria-expanded={this.getIsOpen()}
 					category="utility"

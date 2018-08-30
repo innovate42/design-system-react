@@ -10,7 +10,7 @@ const Example = createReactClass({
 		return (
 			<IconSettings iconPath="/assets/icons">
 				<Dropdown
-					assistiveText={{ icon: 'More Options' }}
+					assistiveText="More Options"
 					iconCategory="utility"
 					iconName="down"
 					iconVariant="border-filled"

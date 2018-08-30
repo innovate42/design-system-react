@@ -10,7 +10,7 @@ const Example = createReactClass({
 		return (
 			<IconSettings iconPath="/assets/icons">
 				<Avatar
-					assistiveText={{ icon: 'Avatar icon avatar' }}
+					assistiveText="Account icon avatar"
 					title="Avatar entity icon"
 					variant="entity"
 				/>

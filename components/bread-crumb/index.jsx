@@ -3,12 +3,5 @@
 
 // Alias
 import Breadcrumb from '../breadcrumb';
-import componentHasMoved from '../../utilities/warning/component-has-moved';
-import { BREADCRUMB } from '../../utilities/constants';
-
-componentHasMoved(BREADCRUMB, {
-	oldFileLocation: 'components/bread-crumb',
-	newFileLocation: 'components/breadcrumb',
-});
 
 export default Breadcrumb;

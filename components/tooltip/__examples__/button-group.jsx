@@ -1,7 +1,7 @@
 import React from 'react';
 import createReactClass from 'create-react-class';
 import IconSettings from '~/components/icon-settings';
-import Tooltip from '~/components/tooltip'; // `~` is replaced with design-system-react at runtime
+import PopoverTooltip from '~/components/popover-tooltip'; // `~` is replaced with design-system-react at runtime
 import ButtonGroup from '~/components/button-group';
 import Button from '~/components/button';
 import Dropdown from '~/components/menu-dropdown';
@@ -13,14 +13,14 @@ const Example = createReactClass({
 		return (
 			<IconSettings iconPath="/assets/icons">
 				<ButtonGroup className="slds-p-bottom--medium">
-					<Tooltip align="bottom" content="Buttonbar Tooltip">
+					<PopoverTooltip align="bottom" content="Buttonbar Tooltip">
 						<Button label="Refresh" />
-					</Tooltip>
-					<Tooltip align="bottom right" content="Buttonbar Tooltip">
+					</PopoverTooltip>
+					<PopoverTooltip align="bottom right" content="Buttonbar Tooltip">
 						<Button label="Edit" />
-					</Tooltip>
+					</PopoverTooltip>
 					<Dropdown
-						assistiveText={{ icon: 'More Options' }}
+						assistiveText="More Options"
 						buttonVariant="icon"
 						iconCategory="utility"
 						iconName="down"

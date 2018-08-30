@@ -2,10 +2,10 @@ import React from 'react';
 import { storiesOf, action } from '@storybook/react';
 import IconSettings from '../../../icon-settings';
 
-import { SEARCH } from '../../../../utilities/constants';
+import { FORMS_SEARCH } from '../../../../utilities/constants';
 import Search from '../../search';
 
-storiesOf(SEARCH, module)
+storiesOf(FORMS_SEARCH, module)
 	.addDecorator((getStory) => (
 		<div className="slds-p-around--medium">
 			<IconSettings iconPath="/assets/icons">{getStory()}</IconSettings>
@@ -13,7 +13,7 @@ storiesOf(SEARCH, module)
 	))
 	.add('Standard', () => (
 		<Search
-			assistiveText={{ label: 'Search' }}
+			assistiveText="Search"
 			placeholder="Search"
 			name="search-input"
 			onChange={action('change')}

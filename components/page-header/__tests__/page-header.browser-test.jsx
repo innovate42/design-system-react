@@ -96,10 +96,9 @@ describe('PageHeader: ', function () {
 					<PageHeader {...defaultPropsRecordHome} />
 				</IconSettings>
 			);
-			expect(wrapper.find('SLDSPageHeader')).to.have.prop(
-				'label',
-				'Record Type'
-			);
+			// Need to find the prop this way because PageHeader is being rendered inside of the IconSettings
+			const childrenProps = wrapper.component.props.props.children.props;
+			expect(childrenProps.label).to.equal('Record Type');
 		});
 
 		it('renders correct Title prop', () => {
@@ -108,10 +107,9 @@ describe('PageHeader: ', function () {
 					<PageHeader {...defaultPropsRecordHome} />
 				</IconSettings>
 			);
-			expect(wrapper.find('SLDSPageHeader')).to.have.prop(
-				'title',
-				'Record Title'
-			);
+			// Need to find the prop this way because PageHeader is being rendered inside of the IconSettings
+			const childrenProps = wrapper.component.props.props.children.props;
+			expect(childrenProps.title).to.equal('Record Title');
 		});
 
 		it('renders ContentRight prop', () => {

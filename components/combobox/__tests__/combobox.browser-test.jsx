@@ -79,13 +79,7 @@ const accounts = [
 
 const accountsWithIcon = accounts.map((elem) =>
 	assign(elem, {
-		icon: (
-			<Icon
-				assistiveText={{ label: 'Account' }}
-				category="standard"
-				name={elem.type}
-			/>
-		),
+		icon: <Icon assistiveText="Account" category="standard" name={elem.type} />,
 	})
 );
 
@@ -134,6 +128,7 @@ class DemoComponent extends React.Component {
 							this.setState({ inputValue: value });
 						},
 						onRequestRemoveSelectedOption: (event, data) => {
+							console.log(data);
 							this.setState({
 								inputValue: '',
 								selection: data.selection,
@@ -189,7 +184,7 @@ const getNodes = ({ wrapper }) => ({
 	combobox: wrapper.find('.slds-combobox'),
 	input: wrapper.find('.slds-combobox input'),
 	menuListbox: wrapper.find('.slds-combobox .slds-listbox.slds-dropdown'),
-	removeSingleItem: wrapper.find('.slds-combobox button.slds-input__icon'),
+	removeSingleItem: wrapper.find('.slds-combobox .slds-input__icon'),
 	selectedListbox: wrapper.find(
 		`#${defaultProps.id}-selected-listbox .slds-listbox`
 	),
@@ -223,12 +218,18 @@ describe('SLDSCombobox', function () {
 		it('has aria-haspopup, aria-expanded is false when closed, aria-expanded is true when open', function () {
 			wrapper = mount(<DemoComponent multiple />, { attachTo: mountNode });
 			const nodes = getNodes({ wrapper });
-			expect(nodes.combobox).attr('aria-haspopup', 'listbox');
+			expect(nodes.combobox.node.getAttribute('aria-haspopup')).to.equal(
+				'listbox'
+			);
 			// closed
-			expect(nodes.combobox).attr('aria-expanded', 'false');
+			expect(nodes.combobox.node.getAttribute('aria-expanded')).to.equal(
+				'false'
+			);
 			// open
 			nodes.input.simulate('click', {});
-			expect(nodes.combobox).attr('aria-expanded', 'true');
+			expect(nodes.combobox.node.getAttribute('aria-expanded')).to.equal(
+				'true'
+			);
 		});
 
 		it('menu filters to second item, menu listbox menu item 2 aria-selected is true, input activedescendent has item 2 id, after pressing down arrow, enter selects item 2', function () {
@@ -240,16 +241,17 @@ describe('SLDSCombobox', function () {
 			nodes.input.simulate('change', { target: { value: accounts[1].label } });
 			nodes.input.simulate('keyDown', keyObjects.DOWN);
 			expect(
-				nodes.menuListbox.find('#combobox-unique-id-listbox-option-2')
-			).to.have.attr('aria-selected', 'true');
-			expect(nodes.input).attr(
-				'aria-activedescendant',
+				nodes.menuListbox.node.firstChild.firstChild.getAttribute(
+					'aria-selected'
+				)
+			).to.equal('true');
+			expect(nodes.input.node.getAttribute('aria-activedescendant')).to.equal(
 				`${defaultProps.id}-listbox-option-2`
 			);
 			// select
 			nodes.input.simulate('keyDown', keyObjects.ENTER);
 			nodes = getNodes({ wrapper });
-			expect(nodes.input).attr('value', '');
+			expect(nodes.input.node.getAttribute('value')).to.equal('');
 			expect(nodes.selectedListbox.find('.slds-pill__label').text()).to.equal(
 				accounts[1].label
 			);
@@ -317,43 +319,43 @@ describe('SLDSCombobox', function () {
 				keyObjects.DELETE
 			);
 			expect(getFocusedPillLabel()).to.equal(accountsWithIcon[1].label);
-			getSelectedListboxPills({
-				nodes: getNodes({ wrapper }),
-				index: 0,
-			}).simulate('keyDown', keyObjects.RIGHT);
+			getSelectedListboxPills({ nodes, index: 0 }).simulate(
+				'keyDown',
+				keyObjects.RIGHT
+			);
 			expect(getFocusedPillLabel()).to.equal(accountsWithIcon[2].label);
-			getSelectedListboxPills({
-				nodes: getNodes({ wrapper }),
-				index: 1,
-			}).simulate('keyDown', keyObjects.DELETE);
+			getSelectedListboxPills({ nodes, index: 1 }).simulate(
+				'keyDown',
+				keyObjects.DELETE
+			);
 			expect(getFocusedPillLabel()).to.equal(accountsWithIcon[3].label);
-			getSelectedListboxPills({
-				nodes: getNodes({ wrapper }),
-				index: 1,
-			}).simulate('keyDown', keyObjects.LEFT);
-			getSelectedListboxPills({
-				nodes: getNodes({ wrapper }),
-				index: 0,
-			}).simulate('keyDown', keyObjects.LEFT);
+			getSelectedListboxPills({ nodes, index: 1 }).simulate(
+				'keyDown',
+				keyObjects.LEFT
+			);
+			getSelectedListboxPills({ nodes, index: 0 }).simulate(
+				'keyDown',
+				keyObjects.LEFT
+			);
 			expect(getFocusedPillLabel()).to.equal(accountsWithIcon[4].label);
-			getSelectedListboxPills({
-				nodes: getNodes({ wrapper }),
-				index: 2,
-			}).simulate('keyDown', keyObjects.DELETE);
+			getSelectedListboxPills({ nodes, index: 2 }).simulate(
+				'keyDown',
+				keyObjects.DELETE
+			);
 			expect(getFocusedPillLabel()).to.equal(accountsWithIcon[3].label);
-			getSelectedListboxPills({
-				nodes: getNodes({ wrapper }),
-				index: 1,
-			}).simulate('keyDown', keyObjects.RIGHT);
+			getSelectedListboxPills({ nodes, index: 1 }).simulate(
+				'keyDown',
+				keyObjects.RIGHT
+			);
 			expect(getFocusedPillLabel()).to.equal(accountsWithIcon[1].label);
-			getSelectedListboxPills({
-				nodes: getNodes({ wrapper }),
-				index: 0,
-			}).simulate('keyDown', keyObjects.DELETE);
-			getSelectedListboxPills({
-				nodes: getNodes({ wrapper }),
-				index: 0,
-			}).simulate('keydown', keyObjects.DELETE);
+			getSelectedListboxPills({ nodes, index: 0 }).simulate(
+				'keyDown',
+				keyObjects.DELETE
+			);
+			getSelectedListboxPills({ nodes, index: 0 }).simulate(
+				'keydown',
+				keyObjects.DELETE
+			);
 		});
 	});
 
@@ -375,7 +377,7 @@ describe('SLDSCombobox', function () {
 			nodes.input.simulate('keyDown', letterKeyObjects.A);
 			nodes.input.simulate('keyDown', keyObjects.ENTER);
 			nodes = getNodes({ wrapper });
-			expect(nodes.selectedListbox).not.to.be.present;
+			expect(nodes.selectedListbox.node).to.be.an('undefined');
 		});
 
 		it('Inline Single Selection Remove selection', function () {
@@ -388,13 +390,13 @@ describe('SLDSCombobox', function () {
 			nodes.input.simulate('focus');
 			nodes.input.simulate('change', { target: { value: accounts[1].label } });
 			nodes.input.simulate('keyDown', keyObjects.ENTER);
-			expect(nodes.input).to.have.value('Salesforce.com, Inc.');
+			expect(nodes.input.node.value).to.equal('Salesforce.com, Inc.');
 			nodes = getNodes({ wrapper });
 
 			// remove selection
 			nodes.removeSingleItem.simulate('click');
 			nodes = getNodes({ wrapper });
-			expect(nodes.input).to.have.value('');
+			expect(nodes.input.node.value).to.equal('');
 		});
 	});
 

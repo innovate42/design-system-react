@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 import IconSettings from '../../icon-settings';
 
 import { POPOVER_TOOLTIP } from '../../../utilities/constants';
-import Tooltip from '../../tooltip';
+import PopoverTooltip from '../../popover-tooltip';
 
 import ButtonGroupExample from '../__examples__/button-group';
 import ButtonExample from '../__examples__/button';
@@ -15,9 +15,9 @@ import Icon from '../../icon';
 import Button from '../../button';
 
 const getPopoverTooltip = (props) => (
-	<Tooltip {...props}>
+	<PopoverTooltip {...props}>
 		<Button label="Trigger Tooltip" />
-	</Tooltip>
+	</PopoverTooltip>
 );
 
 const getPopoverTooltipAlign = (props) => {
@@ -42,9 +42,9 @@ const getPopoverTooltipAlign = (props) => {
 	align.forEach((value) => {
 		children.push(
 			<div key={value} style={{ margin: '100px auto' }}>
-				<Tooltip {...props} align={value}>
+				<PopoverTooltip {...props} align={value}>
 					{props.trigger}
-				</Tooltip>
+				</PopoverTooltip>
 			</div>
 		);
 	});
@@ -117,7 +117,7 @@ storiesOf(POPOVER_TOOLTIP, module)
 			), // react/no-unescaped-entities
 			trigger: (
 				<Icon
-					assistiveText={{ label: 'Case Icon' }}
+					assistiveText="Case Icon"
 					category="standard"
 					name="case"
 					size="small"

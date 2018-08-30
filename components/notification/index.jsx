@@ -143,7 +143,7 @@ class Notification extends React.Component {
 			// i18n
 			return (
 				<Button
-					assistiveText={{ icon: 'Dismiss Notification' }}
+					assistiveText="Dismiss Notification"
 					iconCategory="utility"
 					iconName="close"
 					iconSize={size}

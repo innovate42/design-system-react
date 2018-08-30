@@ -48,7 +48,7 @@ describe('SLDSAvatar: ', function () {
 			);
 
 			const avatar = wrapper.find('.slds-avatar_large');
-			expect(avatar).to.be.present;
+			expect(avatar.node).to.not.be.undefined;
 		});
 
 		describe('variant is a user', () => {
@@ -79,7 +79,7 @@ describe('SLDSAvatar: ', function () {
 
 			it('displays as a square (no circle class)', () => {
 				const avatar = wrapper.find('.slds-avatar_circle');
-				expect(avatar).to.not.be.present;
+				expect(avatar.node).to.be.undefined;
 			});
 		});
 	});
@@ -89,7 +89,11 @@ describe('SLDSAvatar: ', function () {
 			mountNode = createMountNode({ context: this });
 		});
 
-		it('renders "initials prop" initials if they are passed in directly', () => {
+		afterEach(() => {
+			destroyMountNode({ wrapper, mountNode });
+		});
+
+		it('renders "iniitals prop" initials if they are passed in directly', () => {
 			const avatar = mount(
 				<IconSettings iconPath="/assets/icons">
 					<SLDSAvatar initials="AW" />
@@ -98,7 +102,7 @@ describe('SLDSAvatar: ', function () {
 			);
 
 			const abbr = avatar.find('abbr');
-			expect(abbr.text()).to.equal('AW');
+			expect(abbr.node.textContent).to.equal('AW');
 		});
 
 		it('renders fallback initials abbr node if initials or label prop exists', () => {
@@ -120,7 +124,7 @@ describe('SLDSAvatar: ', function () {
 				{ attachTo: mountNode }
 			);
 			const abbr = avatar.find('abbr');
-			expect(abbr.text()).to.equal('JD');
+			expect(abbr.node.textContent).to.equal('JD');
 		});
 
 		it('renders first two letters of one word if label is one word', () => {
@@ -131,7 +135,7 @@ describe('SLDSAvatar: ', function () {
 				{ attachTo: mountNode }
 			);
 			const abbr = avatar.find('abbr');
-			expect(abbr.text()).to.equal('Ac');
+			expect(abbr.node.textContent).to.equal('Ac');
 		});
 
 		it('renders first letters of each word if label is two words', () => {
@@ -142,7 +146,7 @@ describe('SLDSAvatar: ', function () {
 				{ attachTo: mountNode }
 			);
 			const abbr = avatar.find('abbr');
-			expect(abbr.text()).to.equal('AC');
+			expect(abbr.node.textContent).to.equal('AC');
 		});
 
 		it('renders first letters of first and last word if label is more than two words', () => {
@@ -153,13 +157,17 @@ describe('SLDSAvatar: ', function () {
 				{ attachTo: mountNode }
 			);
 			const abbr = avatar.find('abbr');
-			expect(abbr.text()).to.equal('AI');
+			expect(abbr.node.textContent).to.equal('AI');
 		});
 	});
 
 	describe('Icon avatar fallback check', () => {
 		beforeEach(() => {
 			mountNode = createMountNode({ context: this });
+		});
+
+		afterEach(() => {
+			destroyMountNode({ wrapper, mountNode });
 		});
 
 		it('renders expected assistiveText', () => {
@@ -170,7 +178,7 @@ describe('SLDSAvatar: ', function () {
 				{ attachTo: mountNode }
 			);
 			const span = avatar.find('.slds-assistive-text');
-			expect(span.text()).to.equal('entity icon avatar');
+			expect(span.node.innerHTML).to.equal('entity icon avatar');
 		});
 
 		it('renders account icon', () => {
@@ -180,7 +188,8 @@ describe('SLDSAvatar: ', function () {
 				</IconSettings>,
 				{ attachTo: mountNode }
 			);
-			expect(avatar.find('.slds-icon-standard-account')).to.be.present;
+			const span = !!avatar.find('.slds-icon-standard-account').node;
+			expect(span).to.be.true;
 		});
 
 		it('renders user icon', () => {
@@ -190,7 +199,8 @@ describe('SLDSAvatar: ', function () {
 				</IconSettings>,
 				{ attachTo: mountNode }
 			);
-			expect(avatar.find('.slds-icon-standard-user')).to.be.present;
+			const span = !!avatar.find('.slds-icon-standard-user').node;
+			expect(span).to.be.true;
 		});
 	});
 });

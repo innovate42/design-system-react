@@ -156,11 +156,7 @@ describe('Tree: ', () => {
 			const list = this.wrapper.find(`.${COMPONENT_CSS_CLASSES.base}`);
 			expect(list).to.have.length(1);
 			expect(list.hasClass('this-is-an-unordered-list-test')).to.be.true;
-			expect(list.get(0).props.style).to.have.property(
-				'height',
-				'500px',
-				'height of list'
-			);
+			expect(list.node.offsetHeight).to.equal(500);
 
 			const heading = this.wrapper.find(`#${id}__heading`);
 			expect(heading).to.have.length(1);
@@ -214,7 +210,7 @@ describe('Tree: ', () => {
 			const expandedBranchList = this.wrapper
 				.find('#example-tree-2')
 				.find('.slds-is-expanded');
-			expect(expandedBranchList).to.have.length(2);
+			expect(expandedBranchList.node.childNodes).to.have.length(2);
 		});
 	});
 

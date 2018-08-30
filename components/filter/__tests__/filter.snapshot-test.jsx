@@ -1,4 +1,7 @@
-import { renderMarkup, testDOMandHTML } from '../../../tests/snapshot-helpers';
+import React from 'react';
+import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import { renderMarkup } from '../../../tests/snapshot-helpers';
 
 import Default from '../__examples__/default';
 import NewFilter from '../__examples__/new';
@@ -7,40 +10,34 @@ import PermanantFilter from '../__examples__/permanant';
 import ErrorFilter from '../__examples__/error';
 import AssistiveTextFilter from '../__examples__/assistive-text';
 
-testDOMandHTML({
-	name: 'Filter Base Snapshot',
-	test,
-	Component: Default,
+test('Filter Base Snapshot', () => {
+	const domTree = toJson(shallow(<Default />));
+	expect(domTree).toMatchSnapshot();
 });
 
-testDOMandHTML({
-	name: 'NewFilter Base Snapshot',
-	test,
-	Component: NewFilter,
+test('NewFilter Base Snapshot', () => {
+	const domTree = toJson(shallow(<NewFilter />));
+	expect(domTree).toMatchSnapshot();
 });
 
-testDOMandHTML({
-	name: 'LockedFilter Base Snapshot',
-	test,
-	Component: LockedFilter,
+test('LockedFilter Base Snapshot', () => {
+	const domTree = toJson(shallow(<LockedFilter />));
+	expect(domTree).toMatchSnapshot();
 });
 
-testDOMandHTML({
-	name: 'Permanant Filter Base Snapshot',
-	test,
-	Component: PermanantFilter,
+test('Permanant Filter Base Snapshot', () => {
+	const domTree = toJson(shallow(<PermanantFilter />));
+	expect(domTree).toMatchSnapshot();
 });
 
-testDOMandHTML({
-	name: 'Error Filter Base Snapshot',
-	test,
-	Component: ErrorFilter,
+test('Error Filter Base Snapshot', () => {
+	const domTree = toJson(shallow(<ErrorFilter />));
+	expect(domTree).toMatchSnapshot();
 });
 
-testDOMandHTML({
-	name: 'AssistiveText Filter',
-	test,
-	Component: AssistiveTextFilter,
+test('AssistiveText Filter', () => {
+	const domTree = toJson(shallow(<AssistiveTextFilter />));
+	expect(domTree).toMatchSnapshot();
 });
 
 test('Filter Base with custom className Snapshot', () => {

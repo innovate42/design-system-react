@@ -13,10 +13,6 @@ import React from 'react';
 import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
 
-// This component's `checkProps` which issues warnings to developers about properties when in development mode (similar to React's built in development tools)
-import checkProps from './check-props';
-import componentDoc from './docs.json';
-
 // ### Event Helpers
 import EventUtil from '../../utilities/event';
 
@@ -27,14 +23,6 @@ import {
 	GLOBAL_HEADER_SEARCH,
 	GLOBAL_HEADER_TOOL,
 } from '../../utilities/constants';
-
-const defaultProps = {
-	assistiveText: {
-		skipToNav: 'Skip to Navigation',
-		skipToContent: 'Skip to Main Content',
-	},
-	logoSrc: '/assets/images/logo-noname.svg',
-};
 
 /**
  * The global header is the anchor for the Salesforce platform and spans all other parts of the UI. It accepts children to define the items displayed within.
@@ -55,16 +43,6 @@ const GlobalHeader = createReactClass({
 
 	propTypes: {
 		/**
-		 * **Assistive text for accessibility.**
-		 * This object is merged with the default props object on every render.
-		 * * `skipToNav`: The localized text that will be read back for the "Skip to Navigation" accessibility link.
-		 * * `skipToContent`: The localized text that will be read back for the "Skip to Main Content" accessibility link.
-		 */
-		assistiveText: PropTypes.shape({
-			skipToNav: PropTypes.string,
-			skipToContent: PropTypes.string,
-		}),
-		/**
 		 * See the component description, this accepts some combination of `SLDSGlobalHeaderSearch`, `SLDSGlobalHeaderButton`, `SLDSGlobalHeaderDropdown`, and `SLDSGlobalHeaderProfile` components.
 		 */
 		children: PropTypes.node,
@@ -84,14 +62,22 @@ const GlobalHeader = createReactClass({
 		 * Required for accessibility. Should jump the user to the primary navigation.
 		 */
 		onSkipToNav: PropTypes.func,
+		/**
+		 * The localized text that will be read back for the "Skip to Main Content" accessibility link.
+		 */
+		skipToContentAssistiveText: PropTypes.string,
+		/**
+		 * The localized text that will be read back for the "Skip to Navigation" accessibility link.
+		 */
+		skipToNavAssistiveText: PropTypes.string,
 	},
 
 	getDefaultProps () {
-		return defaultProps;
-	},
-
-	componentWillMount () {
-		checkProps(GLOBAL_HEADER, this.props, componentDoc);
+		return {
+			logoSrc: '/assets/images/logo-noname.svg',
+			skipToNavAssistiveText: 'Skip to Navigation',
+			skipToContentAssistiveText: 'Skip to Main Content',
+		};
 	},
 
 	handleSkipToContent (e) {
@@ -120,11 +106,6 @@ const GlobalHeader = createReactClass({
 			}
 		});
 
-		const assistiveText = {
-			...defaultProps.assistiveText,
-			...this.props.assistiveText,
-		};
-
 		/* eslint-disable max-len, no-script-url */
 		return (
 			<header className="slds-global-header_container">
@@ -134,7 +115,7 @@ const GlobalHeader = createReactClass({
 						className="slds-assistive-text slds-assistive-text--focus"
 						onClick={this.handleSkipToNav}
 					>
-						{this.props.skipToNavAssistiveText || assistiveText.skipToNav}
+						{this.props.skipToNavAssistiveText}
 					</a>
 				) : null}
 				{this.props.onSkipToContent ? (
@@ -143,8 +124,7 @@ const GlobalHeader = createReactClass({
 						className="slds-assistive-text slds-assistive-text--focus"
 						onClick={this.handleSkipToContent}
 					>
-						{this.props.skipToContentAssistiveText ||
-							assistiveText.skipToContent}
+						{this.props.skipToContentAssistiveText}
 					</a>
 				) : null}
 				<div className="slds-global-header slds-grid slds-grid--align-spread">

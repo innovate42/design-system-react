@@ -8,8 +8,8 @@ The eventual goal is to remove all polyfills (such as [lodash](https://lodash.co
 
 **Please add any additional polyfills that you need to the list below** when you discover them. This library uses the following ECMAScript features:
 
-* `Array.prototype.findIndex` - use [core-js library](https://github.com/zloirock/core-js#commonjs)
-* `Element.classList` - use [classList.js](https://github.com/eligrey/classList.js)
+* findIndex - use [core-js library](https://github.com/zloirock/core-js#commonjs)
+* classList - use [classList.js](https://github.com/eligrey/classList.js)
 
 ### Internet Explorer 11 Support
 

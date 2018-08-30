@@ -23,14 +23,18 @@ const DataTableHead = createReactClass({
 
 	// ### Prop Types
 	propTypes: {
-		assistiveText: PropTypes.shape({
-			actionsHeader: PropTypes.string,
-			columnSort: PropTypes.string,
-			columnSortedAscending: PropTypes.string,
-			columnSortedDescending: PropTypes.string,
-			selectAllRows: PropTypes.string,
-			selectRow: PropTypes.string,
-		}),
+		/**
+		 * Text for heading of actions column
+		 */
+		assistiveTextForActionsHeader: PropTypes.string,
+		/**
+		 * Text for sort action on table column header
+		 */
+		assistiveTextForColumnSort: PropTypes.string,
+		/**
+		 * Text for select all checkbox within the table header
+		 */
+		assistiveTextForSelectAllRows: PropTypes.string,
 		allSelected: PropTypes.bool,
 		indeterminateSelected: PropTypes.bool,
 		canSelectRows: PropTypes.bool,
@@ -62,7 +66,7 @@ const DataTableHead = createReactClass({
 							<div className="slds-th__action slds-th__action--form">
 								<Checkbox
 									assistiveText={{
-										label: this.props.assistiveText.selectAllRows,
+										label: this.props.assistiveTextForSelectAllRows,
 									}}
 									checked={this.props.allSelected}
 									indeterminate={this.props.indeterminateSelected}
@@ -75,7 +79,7 @@ const DataTableHead = createReactClass({
 					) : null}
 					{this.props.columns.map((column) => (
 						<HeaderCell
-							assistiveText={this.props.assistiveText}
+							assistiveTextForColumnSort={this.props.assistiveTextForColumnSort}
 							id={`${this.props.id}-${column.props.property}`}
 							key={`${this.props.id}-${column.props.property}`}
 							onSort={this.props.onSort}
@@ -86,7 +90,7 @@ const DataTableHead = createReactClass({
 						<th scope="col" style={{ width: '3.25rem' }}>
 							<div className="slds-th__action">
 								<span className="slds-assistive-text">
-									{this.props.assistiveText.actionsHeader}
+									{this.props.assistiveTextForActionsHeader}
 								</span>
 							</div>
 						</th>

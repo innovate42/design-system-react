@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import assign from 'lodash.assign';
-import TestUtils from 'react-dom/test-utils';
+import TestUtils from 'react-addons-test-utils';
 import { expect } from 'chai';
 
 import SLDSMenuPicklist from '../../menu-picklist';
@@ -75,14 +75,17 @@ describe('SLDSMenuPicklist: ', function () {
 			removePicklist();
 		});
 
-		it('expands/contracts the dropdown on click', () => {
+		it('expands/contracts the dropdown on click', (done) => {
 			expect(getMenu(document.body)).to.equal(null);
 			Simulate.click(btn, {});
-			expect(getMenu(document.body).className).to.include(
-				'slds-dropdown--left'
-			);
-			Simulate.click(btn, {});
-			expect(getMenu(document.body)).to.equal(null);
+			setTimeout(() => {
+				expect(getMenu(document.body).className).to.include(
+					'slds-dropdown--left'
+				);
+				Simulate.click(btn, {});
+				expect(getMenu(document.body)).to.equal(null);
+				done();
+			}, 600);
 		});
 	});
 

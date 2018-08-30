@@ -162,7 +162,7 @@ const getDropdownPositioned = (props) => {
 							iconVariant="container"
 							iconCategory="utility"
 							iconName="settings"
-							assistiveText={{ icon: 'top right' }}
+							assistiveText="top right"
 						/>
 					</Trigger>
 				</Dropdown>
@@ -273,7 +273,7 @@ storiesOf(MENU_DROPDOWN, module)
 	.add('Custom Trigger', () =>
 		getDropdownCustomTrigger({
 			tabIndex: '-1',
-			assistiveText: { icon: 'Custom Dropdown Trigger' },
+			assistiveText: 'Custom Dropdown Trigger',
 			onSelect: (...rest) => {
 				action('Selected')(...rest);
 			},
@@ -291,7 +291,7 @@ storiesOf(MENU_DROPDOWN, module)
 	)
 	.add('Hover', () =>
 		getDropdown({
-			assistiveText: { icon: 'Icon More large' },
+			assistiveText: 'Icon More large',
 			buttonVariant: 'icon',
 			iconCategory: 'utility',
 			iconName: 'settings',
@@ -306,7 +306,7 @@ storiesOf(MENU_DROPDOWN, module)
 	.add('Two Hovers', () => (
 		<div>
 			{getDropdown({
-				assistiveText: { icon: 'Icon More large' },
+				assistiveText: 'Icon More large',
 				buttonVariant: 'icon',
 				iconCategory: 'utility',
 				iconName: 'settings',
@@ -318,7 +318,7 @@ storiesOf(MENU_DROPDOWN, module)
 				options,
 			})}{' '}
 			{getDropdown({
-				assistiveText: { icon: 'Icon More large' },
+				assistiveText: 'Icon More large',
 				buttonVariant: 'icon',
 				iconCategory: 'utility',
 				iconName: 'settings',
@@ -333,7 +333,7 @@ storiesOf(MENU_DROPDOWN, module)
 	))
 	.add('Hover with Checkmark', () =>
 		getDropdown({
-			assistiveText: { icon: 'More Options' },
+			assistiveText: 'More Options',
 			buttonVariant: 'icon',
 			checkmark: true,
 			iconCategory: 'utility',

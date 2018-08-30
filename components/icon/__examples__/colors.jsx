@@ -12,7 +12,7 @@ const Example = createReactClass({
 				<div className="slds-grid slds-grid--pull-padded slds-grid--vertical-align-center">
 					<div className="slds-col--padded">
 						<Icon
-							assistiveText={{ label: 'Lead' }}
+							assistiveText="Lead"
 							category="standard"
 							colorVariant="base"
 							name="lead"
@@ -20,7 +20,7 @@ const Example = createReactClass({
 					</div>
 					<div className="slds-col--padded">
 						<Icon
-							assistiveText={{ label: 'Lock' }}
+							assistiveText="Lock"
 							category="utility"
 							colorVariant="default"
 							name="lock"
@@ -28,15 +28,7 @@ const Example = createReactClass({
 					</div>
 					<div className="slds-col--padded">
 						<Icon
-							assistiveText={{ label: 'Lock' }}
-							category="utility"
-							colorVariant="light"
-							name="lock"
-						/>
-					</div>
-					<div className="slds-col--padded">
-						<Icon
-							assistiveText={{ label: 'Warning' }}
+							assistiveText="Warning"
 							category="utility"
 							colorVariant="warning"
 							name="warning"
@@ -44,7 +36,7 @@ const Example = createReactClass({
 					</div>
 					<div className="slds-col--padded">
 						<Icon
-							assistiveText={{ lable: 'Warning' }}
+							assistiveText="Warning"
 							category="utility"
 							colorVariant="error"
 							name="warning"
@@ -53,7 +45,7 @@ const Example = createReactClass({
 				</div>
 			</IconSettings>
 		);
-	},
+	}
 });
 
 export default Example; // export is replaced with `ReactDOM.render(<Example />, mountNode);` at runtime

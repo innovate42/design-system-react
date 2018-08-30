@@ -164,7 +164,7 @@ const Item = (props) => {
 				{/* eslint-enable jsx-a11y/no-static-element-interactions */}
 				<Button
 					tabIndex="-1"
-					assistiveText={{ icon: '' }}
+					assistiveText=""
 					role="presentation"
 					iconCategory="utility"
 					iconName="chevronright"
@@ -174,15 +174,16 @@ const Item = (props) => {
 					disabled
 				/>
 				{/* eslint-disable no-script-url */}
-				<span className="slds-size_1-of-1">
+				<a
+					tabIndex="-1"
+					href="javascript:void(0)"
+					// eslint-disable-next-line jsx-a11y/no-interactive-element-to-noninteractive-role
+					role="presentation"
+					className="slds-truncate"
+				>
 					{/* eslint-enable no-script-url */}
-					<Highlighter
-						search={props.searchTerm}
-						className="slds-tree__item-label slds-truncate"
-					>
-						{props.label}
-					</Highlighter>
-				</span>
+					<Highlighter search={props.searchTerm}>{props.label}</Highlighter>
+				</a>
 			</div>
 		</li>
 	);

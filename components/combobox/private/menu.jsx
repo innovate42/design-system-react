@@ -107,13 +107,13 @@ const propTypes = {
 const defaultProps = {};
 
 const Menu = (props) => {
-	let maxWidth = props.inheritWidthOf === 'menu' ? 'inherit' : undefined;
-	maxWidth =
-		props.inheritWidthOf === 'menu' && props.maxWidth
-			? props.maxWidth
-			: maxWidth;
-
-	// .slds-dropdown sets the menu to absolute positioning, since it has a relative parent. Absolute positioning removes clientHeight and clientWidth which Popper.js needs to absolute position the menu's wrapping div. Absolute positioning an already absolute positioned element doesn't work. Setting the menu's position to relative allows PopperJS to work it's magic.
+	const style =
+		props.inheritWidthOf === 'menu'
+			? {
+				width: 'auto',
+				maxWidth: props.maxWidth ? props.maxWidth : 'inherit',
+			}
+			: undefined;
 	const menuOptions = props.options.map((optionData, index) => {
 		const active =
 			index === props.activeOptionIndex &&
@@ -259,11 +259,7 @@ const Menu = (props) => {
 				props.classNameMenu
 			)}
 			role="presentation"
-			style={{
-				width: props.inheritWidthOf === 'menu' ? 'auto' : undefined,
-				maxWidth,
-				position: props.menuPosition !== 'relative' ? 'relative' : undefined,
-			}}
+			style={style}
 		>
 			{menuOptions.length ? (
 				menuOptions

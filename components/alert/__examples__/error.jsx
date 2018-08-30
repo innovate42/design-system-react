@@ -10,7 +10,7 @@ class Example extends React.Component {
 			<IconSettings iconPath="/assets/icons">
 				<AlertContainer>
 					<Alert
-						icon={<Icon category="utility" name="error" />}
+						icon={<Icon category="utility" name="ban" />}
 						labels={{
 							heading:
 								'Your browser is currently not supported. Your Salesforce may be degraded.',
