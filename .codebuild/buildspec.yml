@@ -6,7 +6,7 @@ version: 0.2
 phases:
   install:
     commands:
-      - sudo apt-get update && sudo apt-get install libx11-xcb-dev
+      - sudo apt-get update && sudo apt-get install -y libx11-xcb-dev
       - ./.codebuild/gitTags.sh
       - npm config set audit false
       - npm install
