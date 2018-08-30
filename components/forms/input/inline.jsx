@@ -102,7 +102,6 @@ const defaultProps = {
 class InlineEdit extends React.Component {
 	constructor (props) {
 		super(props);
-
 		this.state = {
 			isEditing: false,
 			value: null,
@@ -122,13 +121,6 @@ class InlineEdit extends React.Component {
 			this.autoFocus = false;
 		}
 	}
-
-	handleCloseBtnClick = () => {
-		this.endEditMode();
-		setTimeout(() => {
-			this.editButtonRef.focus();
-		}, 100);
-	};
 
 	endEditMode = (option) => {
 		if (this.willSave) {
@@ -227,18 +219,15 @@ class InlineEdit extends React.Component {
 							category="utility"
 							name="close"
 							position="right"
-							onBlur={this.handleBlur}
-							onClick={this.handleCloseBtnClick}
+							onClick={this.endEditMode}
+							tabIndex="-1"
 						/>
 					) : null
 				}
 				disabled={disabled}
 				inlineEditTrigger={
 					<Button
-						assistiveText={assistiveText}
-						buttonRef={(component) => {
-							if (component) this.editButtonRef = component;
-						}}
+						assistiveText={{ icon: assistiveText }}
 						className="slds-m-left_x-small"
 						disabled={disabled}
 						iconCategory="utility"
@@ -248,6 +237,7 @@ class InlineEdit extends React.Component {
 						variant="icon"
 					/>
 				}
+				onBlur={this.handleBlur}
 				onChange={this.handleChange}
 				onClick={!this.state.isEditing ? this.triggerEditMode : null}
 				onKeyDown={this.handleKeyDown}

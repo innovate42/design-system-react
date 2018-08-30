@@ -1,0 +1,607 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WelcomeMat Render Completed looks correct 1`] = `
+<div>
+  <section
+    aria-describedby="welcome-mat-13-content"
+    aria-labelledby="welcome-mat-13-label"
+    aria-modal="true"
+    className=" slds-welcome-mat"
+    role="dialog"
+    tabIndex="-1"
+  >
+    <div
+      className=""
+    >
+      
+      <div
+        className="slds-modal__content slds-welcome-mat__content slds-grid"
+        id="welcome-mat-13-content"
+      >
+        <div
+          className="slds-welcome-mat__info slds-size_1-of-2"
+        >
+          <div
+            className="slds-welcome-mat__info-content"
+          >
+            <h2
+              className="slds-welcome-mat__info-title"
+              id="welcome-mat-13-label"
+            >
+              The Lightning Experience is here!
+            </h2>
+            <div
+              className="slds-welcome-mat__info-description slds-text-longform"
+            >
+              <p>
+                Welcome to Lightning Experience, the modern, beautiful user experience from Salesforce. With a sales-and service-centric mindset, we focused on reinventing the desktop environment to better support your business processes.
+              </p>
+            </div>
+            <div>
+              <div
+                className="slds-welcome-mat__info-progress"
+              >
+                <p>
+                  <strong>
+                    3
+                    /
+                    3
+                     tasks completed
+                  </strong>
+                </p>
+              </div>
+              <div
+                aria-valuemax="100"
+                aria-valuemin="0"
+                aria-valuenow="40"
+                className="slds-progress-bar slds-progress-bar_circular"
+                role="progressbar"
+              >
+                <span
+                  className="slds-progress-bar__value"
+                  style={
+                    Object {
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <span
+                    className="slds-assistive-text"
+                  >
+                    Progress: 
+                    100
+                    %
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="slds-welcome-mat__tiles slds-size_1-of-2 slds-p-around_medium"
+        >
+          <a
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
+            href="javascript:void(0);"
+            onClick={[Function]}
+          >
+            <div
+              className="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_xx-small"
+            >
+              <div
+                className="slds-welcome-mat__tile-icon-container"
+              >
+                <span>
+                  <svg
+                    aria-hidden="true"
+                    className="slds-icon slds-icon--small slds-icon-text-default"
+                  >
+                    <use />
+                  </svg>
+                  
+                </span>
+                
+              </div>
+            </div>
+            <div
+              className="slds-media__body slds-border_left slds-p-around_small"
+            >
+              <h3
+                className="slds-welcome-mat__tile-title"
+              >
+                Welcome to Salesforce!
+              </h3>
+              <p
+                className="slds-welcome-mat__tile-description"
+              >
+                Lorem ipsum dolor sit amet,lorem ipsum dolor sit amet.
+              </p>
+            </div>
+          </a>
+          <a
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
+            href="javascript:void(0);"
+            onClick={[Function]}
+          >
+            <div
+              className="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_xx-small"
+            >
+              <div
+                className="slds-welcome-mat__tile-icon-container"
+              >
+                <span>
+                  <svg
+                    aria-hidden="true"
+                    className="slds-icon slds-icon--small slds-icon-text-default"
+                  >
+                    <use />
+                  </svg>
+                  
+                </span>
+                
+              </div>
+            </div>
+            <div
+              className="slds-media__body slds-border_left slds-p-around_small"
+            >
+              <h3
+                className="slds-welcome-mat__tile-title"
+              >
+                Learn About OpenCTI
+              </h3>
+              <p
+                className="slds-welcome-mat__tile-description"
+              >
+                Lorem ipsum dolor sit amet,lorem ipsum dolor sit amet.
+              </p>
+            </div>
+          </a>
+          <a
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
+            href="javascript:void(0);"
+            onClick={[Function]}
+          >
+            <div
+              className="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_xx-small"
+            >
+              <div
+                className="slds-welcome-mat__tile-icon-container"
+              >
+                <span>
+                  <svg
+                    aria-hidden="true"
+                    className="slds-icon slds-icon--small slds-icon-text-default"
+                  >
+                    <use />
+                  </svg>
+                  
+                </span>
+                
+              </div>
+            </div>
+            <div
+              className="slds-media__body slds-border_left slds-p-around_small"
+            >
+              <h3
+                className="slds-welcome-mat__tile-title"
+              >
+                Power Up the Utility Bar
+              </h3>
+              <p
+                className="slds-welcome-mat__tile-description"
+              >
+                Tap into case history or share notes with fellow agents—it all happens on the utility bar.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+</div>
+`;
+
+exports[`WelcomeMat Render InProgress looks correct 1`] = `
+<div>
+  <section
+    aria-describedby="welcome-mat-13-content"
+    aria-labelledby="welcome-mat-13-label"
+    aria-modal="true"
+    className=" slds-welcome-mat"
+    role="dialog"
+    tabIndex="-1"
+  >
+    <div
+      className=""
+    >
+      
+      <div
+        className="slds-modal__content slds-welcome-mat__content slds-grid"
+        id="welcome-mat-13-content"
+      >
+        <div
+          className="slds-welcome-mat__info slds-size_1-of-2"
+        >
+          <div
+            className="slds-welcome-mat__info-content"
+          >
+            <h2
+              className="slds-welcome-mat__info-title"
+              id="welcome-mat-13-label"
+            >
+              The Lightning Experience is here!
+            </h2>
+            <div
+              className="slds-welcome-mat__info-description slds-text-longform"
+            >
+              <p>
+                Welcome to Lightning Experience, the modern, beautiful user experience from Salesforce. With a sales-and service-centric mindset, we focused on reinventing the desktop environment to better support your business processes.
+              </p>
+            </div>
+            <div>
+              <div
+                className="slds-welcome-mat__info-progress"
+              >
+                <p>
+                  <strong>
+                    2
+                    /
+                    3
+                     tasks completed
+                  </strong>
+                </p>
+              </div>
+              <div
+                aria-valuemax="100"
+                aria-valuemin="0"
+                aria-valuenow="40"
+                className="slds-progress-bar slds-progress-bar_circular"
+                role="progressbar"
+              >
+                <span
+                  className="slds-progress-bar__value"
+                  style={
+                    Object {
+                      "width": "66%",
+                    }
+                  }
+                >
+                  <span
+                    className="slds-assistive-text"
+                  >
+                    Progress: 
+                    66
+                    %
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="slds-welcome-mat__tiles slds-size_1-of-2 slds-p-around_medium"
+        >
+          <a
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
+            href="javascript:void(0);"
+            onClick={[Function]}
+          >
+            <div
+              className="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_xx-small"
+            >
+              <div
+                className="slds-welcome-mat__tile-icon-container"
+              >
+                <span>
+                  <svg
+                    aria-hidden="true"
+                    className="slds-icon slds-icon--small slds-icon-text-default"
+                  >
+                    <use />
+                  </svg>
+                  
+                </span>
+                
+              </div>
+            </div>
+            <div
+              className="slds-media__body slds-border_left slds-p-around_small"
+            >
+              <h3
+                className="slds-welcome-mat__tile-title"
+              >
+                Welcome to Salesforce!
+              </h3>
+              <p
+                className="slds-welcome-mat__tile-description"
+              >
+                Lorem ipsum dolor sit amet,lorem ipsum dolor sit amet.
+              </p>
+            </div>
+          </a>
+          <a
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
+            href="javascript:void(0);"
+            onClick={[Function]}
+          >
+            <div
+              className="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_xx-small"
+            >
+              <div
+                className="slds-welcome-mat__tile-icon-container"
+              >
+                <span>
+                  <svg
+                    aria-hidden="true"
+                    className="slds-icon slds-icon--small slds-icon-text-default"
+                  >
+                    <use />
+                  </svg>
+                  
+                </span>
+                
+              </div>
+            </div>
+            <div
+              className="slds-media__body slds-border_left slds-p-around_small"
+            >
+              <h3
+                className="slds-welcome-mat__tile-title"
+              >
+                Learn About OpenCTI
+              </h3>
+              <p
+                className="slds-welcome-mat__tile-description"
+              >
+                Lorem ipsum dolor sit amet,lorem ipsum dolor sit amet.
+              </p>
+            </div>
+          </a>
+          <a
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
+            href="javascript:void(0);"
+            onClick={[Function]}
+          >
+            <div
+              className="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_xx-small"
+            >
+              <div
+                className="slds-welcome-mat__tile-icon-container"
+              >
+                <span>
+                  <svg
+                    aria-hidden="true"
+                    className="slds-icon slds-icon--small slds-icon-text-default"
+                  >
+                    <use />
+                  </svg>
+                  
+                </span>
+                
+              </div>
+            </div>
+            <div
+              className="slds-media__body slds-border_left slds-p-around_small"
+            >
+              <h3
+                className="slds-welcome-mat__tile-title"
+              >
+                Power Up the Utility Bar
+              </h3>
+              <p
+                className="slds-welcome-mat__tile-description"
+              >
+                Tap into case history or share notes with fellow agents—it all happens on the utility bar.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+</div>
+`;
+
+exports[`WelcomeMat Render ToDo looks correct 1`] = `
+<div>
+  <section
+    aria-describedby="welcome-mat-13-content"
+    aria-labelledby="welcome-mat-13-label"
+    aria-modal="true"
+    className=" slds-welcome-mat"
+    role="dialog"
+    tabIndex="-1"
+  >
+    <div
+      className=""
+    >
+      
+      <div
+        className="slds-modal__content slds-welcome-mat__content slds-grid"
+        id="welcome-mat-13-content"
+      >
+        <div
+          className="slds-welcome-mat__info slds-size_1-of-2"
+        >
+          <div
+            className="slds-welcome-mat__info-content"
+          >
+            <h2
+              className="slds-welcome-mat__info-title"
+              id="welcome-mat-13-label"
+            >
+              The Lightning Experience is here!
+            </h2>
+            <div
+              className="slds-welcome-mat__info-description slds-text-longform"
+            >
+              <p>
+                Welcome to Lightning Experience, the modern, beautiful user experience from Salesforce. With a sales-and service-centric mindset, we focused on reinventing the desktop environment to better support your business processes.
+              </p>
+            </div>
+            <div>
+              <div
+                className="slds-welcome-mat__info-progress"
+              >
+                <p>
+                  <strong>
+                    0
+                    /
+                    3
+                     tasks completed
+                  </strong>
+                </p>
+              </div>
+              <div
+                aria-valuemax="100"
+                aria-valuemin="0"
+                aria-valuenow="40"
+                className="slds-progress-bar slds-progress-bar_circular"
+                role="progressbar"
+              >
+                <span
+                  className="slds-progress-bar__value"
+                  style={
+                    Object {
+                      "width": "0%",
+                    }
+                  }
+                >
+                  <span
+                    className="slds-assistive-text"
+                  >
+                    Progress: 
+                    0
+                    %
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="slds-welcome-mat__tiles slds-size_1-of-2 slds-p-around_medium"
+        >
+          <a
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
+            href="javascript:void(0);"
+            onClick={[Function]}
+          >
+            <div
+              className="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_xx-small"
+            >
+              <div
+                className="slds-welcome-mat__tile-icon-container"
+              >
+                <span>
+                  <svg
+                    aria-hidden="true"
+                    className="slds-icon slds-icon--small slds-icon-text-default"
+                  >
+                    <use />
+                  </svg>
+                  
+                </span>
+                
+              </div>
+            </div>
+            <div
+              className="slds-media__body slds-border_left slds-p-around_small"
+            >
+              <h3
+                className="slds-welcome-mat__tile-title"
+              >
+                Welcome to Salesforce!
+              </h3>
+              <p
+                className="slds-welcome-mat__tile-description"
+              >
+                Lorem ipsum dolor sit amet,lorem ipsum dolor sit amet.
+              </p>
+            </div>
+          </a>
+          <a
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
+            href="javascript:void(0);"
+            onClick={[Function]}
+          >
+            <div
+              className="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_xx-small"
+            >
+              <div
+                className="slds-welcome-mat__tile-icon-container"
+              >
+                <span>
+                  <svg
+                    aria-hidden="true"
+                    className="slds-icon slds-icon--small slds-icon-text-default"
+                  >
+                    <use />
+                  </svg>
+                  
+                </span>
+                
+              </div>
+            </div>
+            <div
+              className="slds-media__body slds-border_left slds-p-around_small"
+            >
+              <h3
+                className="slds-welcome-mat__tile-title"
+              >
+                Learn About OpenCTI
+              </h3>
+              <p
+                className="slds-welcome-mat__tile-description"
+              >
+                Lorem ipsum dolor sit amet,lorem ipsum dolor sit amet.
+              </p>
+            </div>
+          </a>
+          <a
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
+            href="javascript:void(0);"
+            onClick={[Function]}
+          >
+            <div
+              className="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_xx-small"
+            >
+              <div
+                className="slds-welcome-mat__tile-icon-container"
+              >
+                <span>
+                  <svg
+                    aria-hidden="true"
+                    className="slds-icon slds-icon--small slds-icon-text-default"
+                  >
+                    <use />
+                  </svg>
+                  
+                </span>
+                
+              </div>
+            </div>
+            <div
+              className="slds-media__body slds-border_left slds-p-around_small"
+            >
+              <h3
+                className="slds-welcome-mat__tile-title"
+              >
+                Power Up the Utility Bar
+              </h3>
+              <p
+                className="slds-welcome-mat__tile-description"
+              >
+                Tap into case history or share notes with fellow agents—it all happens on the utility bar.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+</div>
+`;

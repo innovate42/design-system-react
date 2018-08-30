@@ -14,6 +14,7 @@ export Accordion from '../components/accordion/__docs__/storybook-stories';
 export Alert from '../components/alert/__docs__/storybook-stories';
 export AppLauncher from '../components/app-launcher/__docs__/storybook-stories';
 export Avatar from '../components/avatar/__docs__/storybook-stories';
+export BrandBand from '../components/brand-band/__docs__/storybook-stories';
 export Breadcrumb from '../components/breadcrumb/__docs__/storybook-stories';
 export Button from '../components/button/__docs__/storybook-stories';
 export ButtonGroup from '../components/button-group/__docs__/storybook-stories';
@@ -33,10 +34,10 @@ export InlineInput from '../components/forms/input/__docs__/inline/storybook-sto
 export Search from '../components/input/__docs__/search/storybook-stories';
 export GlobalHeader from '../components/global-header/__docs__/storybook-stories';
 export Icon from '../components/icon/__docs__/storybook-stories';
+export Illustration from '../components/illustration/__docs__/storybook-stories';
 export Lookup from '../components/lookup/__docs__/storybook-stories';
 export MediaObject from '../components/media-object/__docs__/storybook-stories';
 export Modal from '../components/modal/__docs__/storybook-stories';
-export Navigation from '../components/navigation/__docs__/storybook-stories';
 export Notification from '../components/notification/__docs__/storybook-stories';
 export PageHeader from '../components/page-header/__docs__/storybook-stories';
 export Panel from '../components/panel/__docs__/storybook-stories';
@@ -55,3 +56,7 @@ export TimePicker from '../components/time-picker/__docs__/storybook-stories';
 export Toast from '../components/toast/__docs__/storybook-stories';
 export Tooltip from '../components/tooltip/__docs__/storybook-stories';
 export Tree from '../components/tree/__docs__/storybook-stories';
+export VerticalNavigation from '../components/vertical-navigation/__docs__/storybook-stories';
+
+export WelcomeMat from '../components/welcome-mat/__docs__/storybook-stories';
+export Login from '../components/login/__docs__/storybook-stories';

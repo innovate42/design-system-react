@@ -7,7 +7,13 @@ export const APP_LAUNCHER = 'SLDSAppLauncher';
 export const APP_LAUNCHER_SECTION = 'SLDSAppLauncherSection';
 export const APP_LAUNCHER_TILE = 'SLDSAppLauncherTile';
 export const APP_LAUNCHER_HEADER = 'SLDSAppLauncherHeader';
+
+export const WELCOME_MAT = 'SLDSWelcomeMat';
+export const WELCOME_MAT_STEP = 'SLDSWelcomeMatStep';
+
 export const AVATAR = 'SLDSAvatar';
+export const BRAND_BAND = 'SLDSBrandBand';
+
 /* Remove at next breaking change */
 export const BREAD_CRUMB = 'SLDSBreadcrumb';
 
@@ -33,11 +39,11 @@ export const DATA_TABLE_ROW = 'SLDSDataTableRow';
 export const DATE_PICKER = 'SLDSDatePicker';
 export const DIALOG = 'SLDSDialog';
 export const FILTER = 'SLDSFilter';
-export const FORMS_CHECKBOX = 'SLDSCheckbox';
+export const CHECKBOX = 'SLDSCheckbox';
 export const FORMS_INLINE_EDIT = 'SLDSInlineEdit';
-export const FORMS_INPUT = 'SLDSInput';
-export const FORMS_TEXTAREA = 'SLDSTextarea';
-export const FORMS_SEARCH = 'SLDSSearch';
+export const INPUT = 'SLDSInput';
+export const TEXTAREA = 'SLDSTextarea';
+export const SEARCH = 'SLDSSearch';
 export const GLOBAL_HEADER = 'SLDSGlobalHeader';
 export const GLOBAL_HEADER_PROFILE = 'SLDSGlobalHeaderProfile';
 export const GLOBAL_HEADER_SEARCH = 'SLDSGlobalHeaderSearch';
@@ -55,6 +61,7 @@ export const HIGHLIGHTER = 'SLDSHighlighter';
 export const ICON = 'SLDSIcon';
 export const ICON_SETTINGS = 'SLDSIconSettings';
 export const ICON_INPUT = 'SLDSIconInput';
+export const ILLUSTRATION = 'SLDSIllustration';
 export const LIST = 'SLDSList';
 export const LIST_ITEM = 'SLDSListItem';
 export const LIST_ITEM_LABEL = 'SLDSListItemLabel';
@@ -64,8 +71,6 @@ export const MENU_DROPDOWN = 'SLDSMenuDropdown';
 export const MENU_DROPDOWN_TRIGGER = 'SLDSMenuDropdownTrigger';
 export const MENU_PICKLIST = 'SLDSMenuPicklist';
 export const MODAL = 'SLDSModal';
-export const NAVIGATION = 'SLDSNavigation';
-export const NAVIGATION_ITEM = 'SLDSNavigationItem';
 export const NOTIFICATION = 'SLDSNotification';
 export const PANEL = 'SLDSPanel';
 export const PANEL_FILTER_GROUP = 'SLDSFilterGroup';
@@ -99,3 +104,6 @@ export const TOAST_CONTAINER = 'SLDSToastContainer';
 export const TREE = 'SLDSTree';
 export const TREE_BRANCH = 'SLDSTreeBranch';
 export const TREE_ITEM = 'SLDSTreeItem';
+export const VERTICAL_NAVIGATION = 'SLDSVerticalNavigation';
+export const VERTICAL_NAVIGATION_ITEM = 'SLDSVerticalNavigationItem';
+export const LOGIN = 'LOGIN';

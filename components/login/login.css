@@ -1,0 +1,53 @@
+.Login {
+  display: flex;
+  margin-top: 0px;
+ height: 100%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ width: 100%;
+ max-width: 420px;
+ margin: 0 auto;
+ padding: 15px;
+
+
+
+}
+.Login Input {
+  height: 60px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.LoginForm {
+ width: 100%;
+ max-width: 420px;
+ margin: 0 auto;
+}
+
+.Text-center {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.Logo {
+  height: 70px;
+  margin-bottom: 1.5rem;
+}
+
+.h3{
+ font-size: 1.75rem;
+}
+.Submit-button {
+  height: 3rem;
+  line-height: 1.5rem;
+  font-size: 1.25rem;
+  width: 100%;
+  padding: .5rem 1rem;
+}
+
+.Remember-checkbox {
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+}
