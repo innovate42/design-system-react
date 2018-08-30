@@ -2,6 +2,8 @@
 # FROM: https://stackoverflow.com/questions/47657423/get-github-git-branch-for-aws-codebuild
 
 git status
+git log
+git branch
 export GIT_BRANCH=`git symbolic-ref HEAD --short 2>/dev/null`
 if [ "$GIT_BRANCH" == "" ] ; then
   GIT_BRANCH=`git branch -a --contains HEAD | sed -n 2p | awk '{ printf $1 }'`
