@@ -22,7 +22,7 @@ const Example = createReactClass({
 						iconName="down"
 						variant="icon"
 						iconVariant="border-filled"
-						assistiveText={{ icon: 'More Actions' }}
+						assistiveText="More Actions"
 					/>
 				</div>
 			</div>
@@ -32,7 +32,7 @@ const Example = createReactClass({
 			<div>
 				<Dropdown
 					align="right"
-					assistiveText={{ icon: 'Change view' }}
+					assistiveText="Change view"
 					iconName="settings"
 					iconVariant="more"
 					options={[
@@ -45,7 +45,7 @@ const Example = createReactClass({
 				>
 					<DropdownTrigger>
 						<Button
-							assistiveText={{ icon: 'Change view' }}
+							assistiveText="Change view"
 							className="slds-m-right--xx-small"
 							iconCategory="utility"
 							iconName="table"
@@ -61,7 +61,7 @@ const Example = createReactClass({
 						variant="icon"
 						iconVariant="border"
 						className="slds-m-left--xx-small"
-						assistiveText={{ icon: 'Chart' }}
+						assistiveText="Chart"
 					/>
 					<Button
 						iconCategory="utility"
@@ -69,12 +69,12 @@ const Example = createReactClass({
 						variant="icon"
 						iconVariant="border"
 						className="slds-m-left--xx-small"
-						assistiveText={{ icon: 'Filter List' }}
+						assistiveText="Filter List"
 					/>
 					<Dropdown
 						triggerClassname
 						align="right"
-						assistiveText={{ icon: 'List View Controls' }}
+						assistiveText="List View Controls"
 						iconName="sort"
 						iconVariant="more"
 						options={[

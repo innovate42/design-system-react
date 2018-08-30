@@ -10,7 +10,7 @@ const Example = createReactClass({
 		return (
 			<IconSettings iconPath="/assets/icons">
 				<Icon
-					assistiveText={{ label: 'Description of icon' }}
+					assistiveText="Description of icon"
 					category="standard"
 					name="case"
 					size="large"

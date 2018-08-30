@@ -19,21 +19,11 @@ import isFunction from 'lodash.isfunction';
 // A simple javascript utility for conditionally joining classNames together.
 import classNames from 'classnames';
 
-// This component's `checkProps` which issues warnings to developers about properties when in development mode (similar to React's built in development tools)
-import checkProps from './check-props';
-import componentDoc from './docs.json';
-
 // ## Children
 import Button from '../button';
 
 // ## Constants
 import { APP_LAUNCHER_SECTION } from '../../utilities/constants';
-
-const defaultProps = {
-	assistiveText: {
-		collapseSection: 'Toggle visibility of section',
-	},
-};
 
 /**
  * App Launcher Sections allow users to categorize App Tiles as well as toggle their display
@@ -46,14 +36,6 @@ const AppLauncherSection = createReactClass({
 	// ### Prop Types
 	propTypes: {
 		/**
-		 * **Assistive text for accessibility.**
-		 * This object is merged with the default props object on every render.
-		 * * `collapseSection`: The assistive text for the section collapse icons.
-		 */
-		assistiveText: PropTypes.shape({
-			collapseSection: PropTypes.string,
-		}),
-		/**
 		 * The title for this section of apps
 		 */
 		title: PropTypes.string.isRequired,
@@ -61,6 +43,10 @@ const AppLauncherSection = createReactClass({
 		 * Allows the user to show/hide the section
 		 */
 		toggleable: PropTypes.bool,
+		/**
+		 * The assistive text for the section collapse icons
+		 */
+		collapseSectionAssistiveText: PropTypes.string,
 		/**
 		 * An array of applications to display
 		 */
@@ -76,17 +62,15 @@ const AppLauncherSection = createReactClass({
 	},
 
 	getDefaultProps () {
-		return defaultProps;
+		return {
+			collapseSectionAssistiveText: 'Toggle visibility of section',
+		};
 	},
 
 	getInitialState () {
 		return {
 			isOpen: true,
 		};
-	},
-
-	componentWillMount () {
-		checkProps(APP_LAUNCHER_SECTION, this.props, componentDoc);
 	},
 
 	toggleOpen (event) {
@@ -104,21 +88,13 @@ const AppLauncherSection = createReactClass({
 		const sectionIsOpenClass = isOpen
 			? 'slds-is-expanded'
 			: 'slds-is-collapsed';
-		const assistiveText = {
-			...defaultProps.assistiveText,
-			...this.props.assistiveText,
-		};
 
 		return (
 			<div className={classNames('slds-section', iconIsOpenClass)}>
 				<div className="slds-section__title">
 					{this.props.toggleable || this.props.onToggleClick ? (
 						<Button
-							assistiveText={{
-								icon:
-									this.props.collapseSectionAssistiveText ||
-									assistiveText.collapseSection,
-							}}
+							assistiveText={this.props.collapseSectionAssistiveText}
 							iconCategory="utility"
 							iconName="switch"
 							onClick={this.toggleOpen}

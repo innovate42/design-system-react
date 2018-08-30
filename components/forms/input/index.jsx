@@ -3,12 +3,5 @@
 
 // Alias
 import Input from '../../input';
-import componentHasMoved from '../../../utilities/warning/component-has-moved';
-import { INPUT } from '../../../utilities/constants';
-
-componentHasMoved(INPUT, {
-	oldFileLocation: 'components/forms/input',
-	newFileLocation: 'components/input',
-});
 
 export default Input;

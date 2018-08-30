@@ -33,7 +33,7 @@ const PanelFilterListHeading = ({ heading, isLocked, lockedHeading }) => (
 		{isLocked ? (
 			<Icon
 				className="slds-m-left--x-small"
-				assistiveText={{ label: 'locked' }}
+				assistiveText="locked"
 				category="utility"
 				name="lock"
 				size="x-small"

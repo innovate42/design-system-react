@@ -55,9 +55,7 @@ describe('SLDSSplitView - Listbox', () => {
 		const anchors = component.find('li > a');
 
 		listOptions.forEach((item, index) => {
-			expect(anchors.get(index).props.tabIndex).to.equal(
-				index === value ? 0 : -1
-			);
+			expect(anchors.get(index).tabIndex).to.equal(index === value ? 0 : -1);
 		});
 	};
 

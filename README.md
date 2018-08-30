@@ -1,12 +1,5 @@
 # Design System for React
 
-	This is a fork use the following to install in a project.
-	Adds missing components, and some behaviour changes as required.
-	 
-	npm install git+ssh://git@github.com:innovate42/design-system-react.git#experimental --save
-	
-	This will install to the @i42 namespace - so @salesforce with @i42 replace   
-
 ### Accessible, localization-friendly, presentational React components
 
 [![Build Status](https://api.travis-ci.org/salesforce/design-system-react.svg?branch=master)](https://travis-ci.org/salesforce/design-system-react) [![DeepScan Grade](https://deepscan.io/api/projects/1475/branches/4666/badge/grade.svg)](https://deepscan.io/dashboard/#view=project&pid=1475&bid=4666)
@@ -19,7 +12,7 @@ $ npm install @salesforce-ux/design-system @salesforce/design-system-react
 
 ## Getting Started
 
-Welcome to the project! :wave: This library is the [React](https://facebook.github.io/react/) implementation of the [Salesforce Lightning Design System](https://www.lightningdesignsystem.com/). This library has a peer dependency on `@salesforce-ux/design-system`, `react`, and `react-dom`. It is tested with React 16 and has a stable API despite its version number. Please polyfill this library in order to meet your target environment needs.
+Welcome to the project! :wave: This library is the [React](https://facebook.github.io/react/) implementation of the [Salesforce Lightning Design System](https://www.lightningdesignsystem.com/). This library has a peer dependency on `@salesforce-ux/design-system`, `react`, and `react-dom`. It has been tested with React >=15.4.1 <16 and is stable despite its version number. Please polyfill this library in order to meet your target environment needs.
 
 * [Usage](#usage)
 * [Getting started](https://react.lightningdesignsystem.com/getting-started/)
@@ -35,7 +28,7 @@ Welcome to the project! :wave: This library is the [React](https://facebook.gith
 
 ### Quick Setup (CommonJS)
 
-For a no hassle setup and compatibility with Create React App v1, a CommonJS version has been included within the NPM package. If using this setup, please re-write the `import` statement in the documentation site examples. Use the following named `import` syntax to access CommonJS components from `/lib/index.js`:
+For a no hassle setup and compatibility with Create React App v1, a CommonJS version has been included within the NPM package to allow usage without transpiling. Use the following named `import` syntax to access CommonJS components from `/lib/index.js`:
 
 ```
 import { Button } from '@salesforce/design-system-react';
@@ -62,10 +55,13 @@ import Button from '@salesforce/design-system-react/components/button';
 	"presets": ["@salesforce/babel-preset-design-system-react"]
 }
 ```
-
 ### Styling
 
-This library does not contain any Cascading Style Sheets (CSS). You will need to add `<link rel="stylesheet" type="text/css" href="/node_modules/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.min.css" />` to your page and serve that file from a publicly available folder.
+This library does not contain any Cascading Style Sheets (CSS). You will need to add `<link rel="stylesheet" type="text/css"  href="/node_modules/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.min.css" />` to your page and serve that file from a publicly available folder.
+
+### Icon Usage
+
+Prior to v0.7.0, SLDS icons were bundled with the JavaScript. The 400KB+ icons bundle from [SLDS](https://www.lightningdesignsystem.com/) is no longer included. You will need to download the SLDS CSS and icons separately.
 
 #### Serve icons publicly
 
@@ -89,7 +85,7 @@ ReactDOM.render(
 
 ```
 // ExpressJS example
-app.use('/assets/icons', express.static('node_modules/@salesforce-ux/design-system/assets/icons/'));
+app.use('/assets/icons', express.static('node_modules/@salesforce-ux/icons/dist/salesforce-lightning-design-system-icons/'));
 ```
 
 #### Bundle icons
@@ -98,6 +94,7 @@ If you use a module bundler, like Webpack, you can let your module bundler manag
 
 ```
 import IconSettings from '@salesforce/design-system-react/components/icon-settings';
+
 import standardSprite from '@salesforce-ux/design-system/assets/icons/standard-sprite/svg/symbols.svg';
 ...
 ...
@@ -109,10 +106,6 @@ ReactDOM.render(
   document.getElementById('app')
 )
 ```
-
-### Icon Usage
-
-Prior to v0.7.0, SLDS icons were bundled with the JavaScript. The 400KB+ icons bundle from [SLDS](https://www.lightningdesignsystem.com/) is no longer included. You will need to download the SLDS CSS and icons separately.
 
 Bundled script files are provided _only_ for convenience. Do not use in production.
 

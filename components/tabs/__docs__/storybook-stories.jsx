@@ -245,14 +245,14 @@ const DemoTabsConditional = createReactClass({
 				<p>This is tab A.</p>
 				<div>
 					<Checkbox
-						assistiveText={{ label: 'Disable tab B' }}
+						assistiveText="Disable tab B"
 						checked={this.state.disableB}
 						onChange={this.handleCheckClickedDisable}
 						label="Disable tab B"
 						name="disableB"
 					/>
 					<Checkbox
-						assistiveText={{ label: 'Disable tab C' }}
+						assistiveText="Disable tab C"
 						checked={this.state.disableC}
 						onChange={this.handleCheckClickedDisable}
 						label="Disable tab C"
@@ -269,14 +269,14 @@ const DemoTabsConditional = createReactClass({
 				<h2 className="slds-text-heading--large">Conditional Tabs Demo</h2>
 
 				<Checkbox
-					assistiveText={{ label: 'Show tab A' }}
+					assistiveText="Show tab A"
 					checked={this.state.showA}
 					onChange={this.handleCheckClicked}
 					label="Show tab A"
 					name="showA"
 				/>
 				<Checkbox
-					assistiveText={{ label: 'Show tab B' }}
+					assistiveText="Show tab B"
 					checked={this.state.showB}
 					onChange={this.handleCheckClicked}
 					label="Show tab B"
@@ -286,7 +286,7 @@ const DemoTabsConditional = createReactClass({
 				<Checkbox
 					checked={this.state.showC}
 					onChange={this.handleCheckClicked}
-					assistiveText={{ label: 'Show tab C' }}
+					assistiveText="Show tab C"
 					label="Show tab C"
 					name="showC"
 				/>
@@ -538,6 +538,7 @@ const getCustomContentTabs = () => {
 	const tab1Label = (
 		<div aria-label="test accessibility!">
 			<Icon
+				assistiveText=""
 				category="utility"
 				name="list"
 				style={{ marginRight: '.5rem' }}

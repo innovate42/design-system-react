@@ -20,7 +20,6 @@ import isFunction from 'lodash.isfunction';
 
 // This component's `checkProps` which issues warnings to developers about properties when in development mode (similar to React's built in development tools)
 import checkProps from './check-props';
-import componentDoc from './docs.json';
 
 // ## Children
 import Modal from '../modal';
@@ -32,7 +31,6 @@ const defaultProps = {
 	assistiveText: {
 		trigger: 'Open App Launcher',
 	},
-	ariaHideApp: true,
 	title: 'App Launcher',
 };
 
@@ -84,10 +82,6 @@ const AppLauncher = createReactClass({
 		assistiveText: PropTypes.shape({
 			trigger: PropTypes.string,
 		}),
-		/**
-		 * Boolean indicating if the appElement should be hidden.
-		 */
-		ariaHideApp: PropTypes.bool,
 		/**
 		 * One or more `<AppLauncherSection />`s each containing one or more `<AppLauncherTile />`s
 		 */
@@ -146,7 +140,7 @@ const AppLauncher = createReactClass({
 
 	componentWillMount () {
 		// `checkProps` issues warnings to developers about properties (similar to React's built in development tools)
-		checkProps(APP_LAUNCHER, this.props, componentDoc);
+		checkProps(APP_LAUNCHER, this.props);
 	},
 
 	openAppLauncher (event) {
@@ -254,7 +248,6 @@ const AppLauncher = createReactClass({
 					</button>
 				</div>
 				<Modal
-					ariaHideApp={this.props.ariaHideApp}
 					contentClassName="slds-modal__content slds-app-launcher__content slds-p-around--medium"
 					contentStyle={{ minHeight: modalContentStaticHeight }}
 					isOpen={isOpen}

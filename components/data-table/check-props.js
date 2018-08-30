@@ -3,57 +3,30 @@
 /* eslint-disable import/no-mutable-exports */
 
 import deprecatedProperty from '../../utilities/warning/deprecated-property';
-import getComponentDocFn from '../../utilities/get-component-doc';
 import sunsetProperty from '../../utilities/warning/sunset-property';
 
 let checkProps = function () {};
 
 if (process.env.NODE_ENV !== 'production') {
-	checkProps = function (COMPONENT, props, jsonDoc) {
-		const createDocUrl = getComponentDocFn(jsonDoc);
+	checkProps = function (COMPONENT, props) {
 		/* eslint-disable max-len */
 		// Deprecated and changed to another property
-		deprecatedProperty(
-			COMPONENT,
-			props.onChange,
-			'onChange',
-			'onRowChange',
-			'The callback parameters have been changed. `onRowChange` passes in `[event, { selection }` in order to align with other components.'
-		);
 		deprecatedProperty(
 			COMPONENT,
 			props.compact,
 			'compact',
 			undefined,
-			`compact has been deprecated as non-compact data tables do not exist in SLDS. ${createDocUrl()}`
+			'compact has been deprecated as non-compact data tables do not exist in SLDS'
 		);
 
-		deprecatedProperty(
-			COMPONENT,
-			props.collection,
-			'collection',
-			'items',
-			createDocUrl('items')
-		);
-		deprecatedProperty(
-			COMPONENT,
-			props.onSelect,
-			'onSelect',
-			'onChange',
-			createDocUrl('onChange')
-		);
-		deprecatedProperty(
-			COMPONENT,
-			props.onDeselect,
-			'onDeselect',
-			'onChange',
-			createDocUrl('onChange')
-		);
+		deprecatedProperty(COMPONENT, props.collection, 'collection', 'items');
+		deprecatedProperty(COMPONENT, props.onSelect, 'onSelect', 'onChange');
+		deprecatedProperty(COMPONENT, props.onDeselect, 'onDeselect', 'onChange');
 		sunsetProperty(
 			COMPONENT,
 			props.sortable,
 			'sortable',
-			`The table is sortable if one or more of its columns are sortable. ${createDocUrl()}`
+			'The table is sortable if one or more of its columns are sortable.'
 		);
 
 		// Deprecated and moved to a child
@@ -61,61 +34,16 @@ if (process.env.NODE_ENV !== 'production') {
 			COMPONENT,
 			props.columns,
 			'columns',
-			`Please provide one or more children of the type <Column /> instead. ${createDocUrl()}`
+			'Please provide one or more children of the type <Column /> instead.'
 		);
 
 		sunsetProperty(
 			COMPONENT,
 			props.bordered,
 			'bordered',
-			`All SLDS DataTables have row borders by default now. If you do not want row borders, please use \`unborderedRow\`. ${createDocUrl(
-				'unborderedRow'
-			)}`
+			'All SLDS DataTables have row borders by default now. If you do not want row borders, please use `unborderedRow`'
 		);
 		/* eslint-enable max-len */
-
-		deprecatedProperty(
-			COMPONENT,
-			props.assistiveTextForActionsHeader,
-			'assistiveTextForActionsHeader',
-			"assistiveText['actionsHeader']",
-			createDocUrl('assistiveText')
-		);
-		deprecatedProperty(
-			COMPONENT,
-			props.assistiveTextForColumnSort,
-			'assistiveTextForColumnSort',
-			"assistiveText['columnSort']",
-			createDocUrl('assistiveText')
-		);
-		deprecatedProperty(
-			COMPONENT,
-			props.assistiveTextForColumnSortedAscending,
-			'assistiveTextForColumnSortedAscending',
-			"assistiveText['columnSortedAscending']",
-			createDocUrl('assistiveText')
-		);
-		deprecatedProperty(
-			COMPONENT,
-			props.assistiveTextForColumnSortedDescending,
-			'assistiveTextForColumnSortedDescending',
-			"assistiveText['columnSortedDescending']",
-			createDocUrl('assistiveText')
-		);
-		deprecatedProperty(
-			COMPONENT,
-			props.assistiveTextForSelectAllRows,
-			'assistiveTextForSelectAllRows',
-			"assistiveText['selectAllRows']",
-			createDocUrl('assistiveText')
-		);
-		deprecatedProperty(
-			COMPONENT,
-			props.assistiveTextForSelectRow,
-			'assistiveTextForSelectRow',
-			"assistiveText['selectRow']",
-			createDocUrl('assistiveText')
-		);
 	};
 }
 

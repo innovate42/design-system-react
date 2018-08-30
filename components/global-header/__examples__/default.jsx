@@ -48,14 +48,14 @@ const Example = createReactClass({
 						options={[{ label: 'New Note' }, { label: 'Log a Call' }]}
 					/>
 					<GlobalHeaderButton
-						assistiveText={{ icon: 'Help and Training' }}
+						assistiveText="Help and Training"
 						iconName="question"
 						onClick={() => {
 							console.log('>>> onClick');
 						}}
 					/>
 					<GlobalHeaderButton
-						assistiveText={{ icon: 'Setup' }}
+						assistiveText="Setup"
 						iconName="settings"
 						onClick={() => {
 							console.log('>>> onClick');

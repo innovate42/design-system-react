@@ -38,9 +38,9 @@ const GlobalHeaderDropdownTrigger = createReactClass({
 	// ### Prop Types
 	propTypes: {
 		/**
-		 * An image URL or avatar node to display for the user profile.
+		 * An image URL to display for the user profile.
 		 */
-		avatar: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+		avatar: PropTypes.string,
 		/**
 		 * CSS classes to be added to `li` element.
 		 */
@@ -107,22 +107,11 @@ const GlobalHeaderDropdownTrigger = createReactClass({
 		triggerRef: PropTypes.func,
 	},
 
-	renderAvatar () {
-		const { avatar } = this.props;
-		if (typeof avatar === 'string') {
-			return (
-				<span className="slds-avatar slds-avatar--circle slds-avatar--medium">
-					<img src={avatar} alt="" />
-				</span>
-			);
-		}
-		return avatar || null;
-	},
-
 	// ### Render
 	render () {
 		// The following props are provided to the `li`, all others are passed into the `Button`
 		const {
+			avatar,
 			className,
 			id,
 			isOpen,
@@ -139,6 +128,7 @@ const GlobalHeaderDropdownTrigger = createReactClass({
 			...rest
 		} = this.props;
 
+		// TODO: Add avatar component for use across multiple components
 		return (
 			/* eslint-disable jsx-a11y/no-static-element-interactions */
 			<li
@@ -170,10 +160,13 @@ const GlobalHeaderDropdownTrigger = createReactClass({
 						'slds-global-header__icon-actions': globalAction,
 					})}
 					aria-haspopup="true"
-					buttonVariant="dropdown"
 					{...rest}
 				>
-					{this.renderAvatar()}
+					{avatar ? (
+						<span className="slds-avatar slds-avatar--circle slds-avatar--medium">
+							<img src={avatar} alt="" />
+						</span>
+					) : null}
 				</Button>
 				{menu}
 			</li>

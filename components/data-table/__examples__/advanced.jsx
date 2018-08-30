@@ -77,9 +77,8 @@ const Example = createReactClass({
 		};
 	},
 
-	handleChanged (event, data) {
-		this.setState({ selection: data.selection });
-		console.log(event, data);
+	handleChanged (selection) {
+		this.setState({ selection });
 	},
 
 	handleRowAction (item, action) {
@@ -127,18 +126,10 @@ const Example = createReactClass({
 			<div>
 				<IconSettings iconPath="/assets/icons">
 					<DataTable
-						assistiveText={{
-							actionsHeader: 'actions',
-							columnSort: 'sort this column',
-							columnSortedAscending: 'asc',
-							columnSortedDescending: 'desc',
-							selectAllRows: 'all rows',
-							selectRow: 'select this row',
-						}}
 						fixedLayout
 						items={this.state.items}
 						id="DataTableExample-2"
-						onRowChange={this.handleChanged}
+						onChange={this.handleChanged}
 						onSort={this.handleSort}
 						selection={this.state.selection}
 						selectRows

@@ -1,10 +1,10 @@
 {
-	"name": "@i42/design-system-react",
-	"version": "0.8.22",
+	"name": "design-system-react",
+	"version": "0.8.16",
 	"description": "Salesforce Lightning Design System for React",
 	"license": "SEE LICENSE IN README.md",
 	"engines": {
-		"node": "*",
+		"node": "8.x",
 		"npm": "^5.5.1"
 	},
 	"scripts": {
@@ -36,7 +36,7 @@
 		"test:fix": "NODE_ENV=test scripts/local-qa.sh",
 		"travis-ci": "NODE_ENV=test scripts/travis-ci.sh",
 		"validate": "npm ls",
-		"deploy-storybook": "storybook-to-ghpages"
+		"version": "git add package.json && git commit -m \"Bump package version\""
 	},
 	"repository": {
 		"type": "git",
@@ -82,6 +82,7 @@
 	"main": "components/index.js",
 	"homepage": "https://react.lightningdesignsystem.com",
 	"dependencies": {
+		"@salesforce/babel-preset-design-system-react": "^1.0.0",
 		"classnames": "^2.2.5",
 		"create-react-class": "^15.6.0",
 		"lodash.assign": "^4.0.9",
@@ -112,9 +113,8 @@
 	},
 	"peerDependencies": {
 		"@salesforce-ux/design-system": "^2.6.0",
-		"react": ">=15.4.1 <17",
-		"react-dom": ">=15.4.1 <17",
-		"@salesforce/babel-preset-design-system-react": "^1.0.0"
+		"react": ">=15.4.1 <16",
+		"react-dom": ">=15.4.1 <16"
 	},
 	"devDependencies": {
 		"@babel/cli": "7.0.0-beta.44",
@@ -130,29 +130,28 @@
 		"@babel/preset-react": "7.0.0-beta.44",
 		"@salesforce-ux/design-system": "^2.6.0",
 		"@salesforce-ux/icons": "7.x",
-		"@storybook/addon-a11y": "^3.4.10",
-		"@storybook/addon-actions": "^3.4.10",
-		"@storybook/addon-storyshots": "^3.4.10",
-		"@storybook/addons": "^3.4.10",
-		"@storybook/react": "^3.4.10",
-		"@storybook/storybook-deployer": "^2.3.0",
+		"@storybook/addon-a11y": "^3.4.3",
+		"@storybook/addon-actions": "^3.4.6",
+		"@storybook/addon-info": "^3.2.10",
+		"@storybook/addon-storyshots": "^3.4.3",
+		"@storybook/addons": "^3.4.3",
+		"@storybook/react": "^3.4.3",
 		"async": "^2.0.0-rc.5",
 		"babel-core": "^7.0.0-bridge.0",
 		"babel-eslint": "^8.2.3",
-		"babel-jest": "^23.0.1",
 		"babel-loader": "^8.0.0-beta.3",
 		"babel-plugin-import-noop": "^1.0.1",
 		"babel-plugin-istanbul": "^4.1.6",
 		"babel-plugin-root-import": "^5.1.0",
+		"babel-jest": "^23.0.1",
 		"basic-auth": "^1.0.4",
 		"chai": "^4.0.1",
-		"chai-enzyme": "^1.0.0-beta.1",
+		"chai-enzyme": "^0.8.0",
 		"compression": "^1.6.2",
 		"concurrently": "^3.5.1",
-		"copy-webpack-plugin": "^4.5.2",
 		"css-loader": "^0.28.0",
-		"enzyme": "^3.3.0",
-		"enzyme-adapter-react-16": "^1.1.1",
+		"enzyme": "^2.5.1",
+		"enzyme-to-json": "^1.5.0",
 		"eslint": "^4.19.1",
 		"eslint-config-airbnb": "16.1.0",
 		"eslint-loader": "^1.6.0",
@@ -160,7 +159,6 @@
 		"eslint-plugin-import": "^2.11.0",
 		"eslint-plugin-json": "^1.2.0",
 		"eslint-plugin-jsx-a11y": "^6.0.3",
-		"eslint-plugin-prefer-object-spread": "^1.2.1",
 		"eslint-plugin-react": "^7.7.0",
 		"express": "^4.15.5",
 		"file-loader": "^0.11.0",
@@ -198,11 +196,12 @@
 		"prettier-eslint-cli": "^4.7.1",
 		"prettylint": "^1.0.0",
 		"prompt": "^1.0.0",
-		"react": "^16.4",
-		"react-docgen": "^2.21.0",
-		"react-dom": "^16.4",
+		"react": ">=15.4.1 <16",
+		"react-addons-test-utils": ">=15.4.1 <16",
+		"react-docgen": "^2.14.1",
+		"react-dom": ">=15.4.1 <16",
 		"react-hot-loader": "^1.2.7",
-		"react-test-renderer": "^16.4",
+		"react-test-renderer": ">=15.4.1 <16",
 		"regenerator-runtime": "^0.11.1",
 		"sinon": "^2.3.5",
 		"sinon-chai": "^2.14.0",
@@ -222,13 +221,12 @@
 				"date-iso-8601": "2018/01/18",
 				"commit-sha": "ad6b6c6523ee21cada11be5f7ea4d99abc530726"
 			},
-			"SLDS-component-path": "/components/accordion",
+			"SLDS-component-path": "/components/accordions",
 			"dependencies": [
 				{
 					"component": "panel"
 				}
-			],
-			"url-slug": "accordions"
+			]
 		},
 		{
 			"component": "alert",
@@ -238,13 +236,12 @@
 				"date-iso-8601": "2018/01/18",
 				"commit-sha": "ad6b6c6523ee21cada11be5f7ea4d99abc530726"
 			},
-			"SLDS-component-path": "/components/alert",
+			"SLDS-component-path": "/components/alerts",
 			"dependencies": [
 				{
 					"component": "container"
 				}
-			],
-			"url-slug": "alerts"
+			]
 		},
 		{
 			"component": "app-launcher",
@@ -258,8 +255,7 @@
 				{
 					"component": "tile"
 				}
-			],
-			"url-slug": "app-launchers"
+			]
 		},
 		{
 			"component": "avatar",
@@ -269,19 +265,7 @@
 				"date-iso-8601": "2018/01/18",
 				"commit-sha": "ad6b6c6523ee21cada11be5f7ea4d99abc530726"
 			},
-			"SLDS-component-path": "/components/avatar",
-			"url-slug": "avatars"
-		},
-		{
-			"component": "brand-band",
-			"status": "prod",
-			"display-name": "BrandBand",
-			"last-accessibility-review": {
-				"date-iso-8601": "2018/08/27",
-				"commit-sha": "aef31ce8daf993b59ca94c656c5efd9f2e3266f7"
-			},
-			"SLDS-component-path": "/components/brand-band",
-			"url-slug": "brand-band"
+			"SLDS-component-path": "/components/avatars"
 		},
 		{
 			"component": "breadcrumb",
@@ -291,8 +275,7 @@
 				"date-iso-8601": "2018/01/18",
 				"commit-sha": "ad6b6c6523ee21cada11be5f7ea4d99abc530726"
 			},
-			"SLDS-component-path": "/components/breadcrumbs",
-			"url-slug": "breadcrumbs"
+			"SLDS-component-path": "/components/breadcrumbs"
 		},
 		{
 			"component": "button",
@@ -302,22 +285,19 @@
 				"date-iso-8601": "2018/01/18",
 				"commit-sha": "ad6b6c6523ee21cada11be5f7ea4d99abc530726"
 			},
-			"SLDS-component-path": "/components/buttons",
-			"url-slug": "buttons"
+			"SLDS-component-path": "/components/buttons"
 		},
 		{
 			"component": "button-stateful",
 			"status": "prod",
 			"display-name": "Stateful Buttons",
-			"SLDS-component-path": "/components/button/#flavor-stateful",
-			"url-slug": "stateful-buttons"
+			"SLDS-component-path": "/components/buttons/#flavor-stateful"
 		},
 		{
 			"component": "button-group",
 			"status": "prod",
 			"display-name": "Button Groups",
-			"SLDS-component-path": "/components/button-groups",
-			"url-slug": "button-groups"
+			"SLDS-component-path": "/components/button-groups"
 		},
 		{
 			"component": "card",
@@ -335,8 +315,7 @@
 				{
 					"component": "filter"
 				}
-			],
-			"url-slug": "cards"
+			]
 		},
 		{
 			"component": "checkbox",
@@ -346,8 +325,7 @@
 				"date-iso-8601": "2018/01/18",
 				"commit-sha": "ad6b6c6523ee21cada11be5f7ea4d99abc530726"
 			},
-			"SLDS-component-path": "/components/checkbox",
-			"url-slug": "checkboxes"
+			"SLDS-component-path": "/components/checkbox/"
 		},
 		{
 			"component": "combobox",
@@ -357,8 +335,7 @@
 				"date-iso-8601": "2017/08/21",
 				"commit-sha": "295a4766f712a5f93743c4ecd3ba62d91c1fc153"
 			},
-			"SLDS-component-path": "/components/combobox",
-			"url-slug": "comboboxes"
+			"SLDS-component-path": "/components/comboboxes"
 		},
 		{
 			"component": "data-table",
@@ -383,8 +360,7 @@
 				{
 					"component": "row-actions"
 				}
-			],
-			"url-slug": "data-table"
+			]
 		},
 		{
 			"component": "date-picker",
@@ -394,15 +370,13 @@
 				"date-iso-8601": "2017/01/20",
 				"commit-sha": "568f503b19ddc039207e4b5c2636461de937f5f0"
 			},
-			"SLDS-component-path": "/components/datepickers",
-			"url-slug": "date-pickers"
+			"SLDS-component-path": "/components/datepickers"
 		},
 		{
 			"component": "filter",
 			"status": "prototype",
 			"display-name": "Filters",
-			"SLDS-component-path": "/components/filter",
-			"url-slug": "filters"
+			"SLDS-component-path": "/components/filter"
 		},
 		{
 			"component": "input",
@@ -412,8 +386,7 @@
 				"date-iso-8601": "2017/09/22",
 				"commit-sha": "ad6b6c6523ee21cada11be5f7ea4d99abc530726"
 			},
-			"SLDS-component-path": "/components/input",
-			"url-slug": "inputs"
+			"SLDS-component-path": "/components/input/"
 		},
 		{
 			"component": "global-header",
@@ -433,8 +406,7 @@
 				{
 					"component": "search"
 				}
-			],
-			"url-slug": "global-headers"
+			]
 		},
 		{
 			"component": "global-navigation-bar",
@@ -444,7 +416,7 @@
 				"date-iso-8601": "2017/05/02",
 				"commit-sha": "ad6b6c6523ee21cada11be5f7ea4d99abc530726"
 			},
-			"SLDS-component-path": "/components/global-navigation",
+			"SLDS-component-path": "/components/global-navigation#flavor-navigation-bar",
 			"dependencies": [
 				{
 					"component": "button"
@@ -461,8 +433,7 @@
 				{
 					"component": "region"
 				}
-			],
-			"url-slug": "global-navigation-bars"
+			]
 		},
 		{
 			"component": "icon",
@@ -472,21 +443,13 @@
 				"date-iso-8601": "2018/01/18",
 				"commit-sha": "ad6b6c6523ee21cada11be5f7ea4d99abc530726"
 			},
-			"SLDS-component-path": "/components/icons",
-			"url-slug": "icons"
+			"SLDS-component-path": "/components/icons"
 		},
 		{
 			"component": "icon-settings",
 			"status": "prod",
 			"display-name": "Icon Settings",
-			"url-slug": "icon-settings"
-		},
-		{
-			"component": "illustration",
-			"status": "prod",
-			"display-name": "Illustrations",
-			"SLDS-component-path": "/components/illustration",
-			"url-slug": "illustrations"
+			"SLDS-component-path": "/components/icons-settings"
 		},
 		{
 			"component": "media-object",
@@ -496,8 +459,7 @@
 				"date-iso-8601": "2018/01/18",
 				"commit-sha": "ad6b6c6523ee21cada11be5f7ea4d99abc530726"
 			},
-			"SLDS-component-path": "/components/utilities/media-object",
-			"url-slug": "media-objects"
+			"SLDS-component-path": "/components/utilities/media-objects/"
 		},
 		{
 			"component": "menu-dropdown",
@@ -512,15 +474,19 @@
 				{
 					"component": "button-trigger"
 				}
-			],
-			"url-slug": "menu-dropdowns"
+			]
 		},
 		{
 			"component": "modal",
 			"status": "prod",
-			"display-name": "Modals and Prompts",
-			"SLDS-component-path": "/components/modals",
-			"url-slug": "modals"
+			"display-name": "Modals",
+			"SLDS-component-path": "/components/modals"
+		},
+		{
+			"component": "navigation",
+			"status": "prod",
+			"display-name": "Navigation",
+			"SLDS-component-path": "/components/navigation"
 		},
 		{
 			"component": "panel",
@@ -537,15 +503,13 @@
 				{
 					"component": "filtering/list"
 				}
-			],
-			"url-slug": "panels"
+			]
 		},
 		{
 			"component": "pill",
 			"status": "prototype",
 			"display-name": "Pills",
-			"SLDS-component-path": "/components/pills",
-			"url-slug": "pills"
+			"SLDS-component-path": "/components/pills"
 		},
 		{
 			"component": "popover",
@@ -555,30 +519,19 @@
 				"date-iso-8601": "2018/01/18",
 				"commit-sha": "ad6b6c6523ee21cada11be5f7ea4d99abc530726"
 			},
-			"SLDS-component-path": "/components/popovers",
-			"url-slug": "popovers"
+			"SLDS-component-path": "/components/popovers"
 		},
 		{
 			"component": "page-header",
 			"status": "prod",
 			"display-name": "Page Headers",
-			"SLDS-component-path": "/components/page-headers",
-			"url-slug": "page-headers"
+			"SLDS-component-path": "/components/page-headers"
 		},
 		{
 			"component": "progress-indicator",
 			"status": "prod",
 			"display-name": "Progress Indicators",
-			"SLDS-component-path": "/components/progress-indicator",
-			"last-accessibility-review": {
-				"date-iso-8601": "2018/07/25",
-				"commit-sha": "473c75bf424f69bf0ff66fde6b1e604c21d2835c"
-			},
-			"last-slds-markup-review": {
-				"date-iso-8601": "2018/07/25",
-				"commit-sha": "473c75bf424f69bf0ff66fde6b1e604c21d2835c"
-			},
-			"url-slug": "progress-indicators"
+			"SLDS-component-path": "/components/progress-indicator"
 		},
 		{
 			"component": "progress-ring",
@@ -592,8 +545,7 @@
 				"date-iso-8601": "2017/11/28",
 				"commit-sha": "1b7025689af65ff2b92ad359c809970f2afd8439"
 			},
-			"SLDS-component-path": "/components/progress-ring",
-			"url-slug": "progress-rings"
+			"SLDS-component-path": "/components/progress-ring"
 		},
 		{
 			"component": "radio",
@@ -603,8 +555,7 @@
 				"date-iso-8601": "2018/01/18",
 				"commit-sha": "ad6b6c6523ee21cada11be5f7ea4d99abc530726"
 			},
-			"SLDS-component-path": "/components/radio-group/",
-			"url-slug": "radios"
+			"SLDS-component-path": "/components/radio-group/"
 		},
 		{
 			"component": "split-view",
@@ -626,8 +577,7 @@
 				{
 					"component": "listbox"
 				}
-			],
-			"url-slug": "split-views"
+			]
 		},
 		{
 			"component": "radio-group",
@@ -637,8 +587,7 @@
 				"date-iso-8601": "2018/01/18",
 				"commit-sha": "ad6b6c6523ee21cada11be5f7ea4d99abc530726"
 			},
-			"SLDS-component-path": "/components/radio-group",
-			"url-slug": "radio-groups"
+			"SLDS-component-path": "/components/radio-group"
 		},
 		{
 			"component": "radio-button-group",
@@ -648,21 +597,13 @@
 				"date-iso-8601": "2018/01/18",
 				"commit-sha": "ad6b6c6523ee21cada11be5f7ea4d99abc530726"
 			},
-			"SLDS-component-path": "/components/radio-button-group",
-			"url-slug": "radio-button-groups"
+			"SLDS-component-path": "/components/radio-button-group"
 		},
 		{
 			"component": "slider",
 			"status": "prod",
 			"display-name": "Slider",
-			"SLDS-component-path": "/components/slider",
-			"url-slug": "sliders"
-		},
-		{
-			"component": "spinner",
-			"status": "prod",
-			"display-name": "Spinners",
-			"SLDS-component-path": "/components/spinner"
+			"SLDS-component-path": "/components/slider"
 		},
 		{
 			"component": "tabs",
@@ -677,22 +618,19 @@
 				{
 					"component": "panel"
 				}
-			],
-			"url-slug": "tabss"
+			]
 		},
 		{
 			"component": "textarea",
 			"status": "prod",
 			"display-name": "Textareas",
-			"SLDS-component-path": "/components/forms#flavor-textarea",
-			"url-slug": "textareas"
+			"SLDS-component-path": "/components/forms#flavor-textarea"
 		},
 		{
 			"component": "time-picker",
 			"status": "prod",
 			"display-name": "Timepickers",
-			"SLDS-component-path": "/components/timepicker",
-			"url-slug": "time-pickers"
+			"SLDS-component-path": "/components/datepickers"
 		},
 		{
 			"component": "toast",
@@ -702,20 +640,18 @@
 				"date-iso-8601": "2018/01/18",
 				"commit-sha": "ad6b6c6523ee21cada11be5f7ea4d99abc530726"
 			},
-			"SLDS-component-path": "/components/toast",
+			"SLDS-component-path": "/components/toasts",
 			"dependencies": [
 				{
 					"component": "container"
 				}
-			],
-			"url-slug": "toasts"
+			]
 		},
 		{
 			"component": "tooltip",
 			"status": "prod",
 			"display-name": "Tooltips",
-			"SLDS-component-path": "/components/tooltips",
-			"url-slug": "tooltips"
+			"SLDS-component-path": "/components/tooltips"
 		},
 		{
 			"component": "tree",
@@ -729,15 +665,7 @@
 				"date-iso-8601": "2018/05/04",
 				"commit-sha": "5fdeb31982a42cbd37a70d96d6257142cd7eec72"
 			},
-			"SLDS-component-path": "/components/trees",
-			"url-slug": "trees"
-		},
-		{
-			"component": "vertical-navigation",
-			"status": "prod",
-			"display-name": "Vertical Navigation",
-			"SLDS-component-path": "/components/vertical-navigation",
-			"url-slug": "vertical-navigation"
+			"SLDS-component-path": "/components/tree"
 		}
 	],
 	"documentation": {

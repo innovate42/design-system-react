@@ -13,7 +13,7 @@ const Example = createReactClass({
 					<div className="slds-col--padded">
 						<span>Checkmark </span>
 						<Dropdown
-							assistiveText={{ icon: 'Checkmark' }}
+							assistiveText="Checkmark"
 							checkmark
 							iconCategory="utility"
 							iconName="down"
@@ -32,7 +32,7 @@ const Example = createReactClass({
 					<div className="slds-col--padded">
 						<span>Checkmark with right icon </span>
 						<Dropdown
-							assistiveText={{ icon: 'Checkmark with right icon' }}
+							assistiveText="Checkmark with right icon"
 							buttonVariant="icon"
 							checkmark
 							iconName="settings"

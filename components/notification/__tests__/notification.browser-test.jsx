@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import assign from 'lodash.assign';
-import TestUtils from 'react-dom/test-utils';
+import TestUtils from 'react-addons-test-utils';
 import { expect } from 'chai';
 
 import SLDSNotification from '../../notification';
@@ -54,7 +54,7 @@ describe('SLDSNotification: ', () => {
 			expect(alert.className).to.include('slds-theme--error');
 		});
 
-		it('renders icon', () => {
+		it('renders icon', (done) => {
 			const notification = generateNotification(
 				<SLDSNotification
 					variant="alert"
@@ -65,18 +65,20 @@ describe('SLDSNotification: ', () => {
 					content="hi"
 				/>
 			);
-
-			const close = notification.querySelectorAll('button');
-			const svgs = notification.querySelectorAll(
-				'[*|href="/assets/icons/utility-sprite/svg/symbols.svg#notification"]'
-			);
-			expect(close[0].className).to.include('slds-notify__close');
-			expect(svgs[0]).to.exist;
+			setTimeout(() => {
+				const close = notification.querySelectorAll('button');
+				const svgs = notification.querySelectorAll(
+					'[*|href="/assets/icons/utility-sprite/svg/symbols.svg#notification"]'
+				);
+				expect(close[0].className).to.include('slds-notify__close');
+				expect(svgs[0]).to.exist;
+				done();
+			}, 400);
 		});
 	});
 
 	describe('dismiss notification click', () => {
-		it('button onClick invokes method from props', () => {
+		it('button onClick invokes method from props', (done) => {
 			const onClick = sinon.spy();
 			const notification = generateNotification(
 				<SLDSNotification
@@ -87,9 +89,12 @@ describe('SLDSNotification: ', () => {
 					isOpen
 				/>
 			);
-			const dismissBtn = notification.getElementsByTagName('button')[0];
-			TestUtils.Simulate.click(dismissBtn);
-			expect(onClick.calledOnce).to.be.true;
+			setTimeout(() => {
+				const dismissBtn = notification.getElementsByTagName('button')[0];
+				TestUtils.Simulate.click(dismissBtn);
+				expect(onClick.calledOnce).to.be.true;
+				done();
+			}, 400);
 		});
 	});
 });

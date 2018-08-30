@@ -70,9 +70,9 @@ GlobalHeaderProfile.propTypes = {
 	 */
 	className: PropTypes.string,
 	/**
-	 * An image URL or avatar node to display for the user profile.
+	 * An image URL to display for the user profile.
 	 */
-	avatar: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+	avatar: PropTypes.string,
 	/**
 	 * CSS classes to be added to `li` element.
 	 */

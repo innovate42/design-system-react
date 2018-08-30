@@ -35,7 +35,7 @@ storiesOf(BUTTON, module)
 	.add('Disabled', () => getButton({ label: 'Disabled', disabled: true }))
 	.add('Icon large', () =>
 		getIconButton({
-			assistiveText: { icon: 'Icon' },
+			assistiveText: 'Icon',
 			iconSize: 'large',
 			iconCategory: 'utility',
 			iconName: 'answer',
@@ -44,7 +44,7 @@ storiesOf(BUTTON, module)
 	)
 	.add('Icon with external path', () =>
 		getIconButton({
-			assistiveText: { icon: 'Icon' },
+			assistiveText: 'Icon',
 			iconSize: 'large',
 			iconPath: '/assets/icons/utility-sprite/svg/symbols.svg#announcement',
 			title: 'announcement',
@@ -60,7 +60,7 @@ storiesOf(BUTTON, module)
 	))
 	.add('Icon Container Small', () =>
 		getIconButton({
-			assistiveText: { icon: 'Icon border container small' },
+			assistiveText: 'Icon border container small',
 			iconCategory: 'utility',
 			iconName: 'settings',
 			iconSize: 'large',
@@ -71,9 +71,7 @@ storiesOf(BUTTON, module)
 	.add('Dropdown Icon inverse', () =>
 		getIconButton({
 			'aria-haspopup': true,
-			assistiveText: {
-				icon: 'Dropdown Icon inverse',
-			},
+			assistiveText: 'Dropdown Icon inverse',
 			iconCategory: 'utility',
 			iconName: 'settings',
 			iconVariant: 'more',

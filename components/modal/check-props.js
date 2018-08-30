@@ -4,19 +4,16 @@
 /* eslint-disable max-len */
 
 import deprecatedProperty from '../../utilities/warning/deprecated-property';
-import getComponentDocFn from '../../utilities/get-component-doc';
 
 let checkProps = function () {};
 
 if (process.env.NODE_ENV !== 'production') {
-	checkProps = function (COMPONENT, props, jsonDoc) {
-		const createDocUrl = getComponentDocFn(jsonDoc);
+	checkProps = function (COMPONENT, props) {
 		deprecatedProperty(
 			COMPONENT,
 			props.closeButtonAssistiveText,
 			'closeButtonAssistiveText',
-			"assistiveText['closeButton']",
-			createDocUrl('assistiveText')
+			"assistiveText['closeButton']"
 		);
 	};
 }

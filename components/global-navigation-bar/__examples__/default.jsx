@@ -89,7 +89,7 @@ const Example = createReactClass({
 						/>
 						<GlobalNavigationBarDropdown
 							id="primaryDropdown"
-							assistiveText={{ icon: 'Context Menu Item 1' }}
+							assistiveText="Context Menu Item 1"
 							label="Context Menu Item"
 							options={dropdownCollection}
 						/>

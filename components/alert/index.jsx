@@ -12,7 +12,6 @@ import classNames from '../../utilities/class-names';
 import Button from '../button';
 import Icon from '../icon';
 import checkProps from './check-props';
-import componentDoc from './docs.json';
 import { ALERT } from '../../utilities/constants';
 import DOMElementFocus from '../../utilities/dom-element-focus';
 
@@ -98,7 +97,7 @@ class Alert extends React.Component {
 
 	componentWillMount () {
 		// `checkProps` issues warnings to developers about properties (similar to React's built in development tools)
-		checkProps(ALERT, this.props, componentDoc);
+		checkProps(ALERT, this.props);
 	}
 
 	componentWillUnmount () {
@@ -193,7 +192,7 @@ class Alert extends React.Component {
 				</h2>
 				{this.props.dismissible ? (
 					<Button
-						assistiveText={{ icon: assistiveText.closeButton }}
+						assistiveText={assistiveText.closeButton}
 						buttonRef={this.saveButtonRef}
 						className="slds-notify__close"
 						iconCategory="utility"

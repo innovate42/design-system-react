@@ -18,11 +18,7 @@ import Portal from './portal';
 import EventUtil from '../../../utilities/event';
 import KEYS from '../../../utilities/key-code';
 import DOMElementFocus from '../../../utilities/dom-element-focus';
-import {
-	getNubbinMargins,
-	getNubbinClassName,
-	mapPropToPopperPlacement,
-} from '../../../utilities/dialog-helpers';
+import { mapPropToPopperPlacement } from '../../../utilities/dialog-helpers';
 
 import { DIALOG } from '../../../utilities/constants';
 
@@ -99,21 +95,15 @@ const Dialog = createReactClass({
 		 */
 		containerProps: PropTypes.object,
 		/**
-		 * Will show the nubbin pointing from the dialog to the reference element. Positioning and offsets will be handled.
+		 * Sets the dialog width to the width of either 'target' (Menus attached to `input` typically follow this UX pattern), 'menu' or 'none.
 		 */
-		hasNubbin: PropTypes.bool,
+		inheritWidthOf: PropTypes.oneOf(['target', 'menu', 'none']),
 		/**
 		 * By default, dialogs will flip their alignment (such as bottom to top) if they extend beyond a boundary element such as a scrolling parent or a window/viewpoint. `hasStaticAlignment` disables this behavior and allows this component to extend beyond boundary elements.
 		 */
 		hasStaticAlignment: PropTypes.bool,
 		/**
-		 * Sets the dialog width to the width of either 'target' (Menus attached to `input` typically follow this UX pattern), 'menu' or 'none.
-		 */
-		inheritWidthOf: PropTypes.oneOf(['target', 'menu', 'none']),
-		/**
-		 * DEPRECATED - do not add checkProp deprecation message at this level. It is handled at higher level components.
-		 * TODO - to be removed.
-		 * Offset adds pixels to the absolutely positioned dropdown menu in the format: ([vertical]px [horizontal]px). SHOULD BE OBJECT -----------
+		 *  Offset adds pixels to the absolutely positioned dropdown menu in the format: ([vertical]px [horizontal]px). SHOULD BE OBJECT -----------
 		 */
 		offset: PropTypes.string,
 		/**
@@ -176,7 +166,6 @@ const Dialog = createReactClass({
 		 * An object of CSS styles that are applied to the immediate parent `div` of the contents. Use this instead of margin props.
 		 */
 		style: PropTypes.object,
-
 		/**
 		 * Sets which focus UX pattern to follow. For instance, popovers trap focus and must be exited to regain focus. Dropdowns and Tooltips never have focus.
 		 */
@@ -253,21 +242,10 @@ const Dialog = createReactClass({
 			};
 		}
 
-		const { position } = popperData.offsets.popper;
 		const propOffsets = this.getPropOffsetsInPixels(this.props.offset);
-
-		// FIXME before merge - gotta rename from margin to offset
-		const nubbinOffsets = this.props.hasNubbin
-			? getNubbinMargins(this.state.popperData)
-			: { left: 0, top: 0 };
-
-		const left =
-			popperData.offsets.popper.left +
-			nubbinOffsets.left +
-			propOffsets.horizontal;
-		const top =
-			popperData.offsets.popper.top + nubbinOffsets.top + propOffsets.vertical;
-
+		const { position } = popperData.offsets.popper;
+		const left = `${popperData.offsets.popper.left + propOffsets.horizontal}px`;
+		const top = `${popperData.offsets.popper.top + propOffsets.vertical}px`;
 		// A Dropdown with overflowBoundaryElement position and 'align=right' uses max-width instead of inherited children width
 		const right = 'inherit';
 		return { ...popperData.style, left, top, right, position };
@@ -316,10 +294,12 @@ const Dialog = createReactClass({
 	},
 
 	handleOpen () {
-		if (this.props.variant === 'popover' && this.dialogContent) {
+		const scopedElement = this.dialogContent;
+
+		if (this.props.variant === 'popover' && scopedElement) {
 			DOMElementFocus.storeActiveElement();
 			DOMElementFocus.setupScopedFocus({
-				ancestorElement: this.dialogContent,
+				ancestorElement: scopedElement.querySelector('.slds-popover'),
 			}); // eslint-disable-line react/no-find-dom-node
 			// Don't steal focus from inner elements
 			if (!DOMElementFocus.hasOrAncestorHasFocus()) {
@@ -398,11 +378,7 @@ const Dialog = createReactClass({
 			this.props.position === 'absolute' ||
 			this.props.position === 'overflowBoundaryElement'
 		) {
-			style = {
-				...style,
-				outline: 0,
-				...this.getPopperStyles(),
-			};
+			style = this.getPopperStyles();
 		}
 
 		if (
@@ -423,10 +399,9 @@ const Dialog = createReactClass({
 				.getBoundingClientRect().width;
 		}
 
-		style = {
-			...style,
-			...this.props.style,
-		};
+		if (this.props.style) {
+			style = Object.assign(style, this.props.style);
+		}
 
 		const contents = (
 			<div // eslint-disable-line jsx-a11y/no-static-element-interactions
@@ -439,8 +414,6 @@ const Dialog = createReactClass({
 							[`${this.props.outsideClickIgnoreClass}`]:
 								this.props.position === 'overflowBoundaryElement',
 						},
-						this.props.hasNubbin &&
-							getNubbinClassName(this.props.align, this.state.popperData),
 						this.props.contentsClassName
 					) || undefined
 				}
@@ -448,10 +421,8 @@ const Dialog = createReactClass({
 				onKeyDown={this.handleKeyDown}
 				onMouseEnter={this.props.onMouseEnter}
 				onMouseLeave={this.props.onMouseLeave}
-				ref={this.setDialogContent}
-				role={this.props.variant}
-				tabIndex={this.props.variant === 'popover' ? '-1' : undefined}
 				{...this.props.containerProps}
+				ref={this.setDialogContent}
 			>
 				{this.props.children}
 			</div>

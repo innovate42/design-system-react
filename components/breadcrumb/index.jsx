@@ -14,33 +14,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// This component's `checkProps` which issues warnings to developers about properties when in development mode (similar to React's built in development tools)
-import checkProps from './check-props';
-import componentDoc from './docs.json';
-
 // ## Constants
 import { BREADCRUMB } from '../../utilities/constants';
-
-const defaultProps = {
-	assistiveText: {
-		label: 'Breadcrumbs',
-	},
-};
 
 /**
  * Use breadcrumbs to note the path of a record and help the user to navigate back to the parent.Breadcrumb based on SLDS 2.1.0-dev
  */
 const Breadcrumb = (props) => {
-	checkProps(BREADCRUMB, props, componentDoc);
-
-	const { trail } = props;
-	const assistiveText =
-		typeof props.assistiveText === 'string'
-			? props.assistiveText
-			: {
-				...defaultProps.assistiveText,
-				...props.assistiveText,
-			}.label;
+	const { assistiveText, trail } = props;
 
 	return (
 		<nav role="navigation" aria-label={assistiveText}>
@@ -63,19 +44,17 @@ Breadcrumb.displayName = BREADCRUMB;
 
 Breadcrumb.propTypes = {
 	/**
-	 * **Assistive text for accessibility.**
-	 * This object is merged with the default props object on every render.
-	 * * `label`: The assistive text for the breadcrumb trail.
+	 * The assistive text for the breadcrumb trail
 	 */
-	assistiveText: PropTypes.shape({
-		label: PropTypes.string,
-	}),
+	assistiveText: PropTypes.string,
 	/**
 	 * An array of react elements presumably anchor elements.
 	 */
 	trail: PropTypes.array,
 };
 
-Breadcrumb.defaultProps = defaultProps;
+Breadcrumb.defaultProps = {
+	assistiveText: 'Breadcrumbs',
+};
 
 export default Breadcrumb;

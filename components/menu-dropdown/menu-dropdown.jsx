@@ -13,6 +13,8 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import requiredIf from 'react-required-if';
 
+import assign from 'lodash.assign';
+
 // ### classNames
 // [github.com/JedWatson/classnames](https://github.com/JedWatson/classnames)
 // This project uses `classnames`, "a simple javascript utility for conditionally
@@ -42,7 +44,6 @@ import DefaultTrigger from './button-trigger';
 // This component's `checkProps` which issues warnings to developers about properties
 // when in development mode (similar to React's built in development tools)
 import checkProps from './check-props';
-import componentDoc from './docs.json';
 
 // ### Traits
 
@@ -83,25 +84,6 @@ const DropdownNubbinPositions = [
 	'bottom right',
 ];
 
-/*
-* Dropdowns with nubbins have a different API from other Dialogs
-*
-* Dialog receives an alignment position and whether it has a nubbin. The nubbin position is inferred from the align.
-* Dropdowns have a nubbinPosition which dictates the align, but in an inverse fashion which then gets inversed back by the Dialog.
-*
-* Since Dialog is the future API and we don't want to break backwards compatability, we currently map to the Dialog api here. Even if Dialog will map it again.
-* TODO - deprecate nubbinPosition in favor for additional `align` values and a flag to show a nubbin.
-*/
-const DropdownToDialogNubbinMapping = {
-	top: 'bottom',
-	'top left': 'bottom left',
-	'top right': 'bottom right',
-
-	bottom: 'top',
-	'bottom left': 'top left',
-	'bottom right': 'top right',
-};
-
 /**
  * The MenuDropdown component is a variant of the Lightning Design System Menu component. This component
  * may require a polyfill such as [classList](https://github.com/yola/classlist-polyfill) due to
@@ -124,7 +106,7 @@ const MenuDropdown = createReactClass({
 		/**
 		 * This prop is passed onto the triggering `Button`. Text that is visually hidden but read aloud by screenreaders to tell the user what the icon means. You can omit this prop if you are using the `label` prop.
 		 */
-		assistiveText: PropTypes.object,
+		assistiveText: PropTypes.string,
 		/**
 		 * CSS classes to be added to triggering button.
 		 */
@@ -277,6 +259,10 @@ const MenuDropdown = createReactClass({
 			'bottom right',
 		]),
 		/**
+		 *  Offset adds pixels to the absolutely positioned dropdown menu in the format: ([vertical]px [horizontal]px).
+		 */
+		offset: PropTypes.string,
+		/**
 		 * Is only called when `openOn` is set to `hover` and when the triggering button loses focus.
 		 */
 		onBlur: PropTypes.func,
@@ -392,7 +378,6 @@ const MenuDropdown = createReactClass({
 		return {
 			align: 'left',
 			hoverCloseDelay: 300,
-			length: '5',
 			menuPosition: 'absolute',
 			openOn: 'click',
 		};
@@ -408,7 +393,7 @@ const MenuDropdown = createReactClass({
 
 	componentWillMount () {
 		// `checkProps` issues warnings to developers about properties (similar to React's built in development tools)
-		checkProps(MENU_DROPDOWN, this.props, componentDoc);
+		checkProps(MENU_DROPDOWN, this.props);
 
 		this.generatedId = shortid.generate();
 
@@ -443,11 +428,11 @@ const MenuDropdown = createReactClass({
 			: this.state.isOpen);
 	},
 
-	getIndexByValue (value, options) {
+	getIndexByValue (value) {
 		let foundIndex = -1;
 
-		if (options && options.length) {
-			options.some((element, index) => {
+		if (this.props.options && this.props.options.length) {
+			this.props.options.some((element, index) => {
 				if (element && element.value === value) {
 					foundIndex = index;
 					return true;
@@ -491,7 +476,7 @@ const MenuDropdown = createReactClass({
 	setCurrentSelectedIndices (nextProps) {
 		if (this.props.multiple !== true) {
 			this.setState({
-				selectedIndex: this.getIndexByValue(nextProps.value, nextProps.options),
+				selectedIndex: this.getIndexByValue(nextProps.value),
 			});
 		} else {
 			let values = [];
@@ -501,12 +486,8 @@ const MenuDropdown = createReactClass({
 			} else {
 				values = nextProps.value;
 			}
-			values = values.filter(
-				(value) => this.getIndexByValue(value, nextProps.options) !== -1
-			);
-			currentIndices = values.map((value) =>
-				this.getIndexByValue(value, nextProps.options)
-			);
+			values = values.filter((value) => this.getIndexByValue(value) !== -1);
+			currentIndices = values.map((value) => this.getIndexByValue(value));
 
 			this.setState({
 				selectedIndices: currentIndices,
@@ -783,22 +764,63 @@ const MenuDropdown = createReactClass({
 		);
 	},
 
-	renderDialog (customContent, isOpen, outsideClickIgnoreClass) {
-		let align = 'bottom';
-		let hasNubbin = false;
-		let positionClassName = '';
+	renderInlineMenu (customContent, isOpen) {
+		let positionClassName;
 
 		if (this.props.nubbinPosition) {
-			hasNubbin = true;
-			align = DropdownToDialogNubbinMapping[this.props.nubbinPosition];
+			const positions = this.props.nubbinPosition.split(' ');
+			positionClassName = classNames(
+				`slds-nubbin--${positions.join('-')}`,
+				positions.map((position) => `slds-dropdown--${position}`)
+			);
+
+			// TODO: allow nubbinPosition prop to set the offset automatically
+			// if (this.props.nubbinPosition === 'top right') {
+			// 	offset = '-12px -24px';
+			// }
 		} else if (this.props.align) {
-			align = `bottom ${this.props.align}`;
+			positionClassName = `slds-dropdown--${this.props.align}`;
 		}
 
-		const positions = DropdownToDialogNubbinMapping[align].split(' ');
-		positionClassName = classNames(
-			positions.map((position) => `slds-dropdown--${position}`)
-		);
+		return isOpen ? (
+			<div
+				className={classNames(
+					'slds-dropdown',
+					positionClassName,
+					this.props.className
+				)}
+				onMouseEnter={
+					this.props.openOn === 'hover' ? this.handleMouseEnter : null
+				}
+				onMouseLeave={
+					this.props.openOn === 'hover' ? this.handleMouseLeave : null
+				}
+				style={this.props.menuStyle}
+			>
+				{this.renderMenuContent(customContent)}
+			</div>
+		) : null;
+	},
+
+	renderDialog (customContent, isOpen, outsideClickIgnoreClass) {
+		let positionClassName;
+		let marginTop;
+		const offset = this.props.offset;
+
+		if (this.props.nubbinPosition) {
+			const positions = this.props.nubbinPosition.split(' ');
+			positionClassName = classNames(
+				`slds-nubbin--${positions.join('-')}`,
+				positions.map((position) => `slds-dropdown--${position}`)
+			);
+			marginTop = 0;
+			// TODO: allow nubbinPosition prop to set the offset automatically
+			// if (this.props.nubbinPosition === 'top right') {
+			// 	offset = '-12px -24px';
+			// }
+		} else if (this.props.align) {
+			positionClassName = `slds-dropdown--${this.props.align}`;
+		}
 
 		// FOR BACKWARDS COMPATIBILITY
 		const menuPosition = this.props.isInline
@@ -807,20 +829,19 @@ const MenuDropdown = createReactClass({
 
 		return isOpen ? (
 			<Dialog
-				align={align}
+				align={`bottom ${this.props.align}`}
 				className={classNames(this.props.containerClassName)}
 				closeOnTabKey
 				contentsClassName={classNames(
 					'slds-dropdown',
 					'ignore-react-onclickoutside',
-					this.props.className,
-					positionClassName
+					positionClassName,
+					this.props.className
 				)}
 				context={this.context}
-				hasNubbin={hasNubbin}
 				hasStaticAlignment={this.props.hasStaticAlignment}
 				inheritWidthOf={this.props.inheritTargetWidth ? 'target' : 'none'}
-				offset={this.props.offset}
+				offset={offset}
 				onClose={this.handleClose}
 				onKeyDown={this.handleKeyDown}
 				onMouseEnter={
@@ -831,7 +852,10 @@ const MenuDropdown = createReactClass({
 				}
 				outsideClickIgnoreClass={outsideClickIgnoreClass}
 				position={menuPosition}
-				style={this.props.menuStyle}
+				style={
+					this.props.menuStyle ||
+					assign({}, this.props.menuStyle, { marginTop })
+				}
 				onRequestTargetElement={() => this.trigger}
 			>
 				{this.renderMenuContent(customContent)}

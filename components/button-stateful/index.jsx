@@ -19,10 +19,6 @@ import isBoolean from 'lodash.isboolean';
 // ### isFunction
 import isFunction from 'lodash.isfunction';
 
-// This component's `checkProps` which issues warnings to developers about properties when in development mode (similar to React's built in development tools)
-import checkProps from './check-props';
-import componentDoc from './docs.json';
-
 // ## Children
 import ButtonIcon from '../icon/button-icon';
 
@@ -34,13 +30,10 @@ const propTypes = {
 	 */
 	active: PropTypes.bool,
 	/**
-	 * **Assistive text for accessibility.**
-	 * This object is merged with the default props object on every render.
-	 * * `icon`: Text that is visually hidden but read aloud by screenreaders to tell the user what the icon means. This should also include the state of the button. If the button has an icon and a visible label, you can omit the <code>icon</code> prop and use the <code>label</code> prop.
+	 * Text that is visually hidden but read aloud by screenreaders to tell the user what the icon means. This should also include the state of the button.
+	 * If the button has an icon and a visible label, you can omit the <code>assistiveText</code> prop and use the <code>label</code> prop.
 	 */
-	assistiveText: PropTypes.shape({
-		icon: PropTypes.string,
-	}),
+	assistiveText: PropTypes.string,
 	/**
 	 * Disables the button and adds disabled styling.
 	 */
@@ -125,7 +118,6 @@ const propTypes = {
 
 // i18n
 const defaultProps = {
-	assistiveText: { icon: '' },
 	disabled: false,
 	iconSize: 'medium',
 	responsive: false,
@@ -142,10 +134,6 @@ class ButtonStateful extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = { active: false };
-	}
-
-	componentWillMount () {
-		checkProps(BUTTON_STATEFUL, this.props, componentDoc);
 	}
 
 	getClassName (active) {
@@ -174,6 +162,7 @@ class ButtonStateful extends React.Component {
 	render () {
 		const {
 			active,
+			assistiveText,
 			disabled,
 			iconName,
 			iconSize,
@@ -191,14 +180,6 @@ class ButtonStateful extends React.Component {
 			tabIndex,
 			variant,
 		} = this.props;
-
-		const iconAssistiveText =
-			typeof this.props.assistiveText === 'string'
-				? this.props.assistiveText
-				: {
-					...defaultProps.assistiveText,
-					...this.props.assistiveText,
-				}.icon;
 
 		const isActive = isBoolean(active) ? active : this.state.active;
 
@@ -226,8 +207,8 @@ class ButtonStateful extends React.Component {
 						size={iconSize}
 						className="slds-button__icon--stateful"
 					/>
-					{iconAssistiveText ? (
-						<span className="slds-assistive-text">{iconAssistiveText}</span>
+					{assistiveText ? (
+						<span className="slds-assistive-text">{assistiveText}</span>
 					) : null}
 				</button>
 			);

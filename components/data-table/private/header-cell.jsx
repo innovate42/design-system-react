@@ -34,14 +34,19 @@ const DataTableHeaderCell = createReactClass({
 
 	// ### Prop Types
 	propTypes: {
-		assistiveText: PropTypes.shape({
-			actionsHeader: PropTypes.string,
-			columnSort: PropTypes.string,
-			columnSortedAscending: PropTypes.string,
-			columnSortedDescending: PropTypes.string,
-			selectAllRows: PropTypes.string,
-			selectRow: PropTypes.string,
-		}),
+		/**
+		 * Text for sort action on table column header
+		 *
+		 */
+		assistiveTextForColumnSort: PropTypes.string,
+		/**
+		 * Text announced once a column is sorted in ascending order
+		 */
+		assistiveTextForColumnSortedAscending: PropTypes.string,
+		/**
+		 * Text announced once a column is sorted in descending order
+		 */
+		assistiveTextForColumnSortedDescending: PropTypes.string,
 		id: PropTypes.string.isRequired,
 		/**
 		 * Indicates if column is sorted.
@@ -127,8 +132,7 @@ const DataTableHeaderCell = createReactClass({
 					tabIndex="0"
 				>
 					<span className="slds-assistive-text">
-						{this.props.assistiveTextForColumnSort ||
-							this.props.assistiveText.columnSort}{' '}
+						{this.props.assistiveTextForColumnSort}{' '}
 					</span>
 					<span
 						className="slds-truncate"
@@ -149,10 +153,8 @@ const DataTableHeaderCell = createReactClass({
 							aria-atomic="true"
 						>
 							{sortDirection === 'asc'
-								? this.props.assistiveTextForColumnSortedAscending ||
-									this.props.assistiveText.columnSortedAscending
-								: this.props.assistiveTextForColumnSortedDescending ||
-									this.props.assistiveText.columnSortedDescending}
+								? this.props.assistiveTextForColumnSortedAscending
+								: this.props.assistiveTextForColumnSortedDescending}
 						</span>
 					) : null}
 				</a>

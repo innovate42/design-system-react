@@ -661,11 +661,7 @@ const Lookup = createReactClass({
 				className="slds-lookup__search-input"
 				disabled={this.props.disabled}
 				iconRight={
-					<InputIcon
-						assistiveText={{ icon: 'Search' }}
-						category="utility"
-						name="search"
-					/>
+					<InputIcon assistiveText="Search" category="utility" name="search" />
 				}
 				id={this.inputRefId()}
 				onBlur={this.handleBlur}

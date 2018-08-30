@@ -6,7 +6,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Tooltip from '../../tooltip';
+import PopoverTooltip from '../../popover-tooltip';
 
 const displayName = 'PageHeaderDetailRow';
 const propTypes = {
@@ -124,11 +124,11 @@ class DetailBlock extends Component {
 				'slds-truncate': truncate,
 			});
 			return (
-				<Tooltip align="top" content={content}>
+				<PopoverTooltip align="top" content={content}>
 					<p tabIndex="0" className={labelClasses}>
 						{content}
 					</p>
-				</Tooltip>
+				</PopoverTooltip>
 			);
 		};
 

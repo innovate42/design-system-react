@@ -3,19 +3,16 @@
 /* eslint-disable import/no-mutable-exports */
 
 import deprecatedProperty from '../../utilities/warning/deprecated-property';
-import getComponentDocFn from '../../utilities/get-component-doc';
 
 let checkProps = function () {};
 
 if (process.env.NODE_ENV !== 'production') {
-	checkProps = function (COMPONENT, props, jsonDoc) {
-		const createDocUrl = getComponentDocFn(jsonDoc);
+	checkProps = function (COMPONENT, props) {
 		deprecatedProperty(
 			COMPONENT,
 			props.isInline,
 			'isInline',
-			'menuPosition="relative"',
-			createDocUrl('menuPosition')
+			'menuPosition="relative"'
 		);
 	};
 }

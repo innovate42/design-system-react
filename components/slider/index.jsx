@@ -96,7 +96,7 @@ const propTypes = {
 	 */
 	step: PropTypes.number,
 	/**
-	 * The Slider should be a controlled component, and will always display this value. This should always be used if you are using a Flux/Redux framework.
+	 * The Slider is a controlled component, and will always display this value.
 	 */
 	value: PropTypes.number,
 	/**
@@ -106,6 +106,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+	defaultValue: 0,
 	min: 0,
 	max: 100,
 	step: 1,
@@ -139,13 +140,13 @@ class Slider extends React.Component {
 
 	handleChange = (event) => {
 		if (isFunction(this.props.onChange)) {
-			this.props.onChange(event, { value: Number(event.target.value) });
+			this.props.onChange(event, { value: event.target.value });
 		}
 	};
 
 	handleInput = (event) => {
 		if (isFunction(this.props.onInput)) {
-			this.props.onInput(event, { value: Number(event.target.value) });
+			this.props.onInput(event, { value: event.target.value });
 		}
 	};
 
@@ -200,13 +201,12 @@ class Slider extends React.Component {
 							max={this.props.max}
 							step={this.props.step}
 							aria-describedby={this.getErrorId()}
-							value={this.props.value}
 							disabled={this.props.disabled}
 							onChange={this.handleChange}
 							onInput={this.handleInput}
 						/>
 						<span className="slds-slider__value" aria-hidden="true">
-							{this.props.value || this.props.defaultValue || '0'}
+							{this.props.value || this.props.defaultValue}
 						</span>
 					</div>
 					{this.props.errorText ? (

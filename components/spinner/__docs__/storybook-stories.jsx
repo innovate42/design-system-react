@@ -22,13 +22,7 @@ storiesOf(SPINNER, module)
 			<IconSettings iconPath="/assets/icons">{getStory()}</IconSettings>
 		</div>
 	))
-	.add('Small', () =>
-		getSpinner({
-			size: 'small',
-			variant: 'base',
-			assistiveText: { label: 'Small spinner' },
-		})
-	)
+	.add('Small', () => getSpinner({ size: 'small', variant: 'base' }))
 	.add('Medium', () => getSpinner({ size: 'medium', variant: 'base' }))
 	.add('Large', () => getSpinner({ size: 'large', variant: 'base' }))
 	.add('Brand Small', () => getSpinner({ size: 'small', variant: 'brand' }))

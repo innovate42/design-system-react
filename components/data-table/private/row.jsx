@@ -32,14 +32,10 @@ const DataTableRow = createReactClass({
 
 	// ### Prop Types
 	propTypes: {
-		assistiveText: PropTypes.shape({
-			actionsHeader: PropTypes.string,
-			columnSort: PropTypes.string,
-			columnSortedAscending: PropTypes.string,
-			columnSortedDescending: PropTypes.string,
-			selectAllRows: PropTypes.string,
-			selectRow: PropTypes.string,
-		}),
+		/**
+		 * Text for select row
+		 */
+		assistiveTextForSelectRow: PropTypes.string,
 		canSelectRows: PropTypes.bool,
 		columns: PropTypes.arrayOf(
 			PropTypes.shape({
@@ -87,7 +83,7 @@ const DataTableRow = createReactClass({
 					>
 						<Checkbox
 							assistiveText={{
-								label: this.props.assistiveText.selectRow,
+								label: this.props.assistiveTextForSelectRow,
 							}}
 							checked={isSelected}
 							id={`${this.props.id}-SelectRow`}

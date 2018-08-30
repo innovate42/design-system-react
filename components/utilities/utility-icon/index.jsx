@@ -68,7 +68,7 @@ const UtilityIcon = (
 	return inlineData ? (
 		<Svg data={inlineData} name={name} {...rest} />
 	) : (
-		<svg key={`${name}_${category}`} {...rest}>
+		<svg {...rest}>
 			<use xlinkHref={modifiedPath} />
 		</svg>
 	);
@@ -77,7 +77,7 @@ const UtilityIcon = (
 UtilityIcon.displayName = 'UtilityIcon';
 
 UtilityIcon.propTypes = {
-	assistiveText: PropTypes.object,
+	assistiveText: PropTypes.string,
 	category: PropTypes.oneOf([
 		'action',
 		'custom',

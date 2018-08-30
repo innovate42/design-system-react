@@ -3,14 +3,14 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import IconSettings from '../../icon-settings';
 
-import { CHECKBOX } from '../../../utilities/constants';
+import { FORMS_CHECKBOX } from '../../../utilities/constants';
 import Checkbox from '../';
 import Button from '../../button';
 
 import DefaultCheckbox from '../__examples__/default';
 
 class CheckboxIndeterminate extends React.Component {
-	static displayName = `${CHECKBOX}_INDETERMINATE`;
+	static displayName = `${FORMS_CHECKBOX}_INDETERMINATE`;
 
 	state = {
 		indeterminate: true,
@@ -106,7 +106,7 @@ class CheckboxIndeterminate extends React.Component {
 	}
 }
 
-storiesOf(CHECKBOX, module)
+storiesOf(FORMS_CHECKBOX, module)
 	.addDecorator((getStory) => (
 		<div className="slds-p-around--medium">
 			<IconSettings iconPath="/assets/icons">{getStory()}</IconSettings>

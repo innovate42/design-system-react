@@ -29,15 +29,13 @@ import shortid from 'shortid';
 // This component's `checkProps` which issues warnings to developers about properties when in development mode (similar to React's built in development tools)
 import checkProps from './check-props';
 
-import { TEXTAREA } from '../../utilities/constants';
-
-import componentDoc from './docs.json';
+import { FORMS_TEXTAREA } from '../../utilities/constants';
 
 /**
  * A multi-line plain-text editing control.
  */
 const Textarea = createReactClass({
-	displayName: TEXTAREA,
+	displayName: FORMS_TEXTAREA,
 
 	propTypes: {
 		/**
@@ -87,12 +85,10 @@ const Textarea = createReactClass({
 		 */
 		autoFocus: PropTypes.bool,
 		/**
-		 * **Assistive text for accessibility.**
-		 * * `label`: If present, the label associated with this `textarea` is overwritten by this text and is visually not shown.
+		 * If present, the label associated with this `textarea` is overwritten
+		 * by this text and is visually not shown.
 		 */
-		assistiveText: PropTypes.shape({
-			label: PropTypes.string,
-		}),
+		assistiveText: PropTypes.string,
 		/**
 		 * Elements are added after the `textarea`.
 		 */
@@ -208,7 +204,7 @@ const Textarea = createReactClass({
 
 	componentWillMount () {
 		// `checkProps` issues warnings to developers about properties (similar to React's built in development tools)
-		checkProps(TEXTAREA, this.props, componentDoc);
+		checkProps(FORMS_TEXTAREA, this.props);
 
 		this.generatedId = shortid.generate();
 		if (this.props.errorText) {
@@ -228,6 +224,7 @@ const Textarea = createReactClass({
 	render () {
 		const {
 			autoFocus,
+			assistiveText,
 			children,
 			className,
 			classNameContainer,
@@ -259,13 +256,6 @@ const Textarea = createReactClass({
 			// Using [object destructuring](https://facebook.github.io/react/docs/transferring-props.html#transferring-with-...-in-jsx) to pass on any properties which are not explicitly defined.
 			// ...props // Uncomment this if you actually need to send the rest of the props to other elements
 		} = this.props;
-
-		const assistiveText =
-			typeof this.props.assistiveText === 'string'
-				? this.props.assistiveText
-				: {
-					...this.props.assistiveText,
-				}.label;
 
 		const labelText = label || assistiveText; // One of these is required to pass accessibility tests
 

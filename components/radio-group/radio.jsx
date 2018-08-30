@@ -1,4 +1,4 @@
 // Alias
-import Radio from '../radio/index';
+import Radio from '../forms/radio/index';
 
 export default Radio;

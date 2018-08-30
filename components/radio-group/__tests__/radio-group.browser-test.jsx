@@ -110,10 +110,12 @@ describe('RadioGroup', function () {
 
 	it('triggers a change callback', () => {
 		wrapper = mount(<RadioGroupExample />, { attachTo: mountNode });
-		let radio = wrapper.find({ value: 'Radio Label Two' }).find('input');
-		expect(radio).to.have.prop('checked', false);
+		const radio = wrapper.find({ value: 'Radio Label Two' });
+		expect(radio.props().checked).to.be.false;
 		radio.simulate('change', { event: { target: 'Radio Label Two' } });
-		radio = wrapper.find({ value: 'Radio Label Two' }).find('input');
-		expect(radio).to.have.prop('checked', true);
+		expect(
+			radio.props().checked,
+			'radio button changes from unchecked to checked'
+		).to.be.true;
 	});
 });
