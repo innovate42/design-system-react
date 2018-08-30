@@ -14,7 +14,7 @@ export GIT_COMMIT=`git log -1 --pretty=%H`
 export GIT_TAG=`git describe --tags --abbrev=0`
 
 echo "==> Setting GIT Environment Variables:"
-
+set
 echo "==> GIT_AUTHOR = $GIT_AUTHOR"
 echo "==> GIT_AUTHOR_EMAIL = $GIT_AUTHOR_EMAIL"
 echo "==> GIT_BRANCH = $GIT_BRANCH "
