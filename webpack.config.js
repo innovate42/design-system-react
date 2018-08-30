@@ -4,7 +4,6 @@ const StringReplacePlugin = require('string-replace-webpack-plugin');
 const packageJson = require('./package.json');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-
 const config = {
 	entry: {
 		'design-system-react': ['./components'],
