@@ -81,7 +81,7 @@ exports[`WelcomeMat Render Completed looks correct 1`] = `
           className="slds-welcome-mat__tiles slds-size_1-of-2 slds-p-around_medium"
         >
           <a
-            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile slds-welcome-mat__tile_complete"
             href="javascript:void(0);"
             onClick={[Function]}
           >
@@ -100,7 +100,22 @@ exports[`WelcomeMat Render Completed looks correct 1`] = `
                   </svg>
                   
                 </span>
-                
+                <span
+                  className="slds-icon_container slds-icon_container_circle slds-icon-action-check"
+                  title="Completed"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="slds-icon slds-icon--xx-small slds-icon-text-default"
+                  >
+                    <use />
+                  </svg>
+                  <span
+                    className="slds-assistive-text"
+                  >
+                    Completed
+                  </span>
+                </span>
               </div>
             </div>
             <div
@@ -119,7 +134,7 @@ exports[`WelcomeMat Render Completed looks correct 1`] = `
             </div>
           </a>
           <a
-            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile slds-welcome-mat__tile_complete"
             href="javascript:void(0);"
             onClick={[Function]}
           >
@@ -138,7 +153,22 @@ exports[`WelcomeMat Render Completed looks correct 1`] = `
                   </svg>
                   
                 </span>
-                
+                <span
+                  className="slds-icon_container slds-icon_container_circle slds-icon-action-check"
+                  title="Completed"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="slds-icon slds-icon--xx-small slds-icon-text-default"
+                  >
+                    <use />
+                  </svg>
+                  <span
+                    className="slds-assistive-text"
+                  >
+                    Completed
+                  </span>
+                </span>
               </div>
             </div>
             <div
@@ -157,7 +187,7 @@ exports[`WelcomeMat Render Completed looks correct 1`] = `
             </div>
           </a>
           <a
-            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile slds-welcome-mat__tile_complete"
             href="javascript:void(0);"
             onClick={[Function]}
           >
@@ -176,7 +206,22 @@ exports[`WelcomeMat Render Completed looks correct 1`] = `
                   </svg>
                   
                 </span>
-                
+                <span
+                  className="slds-icon_container slds-icon_container_circle slds-icon-action-check"
+                  title="Completed"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="slds-icon slds-icon--xx-small slds-icon-text-default"
+                  >
+                    <use />
+                  </svg>
+                  <span
+                    className="slds-assistive-text"
+                  >
+                    Completed
+                  </span>
+                </span>
               </div>
             </div>
             <div
@@ -283,7 +328,7 @@ exports[`WelcomeMat Render InProgress looks correct 1`] = `
           className="slds-welcome-mat__tiles slds-size_1-of-2 slds-p-around_medium"
         >
           <a
-            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile slds-welcome-mat__tile_complete"
             href="javascript:void(0);"
             onClick={[Function]}
           >
@@ -302,7 +347,22 @@ exports[`WelcomeMat Render InProgress looks correct 1`] = `
                   </svg>
                   
                 </span>
-                
+                <span
+                  className="slds-icon_container slds-icon_container_circle slds-icon-action-check"
+                  title="Completed"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="slds-icon slds-icon--xx-small slds-icon-text-default"
+                  >
+                    <use />
+                  </svg>
+                  <span
+                    className="slds-assistive-text"
+                  >
+                    Completed
+                  </span>
+                </span>
               </div>
             </div>
             <div
@@ -321,7 +381,7 @@ exports[`WelcomeMat Render InProgress looks correct 1`] = `
             </div>
           </a>
           <a
-            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile "
+            className="slds-box slds-box_link slds-box_x-small slds-media slds-welcome-mat__tile slds-welcome-mat__tile_complete"
             href="javascript:void(0);"
             onClick={[Function]}
           >
@@ -340,7 +400,22 @@ exports[`WelcomeMat Render InProgress looks correct 1`] = `
                   </svg>
                   
                 </span>
-                
+                <span
+                  className="slds-icon_container slds-icon_container_circle slds-icon-action-check"
+                  title="Completed"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="slds-icon slds-icon--xx-small slds-icon-text-default"
+                  >
+                    <use />
+                  </svg>
+                  <span
+                    className="slds-assistive-text"
+                  >
+                    Completed
+                  </span>
+                </span>
               </div>
             </div>
             <div

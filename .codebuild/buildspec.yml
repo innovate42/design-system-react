@@ -6,10 +6,13 @@ version: 0.2
 phases:
   install:
     commands:
+      - ./.codebuild/gitTags.sh
+      - npm config set audit false
       - npm install
+
 
   build:
     commands:
-      - ./.codebuild/gitTags.sh
-      - npm run travis-ci
+      - npm run snapshot-test
+      - node_modules/.bin/karma start --single-run
 
