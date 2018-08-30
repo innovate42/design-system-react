@@ -29,12 +29,7 @@ const config = {
 							{
 								pattern: /__VERSION__/g,
 								replacement: () => packageJson.version,
-							},
-							// added this so inline data is returned
-							{
-								pattern: /__EXCLUDE_SLDS_ICONS__/g,
-								replacement: () => '__INCLUDE_SLDS_ICONS__',
-							},
+							}
 						],
 					}),
 				],

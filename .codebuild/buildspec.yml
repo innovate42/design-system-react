@@ -1,5 +1,8 @@
 version: 0.2
 
+# References
+# https://stackoverflow.com/questions/47657423/get-github-git-branch-for-aws-codebuild
+
 phases:
   install:
     commands:
@@ -9,4 +12,6 @@ phases:
 
   build:
     commands:
+	  - ./codebuild/getTags.sh
       - npm run travis-ci
+
