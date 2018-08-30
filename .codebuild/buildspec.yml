@@ -12,6 +12,6 @@ phases:
 
   build:
     commands:
-	  - ./codebuild/getTags.sh
+      - ./codebuild/getTags.sh
       - npm run travis-ci
 
