@@ -10,22 +10,22 @@ import Radio from '../../radio-group/radio';
 import { RADIO_GROUP } from '../../../utilities/constants';
 
 class RadioGroupExample extends React.Component {
-	constructor (props) {
+	constructor(props) {
 		super(props);
 		this.state = {};
 		this.onChange = this.onChange.bind(this);
 	}
 
-	onChange (event) {
+	onChange(event) {
 		this.setState({ checked: event.target.value });
 		action('onChange')(event);
 	}
 
-	render () {
+	render() {
 		const values = ['Radio Label One', 'Radio Label Two'];
 		return (
 			<div>
-				<h1 className="slds-text-title_caps slds-p-vertical--medium">
+				<h1 className="slds-text-title_caps slds-p-vertical_medium">
 					{this.props.heading}
 				</h1>
 				<RadioGroup
@@ -66,7 +66,7 @@ RadioGroupExample.defaultProps = {
 
 storiesOf(RADIO_GROUP, module)
 	.addDecorator((getStory) => (
-		<div className="slds-p-around--medium">{getStory()}</div>
+		<div className="slds-p-around_medium">{getStory()}</div>
 	))
 	.add('Base', () => <RadioGroupExample heading="Base" />)
 	.add('Disabled', () => <RadioGroupExample heading="Disabled" disabled />)

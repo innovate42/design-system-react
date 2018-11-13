@@ -5,11 +5,7 @@
 
 // Implements the [Data Table design pattern](https://www.lightningdesignsystem.com/components/data-tables) in React.
 
-// ## Dependencies
-
-// ### React
 import React from 'react';
-import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
 
 // ### shortid
@@ -17,13 +13,8 @@ import PropTypes from 'prop-types';
 // shortid is a short, non-sequential, url-friendly, unique id generator
 import shortid from 'shortid';
 
-// ### classNames
 import classNames from 'classnames';
-
-// ### assign
 import assign from 'lodash.assign';
-
-// ### reject
 import reject from 'lodash.reject';
 
 // This component's `checkProps` which issues warnings to developers about properties when in development mode (similar to React's built in development tools)
@@ -37,7 +28,6 @@ import DataTableHead from './private/head';
 import DataTableRow from './private/row';
 import DataTableRowActions from './row-actions';
 
-// ## Constants
 import {
 	DATA_TABLE,
 	DATA_TABLE_CELL,
@@ -57,7 +47,6 @@ const defaultProps = {
 		selectAllRows: 'Select all rows',
 		selectRow: 'Select row',
 	},
-	id: shortid.generate(),
 	selection: [],
 };
 
@@ -65,13 +54,13 @@ const defaultProps = {
  * DataTables support the display of structured data in rows and columns with an HTML table. To sort, filter or paginate the table, simply update the data passed in the items to the table and it will re-render itself appropriately. The table will throw a sort event as needed, and helper components for paging and filtering are coming soon.
  *
  */
-const DataTable = createReactClass({
+class DataTable extends React.Component {
 	// ### Display Name
 	// Always use the canonical component name as the React display name.
-	displayName: DATA_TABLE,
+	static displayName = DATA_TABLE;
 
 	// ### Prop Types
-	propTypes: {
+	static propTypes = {
 		/**
 		 * **Assistive text for accessibility.**
 		 * This object is merged with the default props object on every render.
@@ -181,18 +170,25 @@ const DataTable = createReactClass({
 		 * A variant which removes horizontal padding. CSS class will be removed if `fixedLayout==true`.
 		 */
 		unbufferedCell: PropTypes.bool,
-	},
+	};
 
-	getDefaultProps () {
-		return defaultProps;
-	},
+	static defaultProps = defaultProps;
 
-	componentWillMount () {
+	constructor(props) {
+		super(props);
+		this.generatedId = shortid.generate();
+	}
+
+	componentWillMount() {
 		// `checkProps` issues warnings to developers about properties (similar to React's built in development tools)
 		checkProps(DATA_TABLE, this.props, componentDoc);
-	},
+	}
 
-	handleToggleAll (e, { checked }) {
+	getId() {
+		return this.props.id || this.generatedId;
+	}
+
+	handleToggleAll = (e, { checked }) => {
 		// REMOVE AT NEXT BREAKING CHANGE
 		// `onChange` is deprecated and replaced with `onRowChange`
 		if (typeof this.props.onChange === 'function') {
@@ -204,9 +200,9 @@ const DataTable = createReactClass({
 			const selection = checked ? [...this.props.items] : [];
 			this.props.onRowChange(e, { selection });
 		}
-	},
+	};
 
-	handleRowToggle (item, selected, e) {
+	handleRowToggle = (item, selected, e) => {
 		// REMOVE AT NEXT BREAKING CHANGE
 		// `onChange` is deprecated and replaced with `onRowChange`
 		if (typeof this.props.onChange === 'function') {
@@ -232,10 +228,10 @@ const DataTable = createReactClass({
 
 			this.props.onRowChange(e, { selection });
 		}
-	},
+	};
 
 	// ### Render
-	render () {
+	render() {
 		const numRows = count(this.props.items);
 		const numSelected = count(this.props.selection);
 		const canSelectRows = this.props.selectRows && numRows > 0;
@@ -302,13 +298,13 @@ const DataTable = createReactClass({
 				className={classNames(
 					'slds-table',
 					{
-						'slds-table--fixed-layout': this.props.fixedLayout,
+						'slds-table_fixed-layout': this.props.fixedLayout,
 						'slds-table_resizable-cols': this.props.fixedLayout,
 						'slds-table_bordered': !this.props.unborderedRow,
 						'slds-table_cell-buffer':
 							!this.props.fixedLayout && !this.props.unbufferedCell,
 						'slds-max-medium-table_stacked': this.props.stacked,
-						'slds-max-medium-table_stacked-horizontalviewports': this.props
+						'slds-max-medium-table_stacked-horizontal': this.props
 							.stackedHorizontal,
 						'slds-table_striped': this.props.striped,
 						'slds-table_col-bordered': this.props.columnBordered,
@@ -316,7 +312,7 @@ const DataTable = createReactClass({
 					},
 					this.props.className
 				)}
-				id={this.props.id}
+				id={this.getId()}
 				role={this.props.fixedLayout ? 'grid' : null}
 			>
 				<DataTableHead
@@ -325,7 +321,7 @@ const DataTable = createReactClass({
 					indeterminateSelected={indeterminateSelected}
 					canSelectRows={canSelectRows}
 					columns={columns}
-					id={`${this.props.id}-${DATA_TABLE_HEAD}`}
+					id={`${this.getId()}-${DATA_TABLE_HEAD}`}
 					onToggleAll={this.handleToggleAll}
 					onSort={this.props.onSort}
 					showRowActions={!!RowActions}
@@ -333,30 +329,31 @@ const DataTable = createReactClass({
 				<tbody>
 					{numRows > 0
 						? this.props.items.map((item) => {
-							const rowId =
-									`${this.props.id}-${DATA_TABLE_ROW}-${item.id}` ||
-									shortid.generate();
-							return (
-								<DataTableRow
-									assistiveText={assistiveText}
-									canSelectRows={canSelectRows}
-									columns={columns}
-									fixedLayout={this.props.fixedLayout}
-									id={rowId}
-									item={item}
-									key={rowId}
-									onToggle={this.handleRowToggle}
-									selection={this.props.selection}
-									rowActions={RowActions}
-								/>
-							);
-						})
+								const rowId =
+									this.getId() && item.id
+										? `${this.getId()}-${DATA_TABLE_ROW}-${item.id}`
+										: shortid.generate();
+								return (
+									<DataTableRow
+										assistiveText={assistiveText}
+										canSelectRows={canSelectRows}
+										columns={columns}
+										fixedLayout={this.props.fixedLayout}
+										id={rowId}
+										item={item}
+										key={rowId}
+										onToggle={this.handleRowToggle}
+										selection={this.props.selection}
+										rowActions={RowActions}
+									/>
+								);
+							})
 						: // Someday this should be an element to render when the table is empty
-						null}
+							null}
 				</tbody>
 			</table>
 		);
-	},
-});
+	}
+}
 
 export default DataTable;

@@ -25,6 +25,9 @@ export AppLauncher from './app-launcher';
 export SLDSAvatar from './avatar';
 export Avatar from './avatar';
 
+export SLDSBrandBand from './brand-band';
+export BrandBand from './brand-band';
+
 export SLDSButton from './button';
 export Button from './button';
 
@@ -52,6 +55,9 @@ export CardFilter from './card/filter';
 
 export SLDSCheckbox from './forms/checkbox';
 export Checkbox from './forms/checkbox';
+
+export SLDSColorPicker from './color-picker';
+export ColorPicker from './color-picker';
 
 export SLDSCombobox from './combobox';
 export Combobox from './combobox';
@@ -153,8 +159,8 @@ export Modal from './modal';
 export SLDSModalTrigger from './modal/trigger';
 export ModalTrigger from './modal/trigger';
 
-export SLDSNavigation from './navigation';
-export Navigation from './navigation';
+export SLDSNavigation from './vertical-navigation';
+export Navigation from './vertical-navigation';
 
 export SLDSNotification from './notification';
 export Notification from './notification';
@@ -240,6 +246,7 @@ export Tree from './tree';
 
 export SLDSVerticalNavigation from './vertical-navigation';
 export VerticalNavigation from './vertical-navigation';
+
 
 export Login from './login';
 

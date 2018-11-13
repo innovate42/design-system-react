@@ -67,7 +67,7 @@ const accountsWithIcon = accounts.map((elem) => ({
 
 const CustomMenuItem = (props) => (
 	<span className="slds-media">
-		<span className="slds-m-left--x-small slds-m-right--x-small">
+		<span className="slds-m-left_x-small slds-m-right_x-small">
 			{props.option.icon}
 		</span>
 		<span className="slds-media__body">
@@ -85,7 +85,7 @@ const CustomMenuItem = (props) => (
 CustomMenuItem.displayName = 'CustomMenuItem';
 
 class Example extends React.Component {
-	constructor (props) {
+	constructor(props) {
 		super(props);
 
 		this.state = {
@@ -94,7 +94,7 @@ class Example extends React.Component {
 		};
 	}
 
-	render () {
+	render() {
 		return (
 			<IconSettings iconPath="/assets/icons">
 				<Combobox

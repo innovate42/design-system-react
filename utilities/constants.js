@@ -28,6 +28,7 @@ export const CARD_EMPTY = 'SLDSCardEmpty';
 export const CARD_FILTER = 'SLDSCardFilter';
 export const CARD_FOOTER = 'SLDSCardFooter';
 export const CARD_HEADER = 'SLDSCardHeader';
+export const COLOR_PICKER = 'SLDSColorPicker';
 export const COMBOBOX = 'SLDSCombobox';
 export const DATA_TABLE = 'SLDSDataTable';
 export const DATA_TABLE_CELL = 'SLDSDataTableCell';
@@ -106,4 +107,5 @@ export const TREE_BRANCH = 'SLDSTreeBranch';
 export const TREE_ITEM = 'SLDSTreeItem';
 export const VERTICAL_NAVIGATION = 'SLDSVerticalNavigation';
 export const VERTICAL_NAVIGATION_ITEM = 'SLDSVerticalNavigationItem';
+
 export const LOGIN = 'LOGIN';

@@ -9,11 +9,11 @@ const propTypes = {
 };
 
 class Example extends React.Component {
-	render () {
+	render() {
 		return (
 			<IconSettings iconPath="/assets/icons">
 				<div>
-					<h1 className="slds-text-title_caps slds-p-vertical--medium">
+					<h1 className="slds-text-title_caps slds-p-vertical_medium">
 						Field Level Help
 					</h1>
 					<Input
