@@ -180,7 +180,7 @@ const Item = (props) => {
 						search={props.searchTerm}
 						className="slds-tree__item-label slds-truncate"
 					>
-						{props.label}
+						<a href={props.node.id}>{props.label}</a>
 					</Highlighter>
 				</span>
 			</div>

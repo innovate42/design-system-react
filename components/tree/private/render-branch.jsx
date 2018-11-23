@@ -323,7 +323,7 @@ const RenderBranch = (children, props) => {
 							search={props.searchTerm}
 							className="slds-tree__item-label slds-truncate"
 						>
-							{props.label}
+							<a href={props.htmlId.replace(/.*-tree-/g, '')}>{props.label}</a>
 						</Highlighter>
 					}
 				</span>
