@@ -16,7 +16,7 @@ import { LIST_ITEM_LABEL } from '../../../utilities/constants';
  * Component description.
  */
 const ListItemLabel = (props) => (
-	<span className="slds-truncate">
+	<span className="slds-truncate" style={{backgroundColor: props.colour}}>
 		{props.icon}
 		{props.label}
 	</span>

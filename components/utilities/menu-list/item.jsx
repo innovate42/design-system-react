@@ -74,7 +74,7 @@ class ListItem extends React.Component {
 	};
 
 	getLabel = () => {
-		const Label = this.props.labelRenderer;
+    const Label = this.props.labelRenderer;
 		return (
 			<Label
 				checkmark={this.props.checkmark}
@@ -83,7 +83,8 @@ class ListItem extends React.Component {
 				index={this.props.index}
 				inverted={this.props.inverted}
 				isSelected={this.props.isSelected}
-				label={this.props.label}
+        label={this.props.label}
+        colour={this.props.colour}
 				value={this.props.value}
 			/>
 		);
@@ -152,11 +153,12 @@ class ListItem extends React.Component {
 									this.props.divider === 'bottom',
 							},
 							this.props.className
-						)}
+            )}
 						onMouseDown={this.handleMouseDown}
 						role="separator"
 					>
-						<span className="slds-text-title_caps">{this.props.label}</span>
+            
+						<span className="slds-text-title_caps" >{this.props.label}</span>
 					</li>
 				);
 			}
