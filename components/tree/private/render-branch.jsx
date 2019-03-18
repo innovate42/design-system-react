@@ -224,9 +224,9 @@ const getTabIndex = (props) => {
 
 const formatUrl = (props) => {
   const pathArr = props.node.id.split(/(items|item)(.+)/)
-  const itemPath = pathArr[2].replace(/\//g, '@')
+  const itemPath = pathArr[2] ? pathArr[2].replace(/\//g, '@') : ''
   const formattedPath = itemPath.replace('@limio@catalogs@1@tree', '@limio@catalogs@1@items')
-  return pathArr[1] + '/' + formattedPath
+  return `${pathArr[1]}/${formattedPath}`
 }
 
 // Most of these props come from the nodes array, not from the Tree props

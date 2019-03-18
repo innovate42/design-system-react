@@ -132,7 +132,7 @@ const getTabIndex = (props) => {
 const formatUrl = (props) => {
   const pathArr = props.node.id.split(/(items|item)(.+)/)
 
-  return pathArr[1] + '/' + pathArr[2].replace(/\//g, '@')
+  return `${pathArr[1]}/${pathArr[2] ? pathArr[2].replace(/\//g, '@') : ''}`
 }
 
 /**
