@@ -265,6 +265,7 @@ class Tree extends React.Component {
 					{headingText}
 				</h4>
 				<Branch
+          matchUrl={this.props.matchUrl}
 					getNodes={this.props.getNodes}
 					initalClassName={this.props.listClassName}
 					htmlId={this.props.id}

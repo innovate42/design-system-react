@@ -136,7 +136,7 @@ const getTabIndex = (props) => {
 const Item = (props) => {
 	const isSelected = props.node.selected;
 	const isFocused = props.treeIndex === props.focusedNodeIndex;
-
+  console.log(props)
 	return (
 		<li
 			id={`${props.treeId}-${props.node.id}`}
@@ -176,12 +176,13 @@ const Item = (props) => {
 				/>
 				{/* eslint-disable no-script-url */}
 				<span className="slds-size_1-of-1">
-					{/* eslint-enable no-script-url */}
+					{/* eslint-enable no-script-url 						 						<Link to={`${props.matchUrl}/${formatUrl(props)}`}>{props.label} </Link>
+*/}
 					<Highlighter
 						search={props.searchTerm}
 						className="slds-tree__item-label slds-truncate"
 					>
-						{props.label}
+            {props.label} 
 					</Highlighter>
 				</span>
 			</div>
