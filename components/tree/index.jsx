@@ -139,11 +139,14 @@ class Tree extends React.Component {
 			flattenedNodes,
 			selectedNodeIndexes,
 			focusedNodeIndex,
-		};
+		}
 	}
 
 	componentWillMount() {
-		checkProps(TREE, this.props, componentDoc);
+    checkProps(TREE, this.props, componentDoc);
+    if(this.props.initView) {
+      this.setState({...this.props.initView})
+    }
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -152,7 +155,7 @@ class Tree extends React.Component {
 				nodes: this.props.getNodes({ nodes: nextProps.nodes }),
 				expanded: true,
 			}).slice(1),
-		});
+    })
 	}
 
 	/* Flattens hierarchical tree structure into a flat array. The
@@ -225,13 +228,14 @@ class Tree extends React.Component {
 	};
 
 	handleExpand = ({ event, data }) => {
-		this.treeHasFocus = true;
+    this.treeHasFocus = true
+
 		this.props.onExpandClick(event, data);
 
 		if (data.select) {
 			this.setState({
 				focusedNodeIndex: data.treeIndex,
-			});
+			})
 		}
 	};
 
@@ -245,7 +249,7 @@ class Tree extends React.Component {
 						...this.props.assistiveText,
 					}.label;
 		const headingText = assistiveText || this.props.heading;
-
+  //console.log(`%c ${JSON.stringify(this.state)}`, 'color: #f0c002')
 		// Start the zero level branch--that is the tree root. There is no label for
 		// the tree root, but is required by all other nodes
 		return (

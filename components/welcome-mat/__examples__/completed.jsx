@@ -7,7 +7,6 @@ import WelcomeMat from '../../welcome-mat';
 import Icon from '../../icon';
 import Task from '../task';
 
-
 const completed = [
 	<Task
 		key={1}

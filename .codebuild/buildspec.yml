@@ -1,0 +1,19 @@
+version: 0.2
+
+# References
+# https://stackoverflow.com/questions/47657423/get-github-git-branch-for-aws-codebuild
+
+phases:
+  install:
+    commands:
+      - sudo apt-get update && sudo apt-get install -y libx11-xcb-dev libxtst6 libnss3
+      - ./.codebuild/gitTags.sh
+      - npm config set audit false
+      - npm install
+
+
+  build:
+    commands:
+      - npm run snapshot-test
+      - node_modules/.bin/karma start --single-run
+

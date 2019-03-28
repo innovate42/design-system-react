@@ -1,10 +1,10 @@
 {
-	"name": "design-system-react",
-	"version": "0.9.6",
+	"name": "@i42/design-system-react",
+	"version": "0.9.0",
 	"description": "Salesforce Lightning Design System for React",
 	"license": "SEE LICENSE IN README.md",
 	"engines": {
-		"node": "8.x",
+		"node": "*",
 		"npm": "^5.5.1"
 	},
 	"scripts": {
@@ -41,7 +41,8 @@
 		"travis-ci": "cross-env NODE_ENV=test scripts/travis-ci.sh",
 		"upload-diffs": "scripts/upload-diffs.sh",
 		"validate": "npm ls",
-		"version": "git add package.json && git commit -m \"Bump package version\""
+		"version": "git add package.json && git commit -m \"Bump package version\"",
+		"deploy-storybook": "storybook-to-ghpages"
 	},
 	"repository": {
 		"type": "git",
@@ -70,7 +71,7 @@
 	"main": "components/index.js",
 	"homepage": "https://react.lightningdesignsystem.com",
 	"dependencies": {
-		"@salesforce/babel-preset-design-system-react": "^1.0.0",
+		"babel-plugin-root-import": "^6.1.0",
 		"classnames": "^2.2.5",
 		"create-react-class": "^15.6.0",
 		"lodash.assign": "^4.0.9",
@@ -88,6 +89,7 @@
 		"react-modal": "3.4.4",
 		"react-onclickoutside": "^6.5.0",
 		"react-required-if": "^1.0.3",
+		"react-router-dom": "^4.3.1",
 		"react-text-truncate": "^0.12.0",
 		"shortid": "^2.2.6",
 		"warning": "^3.0.0"
@@ -132,6 +134,7 @@
 		"chai-enzyme": "^1.0.0-beta.1",
 		"compression": "^1.6.2",
 		"concurrently": "^4.0.1",
+		"copy-webpack-plugin": "^4.6.0",
 		"cross-env": "^5.2.0",
 		"css-loader": "^0.28.0",
 		"enzyme": "^3.8.0",
@@ -145,7 +148,7 @@
 		"eslint-plugin-json": "^1.2.0",
 		"eslint-plugin-jsx-a11y": "^6.0.3",
 		"eslint-plugin-prefer-object-spread": "^1.2.1",
-		"eslint-plugin-react": "^7.7.0",
+		"eslint-plugin-react": "^7.11.1",
 		"express": "^4.15.5",
 		"file-loader": "^0.11.0",
 		"find-remove": "^1.1.0",
@@ -156,7 +159,7 @@
 		"jest-axe": "^3.1.0",
 		"jest-svg-transformer": "^1.0.0",
 		"js-beautify": "^1.6.8",
-		"json-loader": "^0.5.3",
+		"json-loader": "^0.5.7",
 		"karma": "^1.7.0",
 		"karma-chai-sinon": "^0.1.5",
 		"karma-chrome-launcher": "^2.2.0",

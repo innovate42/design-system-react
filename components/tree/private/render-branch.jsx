@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 import findIndex from 'lodash.findindex';
 import isFunction from 'lodash.isfunction';
 import classNames from 'classnames';
+import { Link, Route } from 'react-router-dom'
 
 // Child components
 import Button from '../../button';
@@ -220,7 +221,14 @@ const getTabIndex = (props) => {
 		props.selectedNodeIndexes.length === 0 &&
 		props.treeIndex === props.flattenedNodes[0].treeIndex;
 	return props.treeIndex === props.focusedNodeIndex || initialFocus ? 0 : -1;
-};
+}
+
+const formatUrl = (props) => {
+  const pathArr = props.node.id.split(/(items|item)(.+)/)
+  const itemPath = pathArr[2] ? pathArr[2].replace(/\//g, '@') : ''
+  const formattedPath = itemPath.replace('@limio@catalogs@1@tree', '@limio@catalogs@1@items')
+  return `${pathArr[1]}/${formattedPath}`
+}
 
 // Most of these props come from the nodes array, not from the Tree props
 const RenderBranch = (children, props) => {
@@ -324,7 +332,7 @@ const RenderBranch = (children, props) => {
 							search={props.searchTerm}
 							className="slds-tree__item-label slds-truncate"
 						>
-							{props.label}
+							<Link to={`${props.matchUrl}/${formatUrl(props)}`}>{props.node.label} </Link>
 						</Highlighter>
 					}
 				</span>

@@ -102,7 +102,8 @@ class List extends React.Component {
 							checkmark={
 								this.props.checkmark && (isSingleSelected || isMultipleSelected)
 							}
-							data={option}
+              data={option}
+              colour={option.colour}
 							id={id}
 							index={index}
 							isSelected={isSingleSelected || isMultipleSelected}

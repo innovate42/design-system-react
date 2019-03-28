@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import findIndex from 'lodash.findindex';
 import isFunction from 'lodash.isfunction';
-
+import { Link, Route } from 'react-router-dom'
 import Button from '../../button';
 import Highlighter from '../../utilities/highlighter';
 
@@ -128,7 +128,16 @@ const getTabIndex = (props) => {
 		props.selectedNodeIndexes.length === 0 &&
 		props.treeIndex === props.flattenedNodes[0].treeIndex;
 	return props.treeIndex === props.focusedNodeIndex || initialFocus ? 0 : -1;
-};
+}
+
+const formatUrl = (props) => {
+  if(props.node.id) {
+    const pathArr = props.node.id.split(/(items|item)(.+)/)
+
+    return `${pathArr[1]}/${pathArr[2] ? pathArr[2].replace(/\//g, '@') : ''}`
+  }
+  
+}
 
 /**
  * A Tree Item is a non-branching node in a hierarchical list.
@@ -136,7 +145,6 @@ const getTabIndex = (props) => {
 const Item = (props) => {
 	const isSelected = props.node.selected;
 	const isFocused = props.treeIndex === props.focusedNodeIndex;
-  console.log(props)
 	return (
 		<li
 			id={`${props.treeId}-${props.node.id}`}
@@ -182,13 +190,15 @@ const Item = (props) => {
 						search={props.searchTerm}
 						className="slds-tree__item-label slds-truncate"
 					>
-            {props.label} 
+            {/* We need to replace forward slashes as the router obviosuly will think its a route and not an ID */}
+            <Link to={`${props.matchUrl}/${formatUrl(props)}`}>{props.node.label} </Link>
 					</Highlighter>
 				</span>
 			</div>
 		</li>
-	);
-};
+	)
+}
+// <a href={props.node.id}>{props.label}</a>
 
 // ### Display Name
 // Always use the canonical component name as the React display name.

@@ -274,5 +274,8 @@ export Tree from './tree';
 export SLDSVerticalNavigation from './vertical-navigation';
 export VerticalNavigation from './vertical-navigation';
 
+
+export Login from './login';
+
 // Library utilities
 export log from '../utilities/log';

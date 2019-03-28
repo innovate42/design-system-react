@@ -83,7 +83,8 @@ const getNavigableItems = (items) => {
 			if (itemIsSelectable(item)) {
 				navigableItems.push({
 					index,
-					text: `${item.label}`.toLowerCase(),
+          text: `${item.label}`.toLowerCase(),
+          colour: item.colour
 				});
 
 				navigableItems.indexes.push(index);

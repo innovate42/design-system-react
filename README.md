@@ -1,5 +1,30 @@
 # Design System for React
 
+### Our changes
+
+This is a fork of the salesforce slds design system.
+
+We'll use this in our projects and add some additional components that we might need.  We might even change the behaviour of some of the existing components (although we'll try and not do this.)
+
+To use in a project, use npm to install directly from git.  Please use the https as the CI server can't pull anonymously from ssh.
+ 
+```npm install git+http://git@github.com:innovate42/design-system-react.git#experimental --save```
+
+***Note that we don't recommend anybody outside of Innovate42 use this project, as it is subject to sudden changes and is not stable.***
+Hence the #experimental branch. 
+
+Major changes when compared with the original are:-
+
+- Renamed the package to @i42/design-system-react
+- Added Components:
+	- Login
+	- Welcome Mat
+- Moved "@salesforce/babel-preset-design-system-react" to peerDependency as we will add babel support directly in consuming project.  See [Using with babel](i42/docs/babel-compatibility.md)
+- Updated to react 
+
+-- The rest of this is the original salesforce documentation -- 
+   
+
 ### Accessible, localization-friendly, presentational React components
 
 [![Build Status](https://api.travis-ci.org/salesforce/design-system-react.svg?branch=master)](https://travis-ci.org/salesforce/design-system-react) [![DeepScan Grade](https://deepscan.io/api/projects/1475/branches/4666/badge/grade.svg)](https://deepscan.io/dashboard/#view=project&pid=1475&bid=4666)

@@ -38,7 +38,6 @@ const WelcomeProgress = createReactClass({
 
 	// ### Prop Types
 	propTypes: {
-
 		/**
 		 * the list of tasks
 		 */
@@ -150,7 +149,6 @@ const WelcomeMat = createReactClass({
 	getDefaultProps () {
 		return defaultProps;
 	},
-
 
 	componentWillMount () {
 		// `checkProps` issues warnings to developers about properties (similar to React's built in development tools)
