@@ -20,8 +20,8 @@ const Branch = (props) => {
 	let treeIndex = '';
 	let children;
 
-	const { treeId, level, onExpand, searchTerm, matchUrl } = props;
-  console.log(matchUrl)
+	const { treeId, level, onExpand, searchTerm } = props;
+
 	if (Array.isArray(props.getNodes(props.node))) {
 		children = props.getNodes(props.node).map((node, index) => {
 			let child;
@@ -33,7 +33,6 @@ const Branch = (props) => {
 			if (node.type === 'branch') {
 				child = (
 					<Branch
-            matchUrl={matchUrl}
 						getNodes={props.getNodes}
 						htmlId={htmlId}
 						key={node.id}
@@ -57,7 +56,6 @@ const Branch = (props) => {
 			} else {
 				child = (
 					<Item
-            matchUrl={matchUrl}
 						label={node.label}
 						htmlId={htmlId}
 						key={shortid.generate()}

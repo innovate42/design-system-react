@@ -12,7 +12,6 @@ import PropTypes from 'prop-types';
 import findIndex from 'lodash.findindex';
 import isFunction from 'lodash.isfunction';
 import classNames from 'classnames';
-import { Link, Route } from 'react-router-dom'
 
 // Child components
 import Button from '../../button';
@@ -332,7 +331,7 @@ const RenderBranch = (children, props) => {
 							search={props.searchTerm}
 							className="slds-tree__item-label slds-truncate"
 						>
-							<Link to={`${props.matchUrl}/${formatUrl(props)}`}>{props.node.label} </Link>
+							{props.label}
 						</Highlighter>
 					}
 				</span>
